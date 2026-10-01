@@ -1,0 +1,141 @@
+/* ── About Hero (full-screen video) ─────────────────────── */
+
+.jacana-about-hero-section {
+    position: relative;
+    min-height: 90svh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0a0806;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    isolation: isolate;
+    margin-top: -80px;
+}
+
+/* ── Video layer ─────────────────────────────────────────── */
+.jacana-about-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    z-index: 0;
+    /* subtle warm-tone saturation on the video */
+    filter: saturate(0.88) brightness(0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .jacana-about-hero-video { display: none; }
+}
+
+/* ── Overlay — layered for cinematic depth ───────────────── */
+.jacana-about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        /* top vignette */
+        linear-gradient(180deg, rgba(8, 5, 3, 0.52) 0%, transparent 42%),
+        /* strong bottom build-up for text legibility */
+        linear-gradient(0deg, rgba(8, 5, 3, 0.76) 0%, rgba(8, 5, 3, 0.52) 40%, rgba(8, 5, 3, 0.28) 65%, transparent 88%),
+        /* mid-page base layer so nothing bleeds through */
+        linear-gradient(180deg, transparent 30%, rgba(8, 5, 3, 0.28) 100%),
+        /* left-side directional light — Namibian sky tint */
+        radial-gradient(ellipse 70% 100% at 0% 60%, rgba(157, 203, 223, 0.07), transparent 65%);
+}
+
+/* ── Content layout ──────────────────────────────────────── */
+.jacana-about-hero-inner {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 160px var(--content-pad, 40px) 72px;
+}
+
+.jacana-about-hero-text {
+    max-width: 740px;
+}
+
+@media (min-width: 1024px) {
+    .jacana-about-hero-text {
+        width: 35%;
+        max-width: none;
+    }
+}
+
+/* ── Kicker ──────────────────────────────────────────────── */
+.jacana-about-hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.36em;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--jacana-sky, #9dcbdf);
+    margin-bottom: 22px;
+}
+
+.jacana-about-hero-kicker::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 1.5px;
+    background: var(--jacana-sky, #9dcbdf);
+    flex-shrink: 0;
+}
+
+/* ── Headline ────────────────────────────────────────────── */
+.jacana-about-hero-section h1 {
+    color: #f5f0e8 !important;
+    font-size: clamp(38px, 5vw, 74px);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    text-wrap: balance;
+}
+
+/* ── Body copy ───────────────────────────────────────────── */
+.jacana-about-hero-copy {
+    font-size: 17px;
+    line-height: 1.72;
+    color: rgba(245, 240, 232, 0.76);
+    max-width: 580px;
+    margin-bottom: 40px;
+}
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.jacana-about-hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ── Oshiwambo stripe — bottom of section ───────────────── */
+.jacana-about-hero-stripe {
+    position: relative;
+    z-index: 3;
+    flex-shrink: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .jacana-about-hero-section { min-height: 90svh; }
+    .jacana-about-hero-inner { padding: 130px var(--content-pad, 20px) 60px; }
+    .jacana-about-hero-copy { font-size: 15.5px; }
+}
+
+@media (max-width: 540px) {
+    .jacana-about-hero-section { min-height: 85svh; }
+    .jacana-about-hero-inner { padding: 120px 20px 48px; }
+    .jacana-about-hero-actions .button { width: 100%; justify-content: center; }
+}

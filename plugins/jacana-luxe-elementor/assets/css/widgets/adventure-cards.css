@@ -1,0 +1,15 @@
+/* Styles for jacana_adventure_cards */
+
+.elementor-widget-jacana_adventure_cards .card-grid {
+    align-items: stretch;
+}
+
+.elementor-widget-jacana_adventure_cards .card {
+    height: 100%;
+}
+
+@media (max-width: 767px) {
+    .elementor-widget-jacana_adventure_cards .section-header p {
+        max-width: none;
+    }
+}

@@ -1,0 +1,36 @@
+/* Styles for jacana_destinations_list */
+
+.destinations-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.destination-pill {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--jacana-earth, #2d2416);
+    text-decoration: none;
+    transition: border-color 0.22s ease, background 0.22s ease;
+}
+a.destination-pill:hover {
+    background: var(--jacana-savannah, #fffae4);
+    border-color: var(--jacana-dunes, #db9751);
+}
+
+@media (max-width: 767px) {
+    .destinations-list {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .destination-pill {
+        width: 100%;
+    }
+}

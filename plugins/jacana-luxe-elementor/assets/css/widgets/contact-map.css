@@ -1,0 +1,31 @@
+/* ── Contact Map ─────────────────────────────────────────── */
+
+.jacana-map-section {
+    position: relative;
+    padding: 0;           /* No padding typically needed for full-width map */
+    background: var(--jacana-savannah, #fffae4);
+    overflow: hidden;
+}
+
+.jacana-map-inner {
+    max-width: 100%;      /* Maps are often edge-to-edge if layout allows */
+    margin: 0 auto;
+}
+
+.jacana-map-wrapper {
+    position: relative;
+    width: 100%;
+    filter: grayscale(100%) contrast(1.1); /* Editorial, muted look */
+    opacity: 0.9;
+    transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+.jacana-map-wrapper:hover {
+    filter: grayscale(0%) contrast(1);
+    opacity: 1;
+}
+
+.jacana-map-wrapper iframe {
+    display: block;
+    border: 0;
+}

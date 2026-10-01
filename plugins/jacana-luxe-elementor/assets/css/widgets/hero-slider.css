@@ -1,0 +1,259 @@
+/* luxe-hero-slider.css - Redesigned Hero Slider for Jacana Luxe */
+
+:root {
+  --icon-dimensions: 4rem;
+  --full-w: 100%;
+  --full-h: 100%;
+  --default-font: "Sora", sans-serif;
+  --spartan: "Cormorant Garamond", Georgia, serif;
+
+  --h1-clamp: clamp(6.5rem, 15vw, 30rem);
+  --default-font-size: 1.75rem;
+  --duration: 350ms;
+  --gap: 0.4rem;
+  --default-padding: 1.2rem;
+  --z-20: 20;
+  --z-30: 30;
+
+  /* palette */
+  --luxe-black: rgb(12, 12, 10);
+  --luxe-white: rgb(255, 255, 255);
+  --luxe-pale-blue: #c1dcee;
+  --luxe-blue: #389dd6;
+  --luxe-dark-blue: #064f99;
+  --luxe-light-blue: #68b0de;
+}
+
+/* LeagueSpartanVariable removed — --spartan now maps to Cormorant Garamond (site heading font). */
+
+.jacana-luxe-hero-wrapper {
+  overflow: hidden;
+  font-family: var(--spartan), var(--default-font);
+  background-color: var(--luxe-black);
+  text-transform: uppercase;
+}
+
+.jacana-luxe-hero-wrapper * {
+  box-sizing: border-box;
+}
+
+.luxe-container {
+  display: grid;
+  grid-template-areas: "nav" "main";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.luxe-container::before {
+  background-image: var(--luxe-bg-1);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  height: var(--full-h);
+  filter: brightness(0.25);
+  position: absolute;
+  inset: 0;
+  width: var(--full-w);
+}
+
+.luxe-contour-lines {
+  height: var(--full-h);
+  left: 0;
+  mix-blend-mode: luminosity;
+  object-fit: cover;
+  opacity: 0.5;
+  position: absolute;
+  top: calc(var(--default-padding) * 2);
+  width: var(--full-w);
+  pointer-events: none;
+}
+
+/* Glassmorphism */
+.glass {
+  background-color: rgb(0 0 0 / 20%);
+  backdrop-filter: blur(var(--default-padding));
+  -webkit-backdrop-filter: blur(var(--default-padding));
+}
+
+/* Nav */
+.luxe-nav {
+  align-items: center;
+  display: flex;
+  grid-area: nav;
+  padding: 1.5rem var(--default-padding);
+  z-index: var(--z-20);
+  justify-content: space-between;
+}
+
+.luxe-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.luxe-nav a {
+  color: var(--luxe-white);
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-variation-settings: "wght" 600;
+  transition: opacity 0.3s;
+}
+
+.luxe-nav a:hover {
+  opacity: 0.7;
+}
+
+.luxe-nav svg {
+  fill: var(--luxe-white);
+  width: 3.5rem;
+}
+
+.luxe-cta-btn {
+  background: var(--luxe-dark-blue);
+  padding: 0.8rem 1.8rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.luxe-cta-btn span {
+  font-size: 1.2rem;
+}
+
+/* Main Content */
+.luxe-main {
+  grid-area: main;
+  z-index: var(--z-30);
+  display: flex;
+  flex-direction: column;
+}
+
+.luxe-headings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin: auto 0;
+}
+
+.luxe-headings h1 {
+  font-size: var(--h1-clamp);
+  font-variation-settings: "wght" 900;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-position: center center;
+  background-size: cover;
+  margin: 0;
+  line-height: 0.9;
+}
+
+.luxe-headings h2 {
+  color: var(--luxe-white);
+  font-size: 2.2rem;
+  font-variation-settings: "wght" 700;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.luxe-headings h2::before,
+.luxe-headings h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 4rem;
+  background: var(--luxe-pale-blue);
+}
+
+/* Banners / Activities */
+.luxe-banner {
+  display: flex;
+  flex-direction: column;
+}
+
+.luxe-banner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.luxe-feature-box {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-left: 2px solid var(--luxe-dark-blue);
+  transition: transform 0.3s;
+}
+
+.luxe-feature-box:nth-child(2) { border-left-color: var(--luxe-blue); }
+.luxe-feature-box:nth-child(3) { border-left-color: var(--luxe-light-blue); }
+
+.luxe-feature-box:hover {
+  transform: translateY(-5px);
+}
+
+.luxe-feature-box p {
+  color: var(--luxe-white);
+  font-size: 1.8rem;
+  font-variation-settings: "wght" 700;
+  margin: 0 0 1.5rem 0;
+}
+
+.luxe-icon-wrap svg {
+  width: 4rem;
+  height: 4rem;
+  fill: var(--luxe-white);
+}
+
+/* Mountain List (Thumbnails) */
+.luxe-mountain-list {
+  padding: 2rem;
+  mix-blend-mode: overlay;
+}
+
+.luxe-mountain-list h3 {
+  color: var(--luxe-white);
+  font-size: 1.6rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.luxe-mountain-list ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.luxe-mountain-list img {
+  height: 8rem;
+  border-radius: 0.8rem;
+  filter: grayscale(1);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.luxe-mountain-list li:hover img {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .luxe-nav ul:nth-child(2) { display: none; }
+  .luxe-banner-grid { grid-template-columns: 1fr; }
+  .luxe-feature-box { border-left: none; border-top: 2px solid var(--luxe-dark-blue); }
+  .luxe-headings h2::before, .luxe-headings h2::after { width: 2rem; }
+}

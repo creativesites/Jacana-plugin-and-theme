@@ -1,0 +1,217 @@
+/* ── Wrapper ─────────────────────────────────────────────────────────────── */
+.jmum-wrap {
+  max-width: 1100px;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+.jmum-card {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-top: 18px;
+  position: relative;
+}
+
+.jmum-card h2 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Upload tab ──────────────────────────────────────────────────────────── */
+.jmum-drop-zone {
+  border: 2px dashed #2271b1;
+  border-radius: 8px;
+  padding: 26px;
+  text-align: center;
+  background: #f6fbff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.jmum-drop-zone:hover,
+.jmum-drop-zone:focus,
+.jmum-drop-zone.is-dragging {
+  background: #edf7ff;
+  border-color: #135e96;
+}
+
+.jmum-file-input {
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.jmum-meta {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #1d2327;
+}
+
+.jmum-warning {
+  margin-top: 10px;
+  color: #a04500;
+  font-weight: 600;
+}
+
+.jmum-server-limits {
+  margin: 10px 0 16px;
+  padding: 12px;
+  background: #f6f7f7;
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* ── Audit tab — 2-column grid ───────────────────────────────────────────── */
+.jmum-audit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .jmum-audit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.jmum-audit-step {
+  border-top: 3px solid #2271b1;
+}
+
+/* ── Step badge ──────────────────────────────────────────────────────────── */
+.jmum-step-badge {
+  display: inline-block;
+  background: #2271b1;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+/* ── Site role label ─────────────────────────────────────────────────────── */
+.jmum-site-role {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #646970;
+  background: #f0f0f1;
+  border: 1px solid #dcdcde;
+  border-radius: 3px;
+  padding: 1px 8px;
+  vertical-align: middle;
+}
+
+/* ── Audit stats row ─────────────────────────────────────────────────────── */
+.jmum-audit-stats {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.jmum-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 6px;
+  min-width: 80px;
+  border: 1px solid #dcdcde;
+}
+
+.jmum-stat-ok       { background: #edfaed; border-color: #00a32a; }
+.jmum-stat-missing  { background: #fcf0f1; border-color: #d63638; }
+.jmum-stat-corrupted{ background: #fef8ee; border-color: #dba617; }
+
+.jmum-stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.jmum-stat-ok       .jmum-stat-num { color: #00a32a; }
+.jmum-stat-missing  .jmum-stat-num { color: #d63638; }
+.jmum-stat-corrupted .jmum-stat-num { color: #b45309; }
+
+.jmum-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #646970;
+  margin-top: 4px;
+}
+
+/* ── Status badges ───────────────────────────────────────────────────────── */
+.jmum-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.jmum-badge-ok        { background: #edfaed; color: #00a32a; }
+.jmum-badge-missing   { background: #fcf0f1; color: #d63638; }
+.jmum-badge-corrupted { background: #fef8ee; color: #b45309; }
+
+/* ── Issues details / table ──────────────────────────────────────────────── */
+.jmum-audit-details {
+  margin-top: 12px;
+}
+
+.jmum-audit-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #2271b1;
+}
+
+.jmum-audit-table {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.jmum-audit-table code {
+  font-size: 11px;
+  word-break: break-all;
+}
+
+/* ── Batch info & grid ───────────────────────────────────────────────────── */
+.jmum-batch-info {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #dcdcde;
+}
+
+.jmum-batch-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.jmum-batch-btn {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3 !important;
+  height: auto !important;
+  padding: 6px 14px !important;
+}
+
+.jmum-batch-range {
+  font-size: 10px;
+  color: #646970;
+  font-weight: 400;
+}

@@ -1,0 +1,143 @@
+/* ── Jacana Luxe — Global Accessibility (WCAG 2.1 AA) ───────
+   Auto-loaded by the plugin's CSS glob.
+   Covers all 48+ widget CSS files from one place.
+   ────────────────────────────────────────────────────────── */
+
+/* ── WCAG 2.4.7 — Focus Visible ─────────────────────────────
+   Every interactive element within the Jacana namespace gets
+   a clearly visible dunes-gold focus ring.
+   :focus-visible fires for keyboard/sequential focus only,
+   so mouse users never see the ring.
+   ─────────────────────────────────────────────────────────── */
+
+/* Links */
+a[class*="jacana-"]:focus-visible,
+a[class*="jacana-"]:focus-visible *,
+/* Buttons */
+button[class*="jacana-"]:focus-visible,
+/* ARIA roles that make non-button elements interactive */
+[class*="jacana-"][role="button"]:focus-visible,
+[class*="jacana-"][role="link"]:focus-visible,
+[class*="jacana-"][role="tab"]:focus-visible,
+[class*="jacana-"][role="menuitem"]:focus-visible,
+/* Elements with explicit tabindex */
+[class*="jacana-"][tabindex]:focus-visible,
+/* Specific interactive patterns not using class prefixes */
+.jacana-map-hotspot:focus-visible,
+.jacana-dot:focus-visible,
+.jacana-slide-dot:focus-visible,
+.gallery-item:focus-visible {
+    outline: 2px solid #db9751;
+    outline-offset: 3px;
+    border-radius: 3px;
+    /* Ensure ring is visible on both dark and light backgrounds */
+    box-shadow: 0 0 0 4px rgba(219, 151, 81, 0.22);
+}
+
+/* Suppress outline for mouse users on all widget elements */
+[class*="jacana-"]:focus:not(:focus-visible),
+.jacana-map-hotspot:focus:not(:focus-visible),
+.jacana-dot:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Stronger ring on dark backgrounds for hero sections */
+.jacana-sh-hero a:focus-visible,
+.jacana-sh-hero button:focus-visible,
+.jacana-crh-hero a:focus-visible,
+.jacana-crh-hero button:focus-visible,
+.jacana-tours-hero-section a:focus-visible,
+.jacana-tours-hero-section button:focus-visible,
+.jacana-about-hero a:focus-visible,
+.jacana-about-hero button:focus-visible,
+.jacana-incl-section a:focus-visible,
+.jacana-incl-section button:focus-visible {
+    outline-color: #fffae4;
+    box-shadow: 0 0 0 4px rgba(255, 250, 228, 0.22);
+}
+
+/* ── WCAG 1.4.11 — Non-text Contrast ────────────────────────
+   Form controls and UI components need 3:1 against adjacent
+   colour. Existing borders are maintained — no additional
+   styles needed here as form fields are handled per-widget.
+   ─────────────────────────────────────────────────────────── */
+
+
+/* ── WCAG 2.3.3 / 2.3.1 — prefers-reduced-motion ────────────
+   Removes all CSS transitions and animations for users who
+   have indicated they prefer reduced motion. This single
+   block covers every widget CSS file.
+   ─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+    /* Kill all transitions and keyframe animations */
+    [class*="jacana-"],
+    [class*="jacana-"]::before,
+    [class*="jacana-"]::after,
+    [class*="oshi-"],
+    .section,
+    .section-inner {
+        transition-duration: 0.01ms !important;
+        transition-delay:    0ms     !important;
+        animation-duration:  0.01ms !important;
+        animation-delay:     0ms     !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    /* Immediately reveal scroll-animated elements */
+    .jacana-reveal {
+        opacity:   1    !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Stop hero slider auto-advance (handled by JS separately) */
+    .jacana-hero-slide {
+        transition: none !important;
+    }
+
+    /* Stop map pulse animations */
+    .jacana-map-hotspot-pulse,
+    .jacana-map-hotspot-ring {
+        animation: none !important;
+    }
+
+    /* Stop parallax / scroll-driven transforms */
+    .jacana-parallax,
+    [data-jacana-parallax] {
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* ── WCAG 1.4.4 — Resize Text ───────────────────────────────
+   All font-size values must be in relative units or clamp().
+   Widget-level font sizes are already set with clamp() or px
+   that scale via browser zoom. No additional rules needed.
+   ─────────────────────────────────────────────────────────── */
+
+
+/* ── WCAG 1.3.4 — Orientation ───────────────────────────────
+   No orientation lock anywhere in our widgets — inherits
+   the theme's responsive behaviour.
+   ─────────────────────────────────────────────────────────── */
+
+
+/* ── WCAG 2.5.3 — Label in Name ─────────────────────────────
+   Buttons whose visible label is an icon need aria-label.
+   The following ensures arrow-only spans never become the
+   computed accessible name of their parent link/button.
+   ─────────────────────────────────────────────────────────── */
+
+.jacana-ti-arrow,
+.jacana-tms-arrow,
+.jacana-cta-arrow,
+.jacana-tours-hero-arrow,
+.jacana-incl-icon svg {
+    /* These are already aria-hidden in PHP; this is defence-in-depth */
+    pointer-events: none;
+    speak: none; /* legacy AT */
+}

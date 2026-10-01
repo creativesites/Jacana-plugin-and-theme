@@ -1,0 +1,782 @@
+/* ── FAQ Good to Know ────────────────────────────────────── */
+
+.jacana-faq-section {
+    background: var(--jacana-savannah, #fffae4);
+    padding: 120px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.jacana-faq-section::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(157, 203, 223, 0.12), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.jacana-faq-section::after {
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.07), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.jacana-faq-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 48px) 96px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.jacana-faq-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.jacana-faq-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    border-left: 2px solid var(--jacana-dunes, #db9751);
+    padding-left: 14px;
+    width: fit-content;
+}
+
+.jacana-faq-heading {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0;
+}
+
+.jacana-faq-intro {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 16px auto 0;
+    max-width: 60ch;
+}
+
+/* ── Weather Feature Card ────────────────────────────────── */
+.jacana-faq-weather {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 24px;
+    padding: 48px 52px;
+    margin-bottom: 64px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(45, 36, 22, 0.07);
+}
+
+.jacana-faq-weather::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.09), transparent 65%);
+    pointer-events: none;
+}
+
+.jacana-faq-weather::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(157, 203, 223, 0.10), transparent 65%);
+    pointer-events: none;
+}
+
+.jacana-faq-weather-head {
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-faq-weather-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    border-left: 2px solid var(--jacana-dunes, #db9751);
+    padding-left: 14px;
+}
+
+.jacana-faq-weather-seasons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-faq-weather-season {
+    background: rgba(255, 250, 228, 0.60);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 16px;
+    padding: 26px 28px;
+}
+
+.jacana-faq-weather-season--dry {
+    border-color: rgba(219, 151, 81, 0.25);
+}
+
+.jacana-faq-weather-season--wet {
+    border-color: rgba(157, 203, 223, 0.35);
+}
+
+.jacana-faq-weather-season-name {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 16px;
+}
+
+.jacana-faq-weather-season--wet .jacana-faq-weather-season-name {
+    color: #5a9ab8;
+}
+
+.jacana-faq-weather-season-copy {
+    font-size: 14px;
+    line-height: 1.80;
+    color: rgba(45, 36, 22, 0.68);
+}
+
+.jacana-faq-weather-footer {
+    border-top: 1px solid rgba(45, 36, 22, 0.08);
+    padding-top: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-faq-weather-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--jacana-dunes, #db9751);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+    transition: gap 0.25s ease, opacity 0.25s ease;
+}
+
+.jacana-faq-weather-link:hover {
+    gap: 13px;
+    opacity: 0.8;
+}
+
+/* ── FAQ Layout ──────────────────────────────────────────── */
+.jacana-faq-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.jacana-faq-sidebar {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 8px 28px rgba(45, 36, 22, 0.06);
+    position: sticky;
+    top: 120px;
+}
+
+.jacana-faq-sidebar-count {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(45, 36, 22, 0.07);
+    color: rgba(45, 36, 22, 0.72);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.jacana-faq-sidebar-topics {
+    margin-bottom: 24px;
+}
+
+.jacana-faq-sidebar-topics-label {
+    font-size: 9.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(45, 36, 22, 0.42);
+    margin-bottom: 12px;
+}
+
+.jacana-faq-topic-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.jacana-faq-topic-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(45, 36, 22, 0.12);
+    background: rgba(255, 255, 255, 0.80);
+    color: rgba(45, 36, 22, 0.78);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.jacana-faq-topic-pill:hover,
+.jacana-faq-topic-pill:focus-visible {
+    transform: translateY(-1px);
+    border-color: rgba(219, 151, 81, 0.5);
+    background: rgba(219, 151, 81, 0.08);
+    outline: none;
+}
+
+.jacana-faq-topic-pill[data-active="true"] {
+    background: var(--jacana-dunes, #db9751);
+    border-color: var(--jacana-dunes, #db9751);
+    color: #fff;
+}
+
+.jacana-faq-sidebar-cta {
+    border-top: 1px solid rgba(45, 36, 22, 0.08);
+    padding-top: 20px;
+}
+
+.jacana-faq-sidebar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(192, 122, 48, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, gap 0.25s ease;
+}
+
+.jacana-faq-sidebar-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(192, 122, 48, 0.38);
+    gap: 14px;
+}
+
+/* ── Main accordion ──────────────────────────────────────── */
+.jacana-faq-main {
+    min-width: 0;
+}
+
+.jacana-faq-toolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.jacana-faq-search {
+    flex: 1 1 300px;
+    display: grid;
+    gap: 8px;
+    margin: 0;
+}
+
+.jacana-faq-search-label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(45, 36, 22, 0.48);
+}
+
+.jacana-faq-search-input {
+    min-height: 52px;
+    padding: 0 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(45, 36, 22, 0.14);
+    background: rgba(255, 255, 255, 0.72);
+    font-size: 14px;
+    color: var(--jacana-earth, #2d2416);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.jacana-faq-search-input:focus {
+    border-color: rgba(219, 151, 81, 0.65);
+    box-shadow: 0 0 0 4px rgba(219, 151, 81, 0.12);
+    outline: none;
+}
+
+.jacana-faq-results-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 6px;
+}
+
+.jacana-faq-results-meta span {
+    color: rgba(45, 36, 22, 0.52);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.jacana-faq-clear {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--jacana-dunes, #db9751);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── FAQ Items ───────────────────────────────────────────── */
+.jacana-faq-list {
+    display: grid;
+    gap: 10px;
+}
+
+.jacana-faq-item {
+    border: 1px solid rgba(45, 36, 22, 0.10);
+    background: rgba(255, 255, 255, 0.80);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
+}
+
+.jacana-faq-item[hidden] {
+    display: none;
+}
+
+.jacana-faq-item[open] {
+    border-color: rgba(219, 151, 81, 0.35);
+    box-shadow: 0 8px 28px rgba(45, 36, 22, 0.08);
+    border-left: 3px solid var(--jacana-dunes, #db9751);
+}
+
+.jacana-faq-item:hover:not([open]) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45, 36, 22, 0.07);
+    border-color: rgba(45, 36, 22, 0.16);
+}
+
+.jacana-faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 54px 20px 22px;
+    display: grid;
+    gap: 8px;
+    color: var(--jacana-earth, #2d2416);
+    font-weight: 700;
+    position: relative;
+    user-select: none;
+}
+
+.jacana-faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.jacana-faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    margin-top: -14px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(45, 36, 22, 0.06);
+    color: rgba(45, 36, 22, 0.60);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease;
+}
+
+.jacana-faq-item[open] summary::after {
+    content: "−";
+    transform: none;
+    background: rgba(219, 151, 81, 0.15);
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-faq-tag {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    border: 1px solid rgba(45, 36, 22, 0.12);
+    color: rgba(45, 36, 22, 0.68);
+    background: rgba(255, 250, 228, 0.95);
+}
+
+.jacana-faq-question {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--jacana-earth, #2d2416);
+}
+
+.jacana-faq-answer {
+    padding: 0 22px 22px;
+}
+
+.jacana-faq-answer p {
+    margin: 0;
+    color: rgba(45, 36, 22, 0.72);
+}
+
+.jacana-faq-answer-content h2 {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 28px 0 16px;
+    color: var(--jacana-earth, #2d2416);
+    line-height: 1.2;
+}
+
+.jacana-faq-answer-content h2:first-child {
+    margin-top: 0;
+}
+
+.jacana-faq-answer-content p {
+    margin: 0 0 16px;
+}
+
+.jacana-faq-answer-content p:last-child {
+    margin-bottom: 0;
+}
+
+.jacana-faq-answer-content ul, 
+.jacana-faq-answer-content ol {
+    margin: 0 0 20px 20px;
+    padding: 0;
+}
+
+.jacana-faq-answer-content li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.jacana-faq-answer-content hr {
+    border: 0;
+    border-top: 1px solid rgba(45, 36, 22, 0.08);
+    margin: 32px 0;
+}
+
+.jacana-faq-answer-content strong {
+    color: var(--jacana-earth, #2d2416);
+    font-weight: 700;
+}
+
+.jacana-faq-empty-state {
+    margin-top: 16px;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px dashed rgba(45, 36, 22, 0.14);
+    background: rgba(255, 255, 255, 0.6);
+    display: grid;
+    gap: 8px;
+    color: rgba(45, 36, 22, 0.68);
+    font-size: 14px;
+}
+
+.jacana-faq-empty-state strong {
+    color: var(--jacana-earth, #2d2416);
+    font-size: 15px;
+}
+
+/* ── Downloads Strip ─────────────────────────────────────── */
+.jacana-faq-downloads {
+    background: var(--jacana-savannah, #fffae4);
+    border-top: 1px solid rgba(45, 36, 22, 0.08);
+    padding: 80px 0 96px;
+    position: relative;
+    overflow: hidden;
+}
+
+.jacana-faq-downloads::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.09), transparent 65%);
+    pointer-events: none;
+}
+
+.jacana-faq-downloads-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 48px);
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-faq-downloads-head {
+    margin-bottom: 48px;
+}
+
+.jacana-faq-downloads-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 0;
+    border-left: 2px solid var(--jacana-dunes, #db9751);
+    padding-left: 14px;
+}
+
+.jacana-faq-downloads-intro {
+    font-size: 16px;
+    line-height: 1.72;
+    color: rgba(45, 36, 22, 0.64);
+    margin: 14px 0 0;
+    max-width: 52ch;
+}
+
+.jacana-faq-downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+}
+
+/* ── Download Card ───────────────────────────────────────── */
+.jacana-faq-download-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 16px;
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(45, 36, 22, 0.06);
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+.jacana-faq-download-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--jacana-dunes, #db9751), rgba(219, 151, 81, 0.2));
+    border-radius: 16px 16px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.jacana-faq-download-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(219, 151, 81, 0.30);
+    box-shadow: 0 12px 32px rgba(45, 36, 22, 0.10);
+    transform: translateY(-5px);
+}
+
+.jacana-faq-download-card:hover::before {
+    opacity: 1;
+}
+
+.jacana-faq-download-type {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(219, 151, 81, 0.12);
+    border: 1px solid rgba(219, 151, 81, 0.28);
+    color: var(--jacana-dunes, #db9751);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.jacana-faq-download-name {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.18;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0;
+    flex: 1;
+}
+
+.jacana-faq-download-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.60);
+    margin: 0;
+}
+
+.jacana-faq-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border: 1px solid rgba(45, 36, 22, 0.16);
+    border-radius: 6px;
+    color: rgba(45, 36, 22, 0.70);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    margin-top: auto;
+    transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease, gap 0.25s ease;
+    width: fit-content;
+}
+
+.jacana-faq-download-btn:hover {
+    border-color: var(--jacana-dunes, #db9751);
+    background: rgba(219, 151, 81, 0.08);
+    color: var(--jacana-dunes, #db9751);
+    gap: 12px;
+}
+
+.jacana-faq-download-btn--soon {
+    opacity: 0.40;
+    cursor: default;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+    .jacana-faq-header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 48px;
+    }
+
+    .jacana-faq-intro {
+        max-width: 100%;
+    }
+
+    .jacana-faq-weather {
+        padding: 36px 32px;
+    }
+
+    .jacana-faq-weather-seasons {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .jacana-faq-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-faq-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 600px) {
+    .jacana-faq-inner {
+        padding-bottom: 72px;
+    }
+
+    .jacana-faq-weather {
+        padding: 28px 24px;
+        border-radius: 18px;
+    }
+
+    .jacana-faq-downloads-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .jacana-faq-download-card {
+        padding: 22px 20px 20px;
+    }
+}
+
+@media (max-width: 540px) {
+    .jacana-faq-section {
+        padding-top: 80px;
+    }
+
+    .jacana-faq-downloads {
+        padding: 60px 0 72px;
+    }
+
+    .jacana-faq-item summary {
+        padding: 16px 48px 16px 18px;
+    }
+
+    .jacana-faq-question {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,79 @@
+/* Styles for jacana_services_hub */
+
+.jacana-services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.jacana-service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.jacana-service-media {
+    margin: -28px -28px 4px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--jacana-line);
+}
+
+.jacana-service-media img {
+    width: 100%;
+    min-height: 210px;
+    max-height: 260px;
+    object-fit: cover;
+}
+
+.jacana-service-badge {
+    align-self: flex-start;
+    background: rgba(157, 203, 223, 0.2);
+    color: var(--jacana-earth);
+    border: 1px solid rgba(45, 36, 22, 0.2);
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+}
+
+.jacana-service-features {
+    margin: 2px 0 0;
+    padding-left: 18px;
+    color: rgba(45, 36, 22, 0.86);
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-service-button {
+    margin-top: auto;
+    width: fit-content;
+}
+
+.jacana-service-button {
+    min-height: 48px;
+}
+
+@media (max-width: 960px) {
+    .jacana-services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .jacana-services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .jacana-service-media {
+        margin: -24px -24px 6px;
+    }
+
+    .jacana-service-media img {
+        min-height: 180px;
+    }
+
+    .jacana-service-button {
+        width: 100%;
+    }
+}

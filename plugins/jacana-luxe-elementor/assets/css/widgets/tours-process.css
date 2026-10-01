@@ -1,0 +1,14 @@
+/* Styles for jacana_tours_process */
+
+.jacana-tours-process .card ul {
+    margin: 18px 0 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 10px;
+}
+
+@media (max-width: 767px) {
+    .jacana-tours-process .card ul {
+        gap: 8px;
+    }
+}

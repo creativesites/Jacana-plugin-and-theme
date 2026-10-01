@@ -1,0 +1,360 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Weather Grid  ·  jacana-wx-  prefix
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Section wrapper ───────────────────────────────────────────────────────── */
+
+.jacana-wx-grid-section {
+	padding: 100px 0 80px;
+	position: relative;
+	overflow: hidden;
+}
+
+.jacana-wx--light {
+	background: var(--jacana-savannah, #fffae4);
+}
+
+/* Ambient radial */
+.jacana-wx--light::before {
+	content: "";
+	position: absolute;
+	top: -80px; right: -80px;
+	width: 480px; height: 480px;
+	background: radial-gradient(circle, rgba(219, 151, 81, 0.07), transparent 65%);
+	pointer-events: none;
+}
+
+/* ── Inner container ───────────────────────────────────────────────────────── */
+
+.jacana-wx-grid-inner {
+	max-width: var(--max-width, 1180px);
+	margin: 0 auto;
+	padding: 0 var(--content-pad, 40px);
+	position: relative;
+	z-index: 1;
+}
+
+/* ── Section header ────────────────────────────────────────────────────────── */
+
+.jacana-wx-grid-header {
+	text-align: center;
+	margin-bottom: 52px;
+}
+
+.jacana-wx-grid-kicker {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.34em;
+	font-size: 10px;
+	font-weight: 700;
+	color: var(--jacana-dunes, #db9751);
+	margin-bottom: 14px;
+}
+
+.jacana-wx-grid-kicker::before,
+.jacana-wx-grid-kicker::after {
+	content: "";
+	display: block;
+	width: 22px;
+	height: 1px;
+	background: var(--jacana-dunes, #db9751);
+	flex-shrink: 0;
+}
+
+.jacana-wx-grid-heading {
+	font-family: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+	font-size: clamp(28px, 3.5vw, 46px);
+	font-weight: 600;
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+	margin: 0 0 16px;
+}
+
+.jacana-wx-grid-heading { color: var(--jacana-earth, #2d2416); }
+
+.jacana-wx-grid-intro {
+	font-family: "Sora", sans-serif;
+	font-size: 15px;
+	line-height: 1.7;
+	max-width: 520px;
+	margin: 0 auto;
+}
+
+.jacana-wx-grid-intro { color: rgba(45, 36, 22, 0.68); }
+
+/* ── Card grid ─────────────────────────────────────────────────────────────── */
+
+.jacana-wx-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+	gap: 20px;
+}
+
+/* ── Individual card ───────────────────────────────────────────────────────── */
+
+.jacana-wx-card {
+	border-radius: 14px;
+	padding: 0;
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.26s ease, box-shadow 0.26s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ── Card featured image ───────────────────────────────────────────────────── */
+
+.jacana-wx-card-img {
+	width: 100%;
+	height: 120px;
+	background-size: cover;
+	background-position: center;
+	flex-shrink: 0;
+	transition: transform 0.4s ease;
+}
+
+.jacana-wx-card:hover .jacana-wx-card-img {
+	transform: scale(1.05);
+}
+
+.jacana-wx-card {
+	background: rgba(255, 255, 255, 0.72);
+	border: 1px solid rgba(45, 36, 22, 0.09);
+	box-shadow: 0 4px 16px rgba(45, 36, 22, 0.06);
+}
+.jacana-wx-card:hover {
+	transform: translateY(-4px);
+	background: rgba(255, 255, 255, 0.94);
+	box-shadow: 0 10px 28px rgba(45, 36, 22, 0.10);
+}
+
+/* Unavailable card — reduced opacity */
+.jacana-wx-card--unavailable {
+	opacity: 0.45;
+	pointer-events: none;
+}
+
+/* ── Card top: icon + temperature ──────────────────────────────────────────── */
+
+.jacana-wx-card-top {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	padding: 18px 18px 0;
+}
+
+.jacana-wx-icon {
+	width: 44px;
+	height: 44px;
+	flex-shrink: 0;
+	color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-wx-icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.jacana-wx-card-temp {
+	display: flex;
+	align-items: baseline;
+	gap: 2px;
+	line-height: 1;
+}
+
+.jacana-wx-temp {
+	font-family: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+	font-size: clamp(36px, 4vw, 48px);
+	font-weight: 600;
+	font-style: italic;
+	line-height: 1;
+}
+
+.jacana-wx-temp { color: var(--jacana-earth, #2d2416); }
+
+.jacana-wx-temp--na {
+	font-style: normal;
+	opacity: 0.35;
+}
+
+.jacana-wx-unit {
+	font-family: "Sora", sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--jacana-dunes, #db9751);
+	align-self: flex-start;
+	margin-top: 4px;
+}
+
+/* ── Condition label ───────────────────────────────────────────────────────── */
+
+.jacana-wx-card-condition {
+	font-family: "Sora", sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	margin-bottom: 18px;
+	padding: 0 18px;
+}
+
+.jacana-wx-card-condition { color: rgba(45, 36, 22, 0.55); }
+
+/* ── Stats row ─────────────────────────────────────────────────────────────── */
+
+.jacana-wx-stats {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-bottom: 18px;
+	padding: 0 18px;
+}
+
+.jacana-wx-stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3px;
+	flex: 1;
+	min-width: 48px;
+	padding: 8px 6px 7px;
+	border-radius: 8px;
+}
+
+.jacana-wx-stat {
+	background: rgba(45, 36, 22, 0.05);
+	border: 1px solid rgba(45, 36, 22, 0.07);
+}
+
+.jacana-wx-stat-icon {
+	width: 14px;
+	height: 14px;
+	display: block;
+	color: var(--jacana-dunes, #db9751);
+}
+.jacana-wx-stat-icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.jacana-wx-stat-value {
+	font-family: "Sora", sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.jacana-wx-stat-value { color: var(--jacana-earth, #2d2416); }
+
+.jacana-wx-stat-label {
+	font-family: "Sora", sans-serif;
+	font-size: 9px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.jacana-wx-stat-label { color: rgba(45, 36, 22, 0.45); }
+
+/* ── Card footer: destination name + CTA ──────────────────────────────────── */
+
+.jacana-wx-card-footer {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 14px 18px 16px;
+	margin-top: auto;
+}
+
+.jacana-wx-card-footer {
+	border-top: 1px solid rgba(45, 36, 22, 0.08);
+	background-color: transparent;
+}
+
+.jacana-wx-dest-name {
+	font-family: "Cormorant Garamond", Georgia, serif;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	line-height: 1.2;
+}
+
+.jacana-wx-dest-name { color: var(--jacana-earth, #2d2416); }
+
+.jacana-wx-dest-region {
+	font-family: "Sora", sans-serif;
+	font-size: 9.5px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+}
+
+.jacana-wx-dest-region { color: rgba(45, 36, 22, 0.42); }
+
+/* ── Explore CTA ───────────────────────────────────────────────────────────── */
+
+.jacana-wx-card-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	margin-top: 10px;
+	font-size: 9.5px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	text-decoration: none;
+	transition: gap 0.22s ease, color 0.22s ease;
+}
+
+.jacana-wx-card-cta {
+	color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-wx-card-cta:hover {
+	gap: 9px;
+	color: var(--jacana-dunes, #db9751);
+}
+
+/* ── Attribution ───────────────────────────────────────────────────────────── */
+
+.jacana-wx-attribution {
+	font-family: "Sora", sans-serif;
+	font-size: 10px;
+	text-align: center;
+	margin-top: 28px;
+	letter-spacing: 0.06em;
+}
+
+.jacana-wx-attribution { color: rgba(45, 36, 22, 0.35); }
+
+.jacana-wx-empty {
+	font-family: "Sora", sans-serif;
+	font-size: 13px;
+	opacity: 0.5;
+	text-align: center;
+	padding: 40px 0;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+	.jacana-wx-grid-section { padding: 72px 0 60px; }
+	.jacana-wx-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+}
+
+@media (max-width: 540px) {
+	.jacana-wx-grid-section { padding: 56px 0 48px; }
+	.jacana-wx-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+	.jacana-wx-card-img { height: 90px; }
+	.jacana-wx-card-top { padding: 12px 12px 0; }
+	.jacana-wx-card-condition,
+	.jacana-wx-stats { padding: 0 12px; }
+	.jacana-wx-card-footer { padding: 12px 12px 14px; }
+	.jacana-wx-temp { font-size: 34px; }
+}

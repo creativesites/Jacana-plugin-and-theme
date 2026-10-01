@@ -1,0 +1,349 @@
+/* --------------------------------------------
+   Home Hero – "Horizon" redesign
+   Clean, centered, minimal, no orange tint
+-------------------------------------------- */
+
+/* Section – full viewport */
+.jacana-hh-horizon {
+    position: relative;
+    min-height: 90svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--jacana-earth, #2d2416);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Background media – video or image */
+.jacana-hh-bg-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Overlay – pure dark, neutral, no orange */
+.jacana-hh-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(145deg,
+            rgba(0, 0, 0, 0.55) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.2) 100%);
+    pointer-events: none;
+}
+
+/* Oshiwambo colour overlay – cultural colour grade over the video */
+.jacana-hh-oshi-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        135deg,
+        rgba(230, 0, 126, 0.24) 0%,
+        rgba(204, 0, 0,   0.2) 38%,
+        rgba(128, 0, 64,  0.22) 68%,
+        rgba(0,   0, 0,   0.16) 100%
+    );
+}
+
+/* AI pill – minimal, top right */
+.jacana-hh-ai-pill {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 0.5px solid rgba(255, 250, 228, 0.2);
+    color: var(--jacana-savannah, #fffae4);
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.jacana-hh-ai-pill:hover {
+    background: rgba(219, 151, 81, 0.2);
+    border-color: var(--jacana-dunes, #db9751);
+    transform: translateY(-1px);
+}
+
+.jacana-hh-ai-pill svg {
+    color: var(--jacana-dunes, #db9751);
+}
+
+/* Centered content */
+.jacana-hh-center {
+    position: relative;
+    z-index: 2;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+/* Kicker – above title */
+.jacana-hh-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #fffae4);
+    font-family: 'Sora', sans-serif;
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+/* Title – large, elegant */
+.jacana-hh-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(34px, 5vw, 46px) !important;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--jacana-savannah, #fffae4) !important;
+    margin: 0 0 28px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Supporting copy */
+.jacana-hh-copy {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 250, 228, 0.85);
+    max-width: 620px;
+    margin: 0 auto 48px;
+}
+
+/* Buttons – centered */
+.jacana-hh-actions {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.jacana-hh-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--jacana-dunes, #db9751);
+    color: var(--jacana-earth, #2d2416);
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 40px;
+    transition: all 0.25s ease;
+}
+
+.jacana-hh-cta-primary:hover {
+    background: #c07a30;
+    transform: translateY(-2px);
+    gap: 14px;
+    color: #fff !important; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.jacana-hh-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    color: var(--jacana-savannah, #fffae4);
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(219, 151, 81, 0.6);
+    padding-bottom: 4px;
+    transition: all 0.2s ease;
+}
+
+.jacana-hh-cta-secondary:hover {
+    border-bottom-color: var(--jacana-dunes, #db9751);
+    color: #fff;
+}
+
+/* Horizontal stats bar – floating glass */
+.jacana-hh-stats-bar {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 48px;
+    background: rgba(45, 36, 22, 0.6);
+    backdrop-filter: blur(20px);
+    border-radius: 80px;
+    padding: 6px 32px;
+    border: 0.5px solid rgba(255, 250, 228, 0.1);
+}
+
+.jacana-hh-stat-item {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.jacana-hh-stat-num {
+    display: block;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 4px;
+}
+
+.jacana-hh-stat-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 250, 228, 0.8);
+}
+
+/* Minimal scroll indicator */
+.jacana-hh-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.jacana-hh-scroll-line {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 250, 228, 0.4);
+    position: relative;
+}
+
+.jacana-hh-scroll-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: var(--jacana-dunes, #db9751);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0% {
+        top: -40%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        top: 110%;
+        opacity: 1;
+    }
+
+    100% {
+        top: -40%;
+        opacity: 0;
+    }
+}
+
+/* Oshiwambo stripe – thin, at very bottom */
+.jacana-hh-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    z-index: 3;
+    background: repeating-linear-gradient(90deg,
+            var(--oshi-pink, #e6007e) 0px, var(--oshi-pink, #e6007e) 7px,
+            var(--oshi-black, #000) 7px, var(--oshi-black, #000) 9px,
+            var(--oshi-red, #cc0000) 9px, var(--oshi-red, #cc0000) 14px,
+            var(--oshi-dark-pink, #800040) 14px, var(--oshi-dark-pink, #800040) 18px,
+            var(--oshi-black, #000) 18px, var(--oshi-black, #000) 20px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .jacana-hh-stats-bar {
+        gap: 24px;
+        padding: 10px 20px;
+        border-radius: 60px;
+        bottom: 20px;
+    }
+
+    .jacana-hh-stat-num {
+        font-size: 22px;
+    }
+
+    .jacana-hh-ai-pill {
+        top: 20px;
+        right: 20px;
+        padding: 6px 14px;
+        font-size: 10px;
+    }
+
+    .jacana-hh-copy {
+        font-size: 16px;
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 540px) {
+    .jacana-hh-stats-bar {
+        display: none;
+        /* hide on very small screens to save space */
+    }
+
+    .jacana-hh-scroll {
+        display: none;
+    }
+
+    .jacana-hh-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .jacana-hh-title {
+        font-size: clamp(36px, 10vw, 54px);
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .jacana-hh-cta-primary,
+    .jacana-hh-ai-pill,
+    .jacana-hh-scroll-line::after {
+        transition: none;
+        animation: none;
+    }
+}
+

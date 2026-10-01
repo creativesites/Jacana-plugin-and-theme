@@ -1,0 +1,16 @@
+/* Styles for jacana_safari_experience */
+
+.jacana-safari-experience .section-inner {
+    align-items: start;
+}
+
+.jacana-safari-experience .card {
+    position: sticky;
+    top: 104px;
+}
+
+@media (max-width: 960px) {
+    .jacana-safari-experience .card {
+        position: static;
+    }
+}

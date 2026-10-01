@@ -1,0 +1,366 @@
+/* ── Home Journey Process ─────────────────────────────────── */
+
+.jacana-hj-section {
+    background: var(--jacana-savannah, #fffae4);
+    padding: 120px 0 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── Ambient glows ───────────────────────────────────────── */
+.jacana-hj-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.jacana-hj-glow--warm {
+    top: -120px;
+    left: 5%;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.06), transparent 65%);
+}
+
+.jacana-hj-glow--cool {
+    bottom: -80px;
+    right: 5%;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(157, 203, 223, 0.05), transparent 65%);
+}
+
+.jacana-hj-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 48px);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.jacana-hj-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.jacana-hj-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-hj-kicker::before,
+.jacana-hj-kicker::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-hj-heading {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0;
+}
+
+.jacana-hj-intro {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0;
+    max-width: 52ch;
+}
+
+/* ── Steps grid ──────────────────────────────────────────── */
+.jacana-hj-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: 72px;
+    position: relative;
+}
+
+/* ── Individual step ─────────────────────────────────────── */
+.jacana-hj-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 40px 0 0;
+}
+
+.jacana-hj-step:last-child {
+    padding-right: 0;
+}
+
+/* ── Large italic number ─────────────────────────────────── */
+.jacana-hj-step-num {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(72px, 9vw, 120px);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1;
+    color: rgba(45, 36, 22, 0.12);
+    letter-spacing: -0.04em;
+    margin-bottom: -16px;
+    transition: color 0.4s ease;
+    user-select: none;
+}
+
+.jacana-hj-step:hover .jacana-hj-step-num {
+    color: rgba(219, 151, 81, 0.42);
+}
+
+/* ── Connector between steps ─────────────────────────────── */
+.jacana-hj-connector {
+    position: absolute;
+    top: 44px;
+    right: -2px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.jacana-hj-connector-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(45, 36, 22, 0.18),
+        rgba(45, 36, 22, 0.04)
+    );
+}
+
+.jacana-hj-connector-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(45, 36, 22, 0.22);
+    flex-shrink: 0;
+}
+
+/* ── Step content ────────────────────────────────────────── */
+.jacana-hj-step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+    padding-top: 4px;
+}
+
+/* Dunes-gold left accent bar that appears on hover */
+.jacana-hj-step-body::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--jacana-dunes, #db9751), transparent);
+    opacity: 0;
+    transform: scaleY(0.4);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.jacana-hj-step:hover .jacana-hj-step-body::before {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.jacana-hj-step-title {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 600;
+    line-height: 1.14;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0;
+}
+
+.jacana-hj-step-desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(45, 36, 22, 0.68);
+    margin: 0;
+}
+
+/* ── Actions ─────────────────────────────────────────────── */
+.jacana-hj-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+/* Primary CTA */
+.jacana-hj-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    padding: 18px 36px;
+    border-radius: 2px;
+    box-shadow: 0 8px 28px rgba(192, 122, 48, 0.32);
+    transition:
+        transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+        box-shadow 0.3s ease,
+        gap 0.3s ease;
+}
+
+.jacana-hj-cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 44px rgba(192, 122, 48, 0.48);
+    gap: 18px;
+}
+
+/* Secondary ghost CTA */
+.jacana-hj-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: rgba(45, 36, 22, 0.68);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    text-decoration: none;
+    padding: 10px 2px;
+    border-bottom: 1px solid rgba(45, 36, 22, 0.18);
+    transition: color 0.25s ease, gap 0.25s ease, border-color 0.25s ease;
+}
+
+.jacana-hj-cta-secondary:hover {
+    color: var(--jacana-earth, #2d2416);
+    gap: 14px;
+    border-color: rgba(45, 36, 22, 0.42);
+}
+
+.jacana-hj-arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.jacana-hj-cta-primary:hover  .jacana-hj-arrow,
+.jacana-hj-cta-secondary:hover .jacana-hj-arrow {
+    transform: translateX(5px);
+}
+
+/* ── Oshiwambo stripe ────────────────────────────────────── */
+.jacana-hj-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    z-index: 3;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e)      0px,  var(--oshi-pink, #e6007e)      7px,
+        var(--oshi-black, #000)         7px,  var(--oshi-black, #000)         9px,
+        var(--oshi-red, #cc0000)        9px,  var(--oshi-red, #cc0000)       14px,
+        var(--oshi-dark-pink, #800040) 14px,  var(--oshi-dark-pink, #800040) 18px,
+        var(--oshi-black, #000)        18px,  var(--oshi-black, #000)        20px
+    );
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .jacana-hj-steps {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        margin-bottom: 56px;
+    }
+
+    .jacana-hj-step {
+        padding: 0;
+        flex-direction: row;
+        gap: 24px;
+        align-items: flex-start;
+    }
+
+    .jacana-hj-step-num {
+        font-size: clamp(56px, 12vw, 80px);
+        margin-bottom: 0;
+        flex-shrink: 0;
+        min-width: 72px;
+        line-height: 1.1;
+    }
+
+    .jacana-hj-connector {
+        display: none;
+    }
+
+    .jacana-hj-step-body::before {
+        display: none;
+    }
+
+    /* Horizontal rule between stacked steps */
+    .jacana-hj-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        bottom: -24px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(45, 36, 22, 0.08);
+    }
+
+    .jacana-hj-header {
+        margin-bottom: 56px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jacana-hj-section {
+        padding: 80px 0 100px;
+    }
+
+    .jacana-hj-actions {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 540px) {
+    .jacana-hj-inner {
+        padding: 0 var(--content-pad, 24px);
+    }
+
+    .jacana-hj-step {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .jacana-hj-step-num {
+        font-size: 64px;
+        margin-bottom: -8px;
+    }
+}

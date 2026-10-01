@@ -1,0 +1,190 @@
+.jacana-language-switcher__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jacana-language-switcher__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  padding: 0;
+  border: 1px solid rgba(87, 83, 78, 0.18);
+  background: rgba(255, 250, 228, 0.72);
+  color: var(--j-stone, #57534e);
+  border-radius: 999px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.jacana-language-switcher__link.is-current {
+  border-color: rgba(219, 151, 81, 0.5);
+  background: rgba(219, 151, 81, 0.14);
+  color: var(--j-dune, #db9751);
+}
+
+.jacana-language-switcher__flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.jacana-language-switcher--dropdown {
+  position: relative;
+}
+
+.jacana-language-switcher__summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 0;
+  border: 1px solid rgba(87, 83, 78, 0.18);
+  background: rgba(255, 250, 228, 0.72);
+  color: var(--j-stone, #57534e);
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.jacana-language-switcher__summary::-webkit-details-marker {
+  display: none;
+}
+
+.jacana-language-switcher__flag--current {
+  font-size: 20px;
+}
+
+.jacana-language-switcher__dropdown-list {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  min-width: 148px;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  border: 1px solid rgba(87, 83, 78, 0.16);
+  background: rgba(255, 250, 228, 0.98);
+  box-shadow: 0 18px 36px rgba(20, 12, 7, 0.12);
+  border-radius: 20px;
+}
+
+.jacana-language-switcher__dropdown-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  color: var(--j-stone, #57534e);
+  border: 1px solid rgba(87, 83, 78, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.jacana-language-switcher__dropdown-link.is-current {
+  border-color: rgba(219, 151, 81, 0.45);
+  background: rgba(219, 151, 81, 0.14);
+  color: var(--j-dune, #db9751);
+}
+
+.jacana-language-menu {
+  position: relative;
+}
+
+.jacana-language-menu > .jacana-language-menu__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  padding: 0;
+  border-radius: 999px;
+}
+
+.jacana-language-menu__flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.jacana-language-menu__list {
+  min-width: 144px;
+  padding: 10px !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  border-radius: 18px;
+}
+
+.jacana-language-menu__list li {
+  width: auto !important;
+}
+
+.jacana-language-menu__list a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 1px solid rgba(87, 83, 78, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.jacana-language-menu__list .current-lang-item > a {
+  border-color: rgba(219, 151, 81, 0.45);
+  background: rgba(219, 151, 81, 0.14);
+  color: var(--j-dune, #db9751);
+}
+
+.jacana-programmatic-header-active .jacana-top-nav .jacana-language-menu__list a {
+  color: #2a211b;
+}
+
+.jacana-programmatic-header-active .jacana-top-nav .jacana-language-menu__list .current-lang-item > a {
+  color: var(--j-dune, #db9751);
+}
+
+.jacana-programmatic-header-active .jacana-language-switcher--header .jacana-language-switcher__summary {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 250, 228, 0.08);
+  color: #f6f1e8;
+}
+
+.jacana-programmatic-header-active .jacana-language-switcher--header .jacana-language-switcher__dropdown-link {
+  color: var(--j-stone, #57534e);
+}
+
+@media (max-width: 980px) {
+  .jacana-language-menu > .jacana-language-menu__trigger {
+    width: 38px;
+  }
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

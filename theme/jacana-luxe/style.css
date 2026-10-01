@@ -1,0 +1,6834 @@
+/*
+Theme Name: Jacana Luxe
+Theme URI: https://www.jacanasafaristours.com
+Author: Jacana Safaris & Tours
+Author URI: https://www.jacanasafaristours.com
+Description: A luxe, premium WordPress theme for Jacana Safaris & Tours.
+Version: 1.1.5
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: jacana-luxe
+*/
+
+:root {
+    --sand: #e8dcc6;
+    --dune: #c6a676;
+    --clay: #9a704d;
+    --espresso: #2c1f1a;
+    --obsidian: #0e0c0a;
+    --sage: #6f7a63;
+    --sky: #cdd8dd;
+    --mist: #f3efe8;
+    --gold: #b58b3c;
+    --jacana-sky: #9dcbdf;
+    --jacana-dunes: #db9751;
+    --jacana-savannah: #fffae4;
+    --jacana-earth: #2d2416;
+    --jacana-deep-brown: #4a341f;
+    --jacana-warm-sand: #f5f1e8;
+    --jacana-coral: #e77d5f;
+    --jacana-white: #ffffff;
+    --jacana-line: rgba(45, 36, 22, 0.14);
+    /* Oshiwambo / Ondelela accent colours */
+    --oshi-pink: #e6007e;
+    --oshi-dark-pink: #800040;
+    --oshi-red: #cc0000;
+    --oshi-black: #000000;
+    --shadow: 0 24px 60px rgba(16, 12, 10, 0.25);
+    --shadow-soft: 0 16px 40px rgba(16, 12, 10, 0.18);
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 10px;
+    --max-width: 1180px;
+    --content-pad: clamp(20px, 4vw, 48px);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(1200px 800px at 20% -10%, #2c1f1a, transparent 70%),
+        radial-gradient(900px 600px at 80% 10%, #4c382d, transparent 60%),
+        linear-gradient(180deg, #0f0c0a 0%, #18110d 40%, #f3efe8 100%);
+    color: var(--obsidian);
+    font-family: "Sora", "Avenir Next", "Trebuchet MS", sans-serif;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    letter-spacing: 0.01em;
+    margin: 0 0 0.6em;
+    color: var(--espresso);
+}
+
+.section.dark h1,
+.section.dark h2,
+.section.dark h3,
+.section.dark h4,
+.section.dark h5,
+.section.dark h6,
+.footer-inner h3 {
+    color: #f3efe8;
+}
+
+p {
+    margin: 0 0 1.2em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.site {
+    background: transparent;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(18px) saturate(1.1);
+    background: rgba(15, 11, 8, 0.72);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(9, 7, 5, 0.2);
+    isolation: isolate;
+}
+
+.site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(20, 14, 10, 0.7), rgba(12, 10, 9, 0.35));
+    z-index: -1;
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 14px var(--content-pad);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 22px;
+    position: relative;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #f4efe6;
+}
+
+.brand-mark {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.brand-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 10.5px;
+}
+
+.brand-text strong {
+    font-size: 18.5px;
+    letter-spacing: 0.14em;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #f6f1e8;
+    padding: 8px 14px;
+    border-radius: 999px;
+}
+
+.primary-nav {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #f6f1e8;
+}
+
+.primary-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.primary-nav li {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+}
+
+.primary-nav a:hover {
+    color: var(--gold);
+}
+
+.primary-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 0;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-cta {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 11px;
+    padding: 10px 18px;
+    border-radius: 4px !important;
+    box-shadow: 0 12px 26px rgba(181, 111, 36, 0.22);
+}
+.header-cta:hover {
+    background: var(--jacana-sky) !important;
+    color: #21170d !important;         
+}
+
+.primary-nav .menu-item-has-children>a::after {
+    content: "▾";
+    font-size: 10px;
+    margin-left: 6px;
+    opacity: 0.7;
+}
+
+.primary-nav .sub-menu {
+    position: absolute;
+    top: 100%;
+    margin-top: 6px;
+    left: 0;
+    background: rgba(15, 12, 10, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 12px;
+    min-width: 220px;
+    box-shadow: var(--shadow-soft);
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 20;
+}
+
+.primary-nav .sub-menu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+.primary-nav .sub-menu li {
+    display: block;
+}
+
+.primary-nav .sub-menu a {
+    padding: 8px 12px;
+    text-transform: none;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    color: rgba(247, 242, 232, 0.9);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.primary-nav .sub-menu a:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.primary-nav li:hover>.sub-menu,
+.primary-nav li:focus-within>.sub-menu,
+.primary-nav li.is-open>.sub-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.submenu-toggle {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #f6f1e8;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: none;
+}
+
+.submenu-toggle::after {
+    content: "▾";
+}
+
+.hero {
+    color: #f7f2e8;
+    position: relative;
+    overflow: hidden;
+    margin-top: -80px;
+}
+
+.hero-slider {
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slides {
+    position: relative;
+    width: 100%;
+    min-height: 78vh;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(1.03);
+    transition: opacity 0.9s ease, transform 1.2s ease;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Video background slide */
+.hero-slide--video {
+    background: #0a0807;
+}
+
+.hero-slide-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide-video {
+        display: none;
+    }
+}
+
+.hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(10, 8, 7, 0.75), rgba(10, 8, 7, 0.2));
+    z-index: 1;
+}
+
+.hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 120px var(--content-pad) 90px;
+}
+
+.hero-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 12px;
+    color: rgba(247, 242, 232, 0.8);
+}
+
+.hero h1 {
+    color: #f7f2e8;
+    font-size: clamp(42px, 4.4vw, 70px);
+    line-height: 1.05;
+}
+
+.hero p {
+    max-width: 520px;
+    font-size: 17px;
+    color: rgba(247, 242, 232, 0.85);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-dots {
+    position: absolute;
+    right: var(--content-pad);
+    bottom: 30px;
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(247, 242, 232, 0.6);
+    background: transparent;
+    cursor: pointer;
+}
+
+.hero-dot.is-active {
+    background: var(--jacana-dunes, #db9751);
+    border-color: var(--jacana-dunes, #db9751);
+}
+
+/* ── Base button ─────────────────────────────────────────── */
+.button {
+    position: relative;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    border: 1.5px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+    overflow: hidden;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+/* Focus ring — accessible, Namibian-sky tinted */
+.button:focus-visible {
+    outline: 3px solid var(--jacana-sky, #9dcbdf);
+    outline-offset: 3px;
+}
+
+/* ── Primary — Dunes amber (main CTA) ───────────────────── */
+.button-primary {
+    background: linear-gradient(130deg, var(--jacana-dunes, #db9751) 0%, #c07a30 100%);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 18px rgba(219, 151, 81, 0.32);
+}
+
+.button-primary:hover {
+    background: linear-gradient(130deg, #e8a45e 0%, #cc8535 100%);
+    box-shadow: 0 8px 28px rgba(219, 151, 81, 0.45);
+}
+
+/* Oshiwambo stripe slides in from the bottom on hover */
+.button-primary::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e) 0px,
+        var(--oshi-pink, #e6007e) 6px,
+        var(--oshi-black, #000) 6px,
+        var(--oshi-black, #000) 8px,
+        var(--oshi-red, #cc0000) 8px,
+        var(--oshi-red, #cc0000) 12px,
+        var(--oshi-dark-pink, #800040) 12px,
+        var(--oshi-dark-pink, #800040) 16px,
+        var(--oshi-black, #000) 16px,
+        var(--oshi-black, #000) 18px
+    );
+    transform: translateY(100%);
+    transition: transform 0.22s ease;
+    pointer-events: none;
+}
+
+.button-primary:hover::after {
+    transform: translateY(0);
+}
+
+/* ── Ghost — outlined, adapts to context ────────────────── */
+.button-ghost {
+    background: transparent;
+    border-color: rgba(247, 242, 232, 0.5);
+    color: #f7f2e8;
+}
+
+.button-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(247, 242, 232, 0.8);
+}
+
+/* Ghost on light backgrounds */
+.button-ghost--dark {
+    border-color: rgba(45, 36, 22, 0.35);
+    color: var(--jacana-earth, #2d2416);
+}
+.jacana-crh-hero-inner .button-ghost--dark{
+    color: #fff !important;
+}
+.jacana-crh-hero-inner .button-ghost--dark:hover{
+    color: #db9751 !important;
+}
+.button-ghost--dark:hover {
+    background: rgba(45, 36, 22, 0.05);
+    border-color: rgba(45, 36, 22, 0.55);
+    
+}
+
+/* ── Sky — secondary action, Namibian blue ──────────────── */
+.button-sky {
+    background: var(--jacana-sky, #9dcbdf);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(157, 203, 223, 0.3);
+}
+
+.button-sky:hover {
+    background: #7cb8d2;
+    box-shadow: 0 8px 22px rgba(157, 203, 223, 0.45);
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
+}
+
+.hero-card h3 {
+    color: #f7f2e8 !important;
+    margin-bottom: 12px;
+}
+
+.hero-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+    color: rgba(247, 242, 232, 0.85);
+}
+
+.section {
+    padding: 90px var(--content-pad);
+    background: var(--mist);
+}
+
+.section.dark {
+    background: #14100d;
+    color: #f3efe8;
+}
+
+.section-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: clamp(30px, 3.4vw, 48px);
+}
+
+.section-header p {
+    max-width: 420px;
+    color: rgba(44, 31, 26, 0.7);
+}
+
+.section.dark .section-header p {
+    color: rgba(243, 239, 232, 0.75);
+}
+
+.card-grid {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-soft);
+}
+
+.card.dark {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f3efe8;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.team-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.team-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-soft);
+}
+
+.team-card .role {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    color: var(--clay);
+}
+
+.team-details {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.team-detail {
+    background: #f8f4ee;
+    border-radius: 12px;
+    padding: 10px 14px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.team-detail summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--espresso);
+    list-style: none;
+    position: relative;
+    padding-right: 20px;
+}
+
+.team-detail summary::-webkit-details-marker {
+    display: none;
+}
+
+.team-detail summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: 700;
+    color: var(--clay);
+}
+
+.team-detail[open] summary::after {
+    content: "–";
+}
+
+.team-detail p {
+    margin: 10px 0 0;
+    color: rgba(44, 31, 26, 0.8);
+    font-size: 14px;
+}
+
+.jacana-team-profiles {
+    background:
+        radial-gradient(900px 500px at 10% 10%, rgba(157, 203, 223, 0.18), transparent 70%),
+        radial-gradient(700px 400px at 90% 90%, rgba(219, 151, 81, 0.2), transparent 65%),
+        var(--jacana-savannah, #fffae4);
+}
+
+.jacana-team-profiles .section-header {
+    align-items: flex-end;
+}
+
+.jacana-team-profiles .section-header p {
+    max-width: 620px;
+    color: rgba(45, 36, 22, 0.76);
+}
+
+.jacana-team-profiles .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.jacana-team-profiles .jacana-reveal {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.5s ease;
+    transition-delay: var(--team-delay, 0ms);
+    will-change: transform, opacity;
+}
+
+.jacana-team-profiles .jacana-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.jacana-team-profiles .team-card {
+    padding: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(45, 36, 22, 0.14);
+    background: var(--jacana-white, #ffffff);
+    box-shadow: 0 18px 40px rgba(45, 36, 22, 0.12);
+}
+
+.jacana-team-profiles .team-card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease;
+}
+
+.jacana-team-profiles .team-media {
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    background: #f0ece4;
+}
+
+.jacana-team-profiles .team-media img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center top;
+    transform: none;
+    transition: filter 0.5s ease;
+}
+
+.jacana-team-profiles .team-card.is-visible .team-media img {
+    filter: saturate(1.05);
+}
+
+.jacana-team-profiles .team-content {
+    padding: 24px 24px 22px;
+}
+
+.jacana-team-profiles .team-card h3 {
+    margin-bottom: 8px;
+    color: var(--jacana-earth, #2d2416);
+}
+
+.jacana-team-profiles .team-card .role {
+    color: var(--jacana-dunes, #db9751);
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.jacana-team-profiles .team-highlight {
+    border-left: 3px solid var(--jacana-coral, #e77d5f);
+    padding: 8px 0 8px 12px;
+    margin: 0 0 14px;
+    color: rgba(45, 36, 22, 0.84);
+    font-weight: 600;
+}
+
+.jacana-team-profiles .team-bio {
+    color: rgba(45, 36, 22, 0.86);
+    margin-bottom: 14px;
+}
+
+.jacana-team-profiles .team-details {
+    gap: 11px;
+}
+
+.jacana-team-profiles .team-detail {
+    border-radius: 12px;
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    background: var(--jacana-warm-sand, #f5f1e8);
+    padding: 11px 14px;
+}
+
+.jacana-team-profiles .team-detail summary {
+    color: var(--jacana-earth, #2d2416);
+}
+
+.jacana-team-profiles .team-detail summary::after {
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-team-profiles .team-detail-copy p {
+    margin: 10px 0 0;
+    color: rgba(45, 36, 22, 0.84);
+}
+
+.highlight {
+    background: linear-gradient(120deg, rgba(200, 155, 83, 0.2), rgba(200, 155, 83, 0));
+    padding: 30px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(200, 155, 83, 0.3);
+}
+
+.tabs {
+    display: grid;
+    gap: 16px;
+}
+
+.tab {
+    background: #fff;
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    border: 1px solid rgba(156, 114, 75, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jacana-zoora-parity {
+    position: relative;
+    background:
+        radial-gradient(620px 280px at 8% 6%, rgba(157, 203, 223, 0.22), transparent 78%),
+        radial-gradient(760px 420px at 92% 96%, rgba(219, 151, 81, 0.16), transparent 72%),
+        linear-gradient(180deg, rgba(255, 250, 228, 0.98), rgba(255, 248, 234, 0.94));
+    border-top: 1px solid rgba(45, 36, 22, 0.06);
+    border-bottom: 1px solid rgba(45, 36, 22, 0.06);
+    overflow: clip;
+}
+
+.jacana-zoora-parity::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(45, 36, 22, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 36, 22, 0.035) 1px, transparent 1px);
+    background-size: 52px 52px;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.jacana-zoora-parity .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-zoora-parity h2,
+.jacana-zoora-parity h3,
+.jacana-zoora-parity h4 {
+    color: var(--jacana-earth);
+}
+
+.jacana-zoora-parity .section-header p,
+.jacana-zoora-parity p {
+    color: rgba(45, 36, 22, 0.78);
+}
+
+.jacana-zoora-parity .card,
+.jacana-zoora-parity .tab,
+.jacana-zoora-parity .destination-pill,
+.jacana-zoora-parity .pricing-table,
+.jacana-zoora-parity .hero-card {
+    border-radius: 4px;
+    border: 1px solid var(--jacana-line);
+    box-shadow: 0 16px 34px rgba(45, 36, 22, 0.11);
+}
+
+.jacana-zoora-parity .hero-card {
+    background: rgba(255, 250, 228, 0.2);
+}
+
+.jacana-zoora-parity .button.button-primary {
+    background: linear-gradient(130deg, var(--jacana-dunes, #db9751) 0%, #c07a30 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(219, 151, 81, 0.28);
+}
+
+.jacana-zoora-parity .button.button-primary:hover {
+    background: linear-gradient(130deg, #e8a45e 0%, #cc8535 100%);
+    box-shadow: 0 8px 28px rgba(219, 151, 81, 0.4);
+}
+
+.jacana-zoora-parity .button.button-ghost,
+.jacana-zoora-parity .button.jacana-button-soft {
+    border-color: rgba(45, 36, 22, 0.28);
+    color: var(--jacana-earth);
+    border-radius: 8px;
+}
+
+.jacana-zoora-parity .button.button-ghost:hover,
+.jacana-zoora-parity .button.jacana-button-soft:hover {
+    background: rgba(45, 36, 22, 0.05);
+    border-color: rgba(45, 36, 22, 0.5);
+}
+
+.jacana-zoora-parity .destination-pill {
+    background: rgba(255, 255, 255, 0.96);
+    text-transform: none;
+    letter-spacing: 0.02em;
+}
+
+.jacana-reveal {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.65, 0.2, 1);
+    transition-delay: var(--jacana-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.jacana-reveal.jacana-reveal-left {
+    transform: translate3d(-14px, 6px, 0);
+}
+
+.jacana-reveal.jacana-reveal-right {
+    transform: translate3d(14px, 6px, 0);
+}
+
+.jacana-reveal.jacana-reveal-scale {
+    transform: scale(0.98);
+}
+
+.jacana-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .jacana-reveal,
+    .tour-gallery-item,
+    .gallery-masonry-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .jacana-map-hotspot::before,
+    .jacana-map-hotspot::after {
+        animation: none !important;
+        opacity: 0.7 !important;
+    }
+}
+
+/* Tailor-made Story CSS moved to Premium Upgrade block below */
+
+.jacana-services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.jacana-service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.jacana-service-media {
+    margin: -28px -28px 4px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--jacana-line);
+}
+
+.jacana-service-media img {
+    width: 100%;
+    min-height: 210px;
+    max-height: 260px;
+    object-fit: cover;
+}
+
+.jacana-service-badge {
+    align-self: flex-start;
+    background: rgba(157, 203, 223, 0.2);
+    color: var(--jacana-earth);
+    border: 1px solid rgba(45, 36, 22, 0.2);
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+}
+
+.jacana-service-features {
+    margin: 2px 0 0;
+    padding-left: 18px;
+    color: rgba(45, 36, 22, 0.86);
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-service-button {
+    margin-top: auto;
+    width: fit-content;
+}
+
+.jacana-main-services-grid .jacana-services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.jacana-main-services-grid .jacana-service-card {
+    position: relative;
+    overflow: hidden;
+    gap: 16px;
+    border: 1px solid rgba(45, 36, 22, 0.12);
+    background:
+        radial-gradient(120% 120% at 100% 0%, rgba(157, 203, 223, 0.14), transparent 52%),
+        radial-gradient(100% 100% at 0% 100%, rgba(219, 151, 81, 0.12), transparent 50%),
+        linear-gradient(180deg, #fffef9 0%, #fbf7ee 100%);
+    box-shadow:
+        0 10px 18px rgba(34, 26, 13, 0.05),
+        0 20px 44px rgba(34, 26, 13, 0.08);
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+    will-change: transform;
+}
+
+.jacana-main-services-grid .jacana-service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--jacana-sky), var(--jacana-dunes));
+    opacity: 0.92;
+}
+
+.jacana-main-services-grid .jacana-service-card::after {
+    content: "";
+    position: absolute;
+    inset: -30% auto auto -10%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(157, 203, 223, 0.22) 0%, rgba(157, 203, 223, 0) 70%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.32s ease, transform 0.32s ease;
+    transform: translateY(8px);
+}
+
+.jacana-main-services-grid .jacana-service-card:hover,
+.jacana-main-services-grid .jacana-service-card:focus-within {
+    transform: translateY(-6px);
+    border-color: rgba(45, 36, 22, 0.22);
+    box-shadow:
+        0 16px 24px rgba(34, 26, 13, 0.07),
+        0 26px 56px rgba(34, 26, 13, 0.14);
+}
+
+.jacana-main-services-grid .jacana-service-card:hover::after,
+.jacana-main-services-grid .jacana-service-card:focus-within::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.jacana-main-services-grid .jacana-service-media {
+    margin: -28px -28px 6px;
+    position: relative;
+    border-bottom: 0;
+}
+
+.jacana-main-services-grid .jacana-service-media::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 48px;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0) 0%, rgba(12, 10, 9, 0.28) 100%);
+    pointer-events: none;
+}
+
+.jacana-main-services-grid .jacana-service-media img {
+    transition: transform 0.65s ease, filter 0.45s ease;
+    filter: saturate(0.92) contrast(1.02);
+}
+
+.jacana-main-services-grid .jacana-service-card:hover .jacana-service-media img,
+.jacana-main-services-grid .jacana-service-card:focus-within .jacana-service-media img {
+    transform: scale(1.05);
+    filter: saturate(1) contrast(1.04);
+}
+
+.jacana-main-services-grid .jacana-service-badge {
+    background: rgba(255, 250, 228, 0.82);
+    border-color: rgba(45, 36, 22, 0.18);
+    box-shadow: 0 4px 12px rgba(34, 26, 13, 0.06);
+    backdrop-filter: blur(6px);
+}
+
+.jacana-main-services-grid .jacana-service-card h3 {
+    line-height: 1.2;
+    margin: 2px 0 0;
+}
+
+.jacana-main-services-grid .jacana-service-card>p {
+    color: rgba(45, 36, 22, 0.88);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.jacana-main-services-grid .jacana-service-features {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 4px;
+}
+
+.jacana-main-services-grid .jacana-service-features li {
+    position: relative;
+    padding-left: 20px;
+}
+
+.jacana-main-services-grid .jacana-service-features li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--jacana-sky), var(--jacana-dunes));
+    box-shadow: 0 0 0 3px rgba(157, 203, 223, 0.14);
+}
+
+.jacana-main-services-grid .jacana-service-button {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
+    transition: transform 0.2s ease;
+}
+
+.jacana-main-services-grid .jacana-service-card:hover .jacana-service-button,
+.jacana-main-services-grid .jacana-service-card:focus-within .jacana-service-button {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 1024px) {
+    .jacana-main-services-grid .jacana-services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .jacana-main-services-grid .jacana-services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .jacana-main-services-grid .jacana-service-media img {
+        min-height: 190px;
+        max-height: 220px;
+    }
+}
+
+.jacana-car-rental-showcase .section-header {
+    max-width: 780px;
+    margin-inline: auto;
+}
+
+.jacana-rental-showcase-shell {
+    display: grid;
+    grid-template-columns: 1.06fr 0.94fr;
+    gap: 22px;
+    align-items: stretch;
+}
+
+.jacana-rental-media-pane,
+.jacana-rental-details-pane {
+    min-width: 0;
+}
+
+.jacana-rental-media-pane {
+    position: relative;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #1d1914;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 60px rgba(20, 16, 11, 0.22);
+}
+
+.jacana-rental-media-pane::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(80% 90% at 8% 10%, rgba(157, 203, 223, 0.2), transparent 65%),
+        radial-gradient(90% 110% at 95% 88%, rgba(219, 151, 81, 0.22), transparent 64%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.jacana-rental-track {
+    display: flex;
+    transform: translate3d(0, 0, 0);
+    transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.jacana-rental-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    margin: 0;
+    position: relative;
+    min-height: 430px;
+    opacity: 0.9;
+}
+
+.jacana-rental-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 430px;
+    filter: saturate(0.96) contrast(1.02);
+    transform: scale(1.01);
+    transition: transform 700ms ease, filter 400ms ease;
+}
+
+.jacana-rental-slide.is-active img {
+    transform: scale(1.04);
+    filter: saturate(1) contrast(1.04);
+}
+
+.jacana-rental-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(12, 10, 9, 0.08), rgba(12, 10, 9, 0.36) 55%, rgba(12, 10, 9, 0.75));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.jacana-rental-slide-caption {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+    color: #fff;
+}
+
+.jacana-rental-slide-caption strong {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.2;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.jacana-rental-code {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    backdrop-filter: blur(8px);
+}
+
+.jacana-rental-code-inline {
+    color: var(--jacana-earth);
+    background: rgba(157, 203, 223, 0.16);
+    border-color: rgba(45, 36, 22, 0.16);
+}
+
+.jacana-rental-controls {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 14px;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0.28), rgba(12, 10, 9, 0.58));
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.jacana-rental-nav {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(11, 10, 8, 0.35);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.jacana-rental-nav:hover,
+.jacana-rental-nav:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(11, 10, 8, 0.52);
+    border-color: rgba(255, 255, 255, 0.42);
+    outline: none;
+}
+
+.jacana-rental-dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 6px;
+}
+
+.jacana-rental-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.35);
+    transition: width 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+    opacity: 0.9;
+}
+
+.jacana-rental-dot.is-active {
+    width: 26px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--jacana-sky), var(--jacana-dunes));
+    opacity: 1;
+}
+
+.jacana-rental-details-pane {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(45, 36, 22, 0.12);
+    background:
+        radial-gradient(120% 120% at 100% 0%, rgba(157, 203, 223, 0.14), transparent 58%),
+        radial-gradient(110% 120% at 0% 100%, rgba(219, 151, 81, 0.12), transparent 54%),
+        linear-gradient(180deg, #fffef9, #f8f2e6);
+    box-shadow: 0 18px 50px rgba(34, 26, 13, 0.12);
+}
+
+.jacana-rental-details-pane::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(45, 36, 22, 0.035) 1px, transparent 1px);
+    background-size: 12px 12px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.jacana-rental-details-card {
+    position: absolute;
+    inset: 0;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.jacana-rental-details-card.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
+}
+
+.jacana-rental-details-kicker {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(45, 36, 22, 0.62);
+}
+
+.jacana-rental-details-header {
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-rental-details-header h3 {
+    margin: 0;
+    line-height: 1.14;
+    color: var(--jacana-earth);
+}
+
+.jacana-rental-summary {
+    margin: 0;
+    color: rgba(45, 36, 22, 0.88);
+    line-height: 1.55;
+}
+
+.jacana-rental-specs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.jacana-rental-specs li {
+    font-size: 13px;
+    line-height: 1.35;
+    color: rgba(45, 36, 22, 0.88);
+    background: rgba(255, 255, 255, 0.64);
+    border: 1px solid rgba(45, 36, 22, 0.08);
+    border-radius: 8px;
+    padding: 8px 10px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.jacana-rental-actions {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.jacana-rental-rate-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--jacana-earth);
+    background: rgba(255, 250, 228, 0.92);
+    border: 1px solid rgba(45, 36, 22, 0.14);
+}
+
+.jacana-rental-detail-link {
+    margin-left: auto;
+}
+
+.jacana-rental-hero-premium {
+    position: relative;
+    background:
+        linear-gradient(180deg, rgba(12, 10, 9, 0.34), rgba(12, 10, 9, 0.54)),
+        var(--jacana-rental-hero-bg, linear-gradient(140deg, #6e7f89, #37291c));
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.jacana-rental-hero-premium::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(70% 90% at 12% 12%, rgba(157, 203, 223, 0.2), transparent 62%),
+        radial-gradient(75% 90% at 90% 82%, rgba(219, 151, 81, 0.18), transparent 60%);
+    pointer-events: none;
+}
+
+.jacana-rental-hero-premium .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-rental-hero-shell {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 22px;
+    align-items: stretch;
+}
+
+.jacana-rental-hero-copy {
+    background: rgba(14, 12, 10, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 56px rgba(10, 8, 7, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.jacana-rental-hero-copy h1 {
+    margin: 0;
+    color: #fff;
+    line-height: 1.06;
+    max-width: 16ch;
+}
+
+.jacana-rental-hero-copy>p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.jacana-rental-hero-list {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-rental-hero-list li {
+    position: relative;
+    padding-left: 18px;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.jacana-rental-hero-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--jacana-sky), var(--jacana-dunes));
+}
+
+.jacana-rental-hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.jacana-rental-hero-side {
+    display: grid;
+    gap: 12px;
+}
+
+.jacana-rental-hero-stage {
+    position: relative;
+    min-height: 280px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background:
+        linear-gradient(160deg, rgba(13, 12, 11, 0.18), rgba(13, 12, 11, 0.42)),
+        linear-gradient(135deg, rgba(157, 203, 223, 0.08), rgba(219, 151, 81, 0.12));
+    box-shadow: 0 20px 48px rgba(10, 8, 7, 0.2);
+    overflow: hidden;
+}
+
+.jacana-rental-hero-stage::before,
+.jacana-rental-hero-stage::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(12px);
+}
+
+.jacana-rental-hero-stage::before {
+    width: 180px;
+    height: 180px;
+    background: rgba(157, 203, 223, 0.22);
+    top: -26px;
+    left: -18px;
+}
+
+.jacana-rental-hero-stage::after {
+    width: 220px;
+    height: 220px;
+    background: rgba(219, 151, 81, 0.2);
+    bottom: -34px;
+    right: -22px;
+}
+
+.jacana-rental-hero-stage-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 7px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(12, 10, 9, 0.34);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.jacana-rental-hero-glow {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(45% 45% at 30% 55%, rgba(157, 203, 223, 0.22), transparent 62%),
+        radial-gradient(45% 45% at 68% 48%, rgba(219, 151, 81, 0.22), transparent 64%);
+    animation: jacana-rental-pulse 6s ease-in-out infinite;
+}
+
+@keyframes jacana-rental-pulse {
+
+    0%,
+    100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+}
+
+.jacana-rental-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.jacana-rental-hero-stat {
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(12, 10, 9, 0.28);
+    box-shadow: 0 14px 24px rgba(10, 8, 7, 0.15);
+    padding: 12px;
+    display: grid;
+    gap: 4px;
+}
+
+.jacana-rental-hero-stat strong {
+    color: #fff;
+    line-height: 1.1;
+    font-size: 18px;
+}
+
+.jacana-rental-hero-stat span {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.jacana-rental-fleet-explorer .section-header {
+    max-width: 780px;
+    margin-inline: auto;
+}
+
+.jacana-rental-fleet-filters {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.jacana-rental-filters-label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(45, 36, 22, 0.68);
+}
+
+.jacana-rental-filters-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.jacana-rental-filter {
+    border-radius: 999px;
+    border: 1px solid rgba(45, 36, 22, 0.14);
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--jacana-earth);
+    padding: 8px 11px;
+    font-size: 11px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.jacana-rental-filter:hover,
+.jacana-rental-filter:focus-visible {
+    transform: translateY(-1px);
+    border-color: rgba(45, 36, 22, 0.24);
+    outline: none;
+}
+
+.jacana-rental-filter.is-active {
+    background: linear-gradient(135deg, var(--jacana-earth), #433726);
+    color: #fff;
+    border-color: rgba(45, 36, 22, 0.28);
+}
+
+.jacana-rental-fleet-shell {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.jacana-rental-fleet-list {
+    display: grid;
+    gap: 10px;
+    max-height: 860px;
+    overflow: auto;
+    padding-right: 4px;
+}
+
+.jacana-rental-fleet-item {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    gap: 10px;
+    align-items: stretch;
+    text-align: left;
+    border-radius: 12px;
+    border: 1px solid rgba(45, 36, 22, 0.1);
+    background: linear-gradient(180deg, #fffdf8, #f7f2e7);
+    box-shadow: 0 10px 22px rgba(34, 26, 13, 0.06);
+    padding: 8px;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.jacana-rental-fleet-item:hover,
+.jacana-rental-fleet-item:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(34, 26, 13, 0.1);
+    border-color: rgba(45, 36, 22, 0.2);
+    outline: none;
+}
+
+.jacana-rental-fleet-item.is-active {
+    border-color: rgba(157, 203, 223, 0.45);
+    box-shadow: 0 18px 32px rgba(34, 26, 13, 0.12);
+    background:
+        radial-gradient(120% 120% at 0% 0%, rgba(157, 203, 223, 0.12), transparent 52%),
+        radial-gradient(120% 120% at 100% 100%, rgba(219, 151, 81, 0.12), transparent 52%),
+        linear-gradient(180deg, #fffef8, #f7f1e5);
+}
+
+.jacana-rental-fleet-thumb {
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 94px;
+    background: #e8e1d4;
+    display: block;
+}
+
+.jacana-rental-fleet-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.jacana-rental-fleet-item-copy {
+    display: grid;
+    align-content: start;
+    gap: 5px;
+    min-width: 0;
+}
+
+.jacana-rental-fleet-code {
+    color: var(--jacana-dunes);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.jacana-rental-fleet-item-copy strong {
+    color: var(--jacana-earth);
+    line-height: 1.15;
+    font-size: 15px;
+}
+
+.jacana-rental-fleet-item-copy small {
+    color: rgba(45, 36, 22, 0.78);
+    line-height: 1.35;
+    font-size: 12px;
+}
+
+.jacana-rental-fleet-detail-wrap {
+    position: relative;
+}
+
+.jacana-rental-fleet-detail {
+    display: none;
+    border-radius: 14px;
+    border: 1px solid rgba(45, 36, 22, 0.12);
+    background:
+        radial-gradient(120% 120% at 100% 0%, rgba(157, 203, 223, 0.13), transparent 58%),
+        radial-gradient(120% 120% at 0% 100%, rgba(219, 151, 81, 0.12), transparent 54%),
+        linear-gradient(180deg, #fffef9, #f8f2e6);
+    box-shadow: 0 22px 48px rgba(34, 26, 13, 0.1);
+    overflow: hidden;
+    transform-origin: top center;
+    animation: jacana-fleet-detail-in 0.35s ease;
+}
+
+.jacana-rental-fleet-detail.is-active {
+    display: block;
+}
+
+@keyframes jacana-fleet-detail-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.995);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.jacana-rental-fleet-detail-media {
+    position: relative;
+    min-height: 280px;
+}
+
+.jacana-rental-fleet-detail-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.jacana-rental-fleet-detail-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0.06), rgba(12, 10, 9, 0.35) 55%, rgba(12, 10, 9, 0.78));
+}
+
+.jacana-rental-fleet-detail-media-meta {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    z-index: 1;
+    display: grid;
+    gap: 6px;
+}
+
+.jacana-rental-fleet-detail-media-meta h3 {
+    margin: 0;
+    color: #fff;
+    line-height: 1.12;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.62);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(45, 36, 22, 0.12);
+    /* let's make the width of the h3 element dynamic */
+    width: fit-content;
+}
+
+.jacana-rental-fleet-detail-media-meta p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.jacana-rental-fleet-detail-body {
+    padding: 16px;
+    display: grid;
+    gap: 14px;
+}
+
+.jacana-rental-fleet-summary {
+    margin: 0;
+    color: rgba(45, 36, 22, 0.88);
+}
+
+.jacana-rental-fleet-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.jacana-rental-fleet-spec {
+    border-radius: 10px;
+    border: 1px solid rgba(45, 36, 22, 0.08);
+    background: rgba(255, 255, 255, 0.72);
+    padding: 10px;
+    display: grid;
+    gap: 3px;
+}
+
+.jacana-rental-fleet-spec-wide {
+    grid-column: span 2;
+}
+
+.jacana-rental-fleet-spec span {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(45, 36, 22, 0.62);
+}
+
+.jacana-rental-fleet-spec strong {
+    line-height: 1.25;
+    color: var(--jacana-earth);
+    font-size: 14px;
+}
+
+.jacana-rental-fleet-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.jacana-rental-fleet-panel {
+    border-radius: 10px;
+    border: 1px solid rgba(45, 36, 22, 0.08);
+    background: rgba(255, 255, 255, 0.65);
+    padding: 12px;
+}
+
+.jacana-rental-fleet-panel h4 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    color: var(--jacana-earth);
+}
+
+.jacana-rental-fleet-panel ul {
+    margin: 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 6px;
+}
+
+.jacana-rental-fleet-panel li {
+    color: rgba(45, 36, 22, 0.84);
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.jacana-rental-fleet-fit {
+    border-radius: 10px;
+    border: 1px dashed rgba(45, 36, 22, 0.18);
+    padding: 12px;
+    background: rgba(255, 250, 228, 0.76);
+    display: grid;
+    gap: 4px;
+}
+
+.jacana-rental-fleet-fit span {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(45, 36, 22, 0.62);
+}
+
+.jacana-rental-fleet-fit p {
+    margin: 0;
+    color: rgba(45, 36, 22, 0.88);
+}
+
+.jacana-rental-fleet-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.jacana-rental-fleet-actions .button {
+    margin-left: auto;
+}
+
+@media (max-width: 1024px) {
+    .jacana-rental-showcase-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-rental-slide,
+    .jacana-rental-slide img {
+        min-height: 360px;
+    }
+
+    .jacana-rental-details-card {
+        position: absolute;
+    }
+
+    .jacana-rental-details-card.is-active {
+        min-height: 0;
+    }
+
+    .jacana-rental-hero-shell,
+    .jacana-rental-fleet-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-rental-hero-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-rental-fleet-list {
+        max-height: none;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .jacana-rental-slide,
+    .jacana-rental-slide img {
+        min-height: 260px;
+    }
+
+    .jacana-rental-controls {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .jacana-rental-nav {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    .jacana-rental-details-card {
+        padding: 16px;
+    }
+
+    .jacana-rental-specs {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .jacana-rental-detail-link {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .jacana-rental-hero-copy {
+        gap: 12px;
+    }
+
+    .jacana-rental-hero-copy h1 {
+        max-width: 100%;
+    }
+
+    .jacana-rental-hero-actions .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .jacana-rental-hero-stage {
+        min-height: 200px;
+    }
+
+    .jacana-rental-fleet-list {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-rental-fleet-item {
+        grid-template-columns: 82px 1fr;
+    }
+
+    .jacana-rental-fleet-thumb {
+        min-height: 76px;
+    }
+
+    .jacana-rental-fleet-detail-media,
+    .jacana-rental-fleet-detail-media img {
+        min-height: 220px;
+    }
+
+    .jacana-rental-fleet-spec-grid,
+    .jacana-rental-fleet-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-rental-fleet-spec-wide {
+        grid-column: span 1;
+    }
+
+    .jacana-rental-fleet-actions .button {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.jacana-highlights-map-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.jacana-map-canvas {
+    border-radius: 4px;
+    border: 1px solid var(--jacana-line);
+    position: relative;
+    overflow: hidden;
+    background: #dfe8eb;
+    align-self: start;
+}
+
+/* ============================================================
+   Highlights Map Widget — Premium Upgrade
+   ============================================================ */
+
+.jacana-highlights-map .jacana-map-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 52px;
+}
+
+.jacana-highlights-map .jacana-tailor-story-kicker {
+    justify-content: center;
+    border-left: none;
+    padding-left: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.jacana-highlights-map .jacana-tailor-story-kicker::before,
+.jacana-highlights-map .jacana-tailor-story-kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200, 155, 83, 0.5), transparent);
+    max-width: 48px;
+}
+
+.jacana-map-heading {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(28px, 3vw, 46px);
+    line-height: 1.14;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 0.6em;
+}
+
+.jacana-map-intro {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0;
+}
+
+/* ── Panel + Map Grid ── */
+.jacana-highlights-map-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.05fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 44px;
+}
+
+.jacana-map-canvas {
+    border-radius: 12px;
+    border: 1px solid var(--jacana-line, rgba(45, 36, 22, 0.1));
+    position: relative;
+    overflow: hidden;
+    background: #e8dfd0;
+    box-shadow: 0 16px 40px rgba(45, 36, 22, 0.06);
+}
+
+.jacana-map-canvas.is-empty {
+    min-height: 480px;
+    background: linear-gradient(180deg, rgba(157, 203, 223, 0.2), rgba(219, 151, 81, 0.12));
+}
+
+.jacana-map-base-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.jacana-map-canvas::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(45, 36, 22, 0.05), transparent);
+    pointer-events: none;
+}
+
+/* ── Hotspots Premium Upgrade ── */
+.jacana-map-hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: 50%;
+}
+
+.jacana-map-hotspot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #a66a2f);
+    border: 2px solid #fff;
+    box-shadow: 0 4px 12px rgba(45, 36, 22, 0.25);
+    transition: transform 0.3s cubic-bezier(0.22, 0.68, 0.2, 1), border-color 0.3s ease;
+    z-index: 2;
+}
+
+/* Pulsing outer ring */
+.jacana-map-hotspot::after {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    border: 1px solid var(--jacana-dunes, #db9751);
+    opacity: 0;
+    pointer-events: none;
+    animation: jacanaHotspotPulse 2.8s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+    z-index: 1;
+}
+
+/* Stagger pulse animations based on DOM order */
+.jacana-map-hotspot:nth-child(even)::after {
+    animation-delay: 1.4s;
+}
+
+@keyframes jacanaHotspotPulse {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+.jacana-map-hotspot:hover::before,
+.jacana-map-hotspot.is-active::before {
+    transform: scale(1.3);
+    border-color: var(--jacana-sky, #9dcbdf);
+}
+
+.jacana-map-hotspot.is-active::after {
+    animation: none;
+    inset: -6px;
+    opacity: 1;
+    border: 2px solid var(--jacana-sky, #9dcbdf);
+    transform: scale(1);
+    background: rgba(157, 203, 223, 0.15);
+}
+
+/* ── Hotspot Tooltip Label ── */
+.jacana-hotspot-label {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: var(--jacana-earth, #2d2416);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.22, 0.68, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(45, 36, 22, 0.25);
+    z-index: 10;
+}
+
+.jacana-hotspot-label::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--jacana-earth, #2d2416) transparent transparent transparent;
+}
+
+.jacana-map-hotspot:hover .jacana-hotspot-label,
+.jacana-map-hotspot.is-active .jacana-hotspot-label {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ── Map Panel ── */
+.jacana-map-fallback {
+    margin: 0;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: rgba(45, 36, 22, 0.6);
+    z-index: 1;
+    text-align: center;
+    padding: 24px;
+}
+
+.jacana-map-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 12px;
+    border: 1px solid var(--jacana-line, rgba(45, 36, 22, 0.14));
+    background: #fff;
+    box-shadow:
+        0 8px 18px rgba(45, 36, 22, 0.04),
+        0 24px 50px rgba(45, 36, 22, 0.08);
+    overflow: hidden;
+    height: 100%;
+    min-height: 480px;
+}
+
+.jacana-map-panel-media {
+    position: relative;
+    background: #e8dfd0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.jacana-map-panel-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    z-index: 1;
+}
+
+.jacana-map-panel-image.is-visible {
+    display: block;
+}
+
+.jacana-map-panel-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(12, 10, 9, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 24px 28px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.jacana-map-panel-media-title {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 26px;
+    color: #1c140f !important;
+    margin: 0;
+    line-height: 1.15;
+    background: rgba(255, 250, 228, 0.5);
+    padding: 8px 14px;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(12, 10, 9, 0.18);
+    text-shadow: none;
+    max-width: 92%;
+}
+
+.jacana-map-panel-video[hidden] {
+    display: none;
+}
+
+.jacana-map-panel-video {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+.jacana-map-panel-video iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border: 0;
+    display: block;
+}
+
+.jacana-map-panel-body {
+    padding: 28px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.jacana-map-panel-teaser {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--jacana-dunes, #db9751);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.jacana-map-panel-description {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0;
+}
+
+.jacana-map-actions {
+    padding: 0 28px 28px;
+    margin-top: auto;
+}
+
+.jacana-map-actions .button {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ── Places Pill List ── */
+.jacana-map-places {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.jacana-map-place-pill {
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--jacana-earth, #2d2416);
+    background: rgba(45, 36, 22, 0.04);
+    border: 1px solid rgba(45, 36, 22, 0.08);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.jacana-map-place-pill:hover,
+.jacana-map-place-pill.is-active {
+    background: rgba(219, 151, 81, 0.12);
+    border-color: var(--jacana-dunes, #db9751);
+    color: #a66a2f;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .jacana-highlights-map-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-map-panel {
+        min-height: auto;
+    }
+}
+
+.jacana-faq-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 24px;
+}
+
+.jacana-faq-side h4 {
+    margin: 22px 0 10px;
+}
+
+.jacana-download-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 9px;
+}
+
+.jacana-download-list a {
+    color: var(--jacana-earth);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.jacana-faq-search {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.jacana-faq-search span {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(45, 36, 22, 0.68);
+}
+
+.jacana-faq-list {
+    display: grid;
+    gap: 12px;
+}
+
+.jacana-faq-item {
+    border: 1px solid var(--jacana-line);
+    background: var(--jacana-warm-sand);
+    border-radius: 4px;
+    padding: 12px 14px;
+}
+
+.jacana-faq-item summary {
+    cursor: pointer;
+    color: var(--jacana-earth);
+    font-weight: 600;
+}
+
+.jacana-faq-item[hidden] {
+    display: none;
+}
+
+.jacana-faq-answer p {
+    margin: 10px 0 0;
+}
+
+.jacana-social-proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.jacana-social-feed h3 {
+    margin-bottom: 12px;
+}
+
+.jacana-social-embed {
+    border: 1px solid var(--jacana-line);
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 12px;
+    background: #fff;
+}
+
+.jacana-social-reviews {
+    display: grid;
+    gap: 14px;
+}
+
+.jacana-review-card {
+    padding: 20px;
+}
+
+.jacana-review-rating {
+    color: var(--jacana-dunes);
+    font-size: 15px;
+    letter-spacing: 0.18em;
+}
+
+.jacana-review-copy {
+    margin: 8px 0 12px;
+}
+
+.jacana-review-meta {
+    margin: 0;
+    display: grid;
+    gap: 2px;
+    color: rgba(45, 36, 22, 0.78);
+}
+
+.jacana-review-meta span {
+    font-size: 13px;
+}
+
+.jacana-review-feedback {
+    width: fit-content;
+}
+
+/* ============================================
+   Jacana Gallery Hero Widget - Premium Enhanced
+   ============================================ */
+
+/* === Base Widget Styles === */
+.jacana-gallery-hero-widget {
+    position: relative;
+    padding: clamp(64px, 9vw, 120px) 0;
+    background: linear-gradient(135deg, #1a1612, #2d2419);
+    overflow: hidden;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+/* === Animated Background Layer === */
+.jacana-gallery-hero-bg-layer {
+    position: absolute;
+    inset: -10%;
+    background:
+        linear-gradient(180deg, rgba(12, 10, 9, 0.65) 0%, rgba(12, 10, 9, 0.35) 50%, rgba(12, 10, 9, 0.75) 100%),
+        var(--jacana-gallery-hero-bg, linear-gradient(135deg, #6b7f87, #3e2d1b));
+    background-size: cover;
+    background-position: center;
+    transform-origin: center;
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
+
+.jacana-gallery-hero-widget.has-parallax .jacana-gallery-hero-bg-layer {
+    animation: subtle-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.08);
+    }
+}
+
+/* === Gradient Overlays === */
+.jacana-gallery-hero-widget::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 60% at 15% 20%, rgba(157, 203, 223, 0.22), transparent 65%),
+        radial-gradient(ellipse 70% 70% at 88% 75%, rgba(219, 151, 81, 0.18), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(157, 203, 223, 0.05), transparent);
+    pointer-events: none;
+    animation: gradient-shift 15s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* === Floating Particles === */
+.jacana-hero-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(157, 203, 223, 0.8), transparent);
+    opacity: 0;
+    animation: float-particle 12s infinite ease-in-out;
+}
+
+.particle-1 {
+    left: 10%;
+    top: 15%;
+    animation-delay: 0s;
+    animation-duration: 14s;
+}
+
+.particle-2 {
+    left: 85%;
+    top: 25%;
+    animation-delay: 2s;
+    animation-duration: 16s;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.7), transparent);
+}
+
+.particle-3 {
+    left: 45%;
+    top: 60%;
+    animation-delay: 4s;
+    animation-duration: 18s;
+}
+
+.particle-4 {
+    left: 75%;
+    top: 80%;
+    animation-delay: 6s;
+    animation-duration: 15s;
+}
+
+.particle-5 {
+    left: 20%;
+    top: 70%;
+    animation-delay: 3s;
+    animation-duration: 17s;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.6), transparent);
+}
+
+@keyframes float-particle {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.2);
+    }
+}
+
+/* === Section Inner === */
+.jacana-gallery-hero-widget .section-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* === Main Grid Layout === */
+.jacana-gallery-hero-shell {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+/* === Glass Cards Base === */
+.jacana-gallery-hero-copy,
+.jacana-gallery-hero-media {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+        0 32px 64px rgba(10, 8, 7, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    /* backdrop-filter: blur(12px); */
+    position: relative;
+    overflow: hidden;
+}
+
+.jacana-gallery-hero-copy::before,
+.jacana-gallery-hero-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 40%,
+            transparent 60%,
+            rgba(255, 255, 255, 0.04) 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.jacana-gallery-hero-copy:hover::before,
+.jacana-gallery-hero-media:hover::before {
+    opacity: 1;
+}
+
+/* === Copy Section === */
+.jacana-gallery-hero-copy {
+    background: linear-gradient(135deg,
+            rgba(14, 12, 10, 0.35) 0%,
+            rgba(18, 15, 12, 0.25) 100%);
+    padding: clamp(28px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* === Kicker === */
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(157, 203, 223, 0.95);
+    padding: 8px 14px;
+    background: linear-gradient(135deg,
+            rgba(157, 203, 223, 0.12),
+            rgba(157, 203, 223, 0.08));
+    border: 1px solid rgba(157, 203, 223, 0.2);
+    border-radius: 8px;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-kicker::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    animation: kicker-shine 3s infinite;
+}
+
+@keyframes kicker-shine {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 200%;
+    }
+}
+
+.kicker-icon {
+    display: inline-flex;
+    color: rgba(157, 203, 223, 1);
+    animation: icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+    }
+}
+
+/* === Title === */
+.jacana-gallery-hero-copy h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    max-width: 16ch;
+    color: #fff !important;
+    font-weight: 700;
+    text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.3),
+        0 12px 32px rgba(0, 0, 0, 0.2);
+    position: relative;
+    letter-spacing: -0.02em;
+}
+
+.title-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent);
+    transform: skewX(-20deg);
+    animation: title-shimmer 4s infinite;
+    animation-delay: 1s;
+}
+
+@keyframes title-shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+/* === Copy Text === */
+.jacana-gallery-hero-copy p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 55ch;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    line-height: 1.7;
+}
+
+/* === Highlights List === */
+.jacana-gallery-hero-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    display: grid;
+    gap: 12px;
+}
+
+.jacana-gallery-hero-list li {
+    position: relative;
+    padding-left: 26px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 15px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.jacana-gallery-hero-list li:hover {
+    color: rgba(255, 255, 255, 1);
+    transform: translateX(4px);
+}
+
+.jacana-gallery-hero-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,
+            var(--jacana-sky, #9dcbdf),
+            var(--jacana-dunes, #db9751));
+    box-shadow:
+        0 0 0 4px rgba(157, 203, 223, 0.2),
+        0 0 12px rgba(157, 203, 223, 0.4);
+    animation: dot-pulse 2s ease-in-out infinite;
+}
+
+.jacana-gallery-hero-list li:nth-child(2)::before {
+    animation-delay: 0.3s;
+}
+
+.jacana-gallery-hero-list li:nth-child(3)::before {
+    animation-delay: 0.6s;
+}
+
+@keyframes dot-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 6px rgba(157, 203, 223, 0.3), 0 0 16px rgba(157, 203, 223, 0.6);
+    }
+}
+
+/* === Action Buttons === */
+.jacana-gallery-hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.jacana-button-premium {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+            var(--jacana-dunes, #db9751) 0%,
+            #c07a30 100%);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow:
+        0 4px 18px rgba(219, 151, 81, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.jacana-button-premium:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #e8a45e 0%, #cc8535 100%);
+    box-shadow:
+        0 10px 28px rgba(219, 151, 81, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.jacana-button-premium:active {
+    transform: translateY(0);
+}
+
+.jacana-button-premium:focus-visible {
+    outline: 3px solid var(--jacana-sky, #9dcbdf);
+    outline-offset: 3px;
+}
+
+.button-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    transform: skewX(-25deg);
+}
+
+.jacana-button-premium:hover .button-shine {
+    animation: button-shine 0.8s ease;
+}
+
+@keyframes button-shine {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-button-soft {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.jacana-button-soft:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(157, 203, 223, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.jacana-button-soft:focus-visible {
+    outline: 3px solid var(--jacana-sky, #9dcbdf);
+    outline-offset: 3px;
+}
+
+/* === Stats Grid === */
+.jacana-gallery-hero-stats {
+    margin-top: auto;
+    padding-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.jacana-gallery-stat {
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.10) 0%,
+            rgba(255, 255, 255, 0.06) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px 14px;
+    display: grid;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.jacana-gallery-stat:hover {
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(255, 255, 255, 0.08) 100%);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.stat-glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle,
+            rgba(157, 203, 223, 0.3),
+            transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.jacana-gallery-stat:hover .stat-glow {
+    opacity: 1;
+    animation: stat-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes stat-glow-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+}
+
+.stat-value {
+    color: #fff;
+    line-height: 1.1;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+}
+
+/* === Media Section === */
+.jacana-gallery-hero-media {
+    background: linear-gradient(135deg,
+            rgba(12, 10, 9, 0.35) 0%,
+            rgba(18, 15, 12, 0.25) 100%);
+    padding: 20px;
+    display: grid;
+    gap: 16px;
+}
+
+/* === Panel === */
+.jacana-gallery-hero-panel {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: linear-gradient(135deg,
+            rgba(12, 10, 9, 0.4),
+            rgba(18, 15, 12, 0.3));
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.jacana-gallery-hero-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(157, 203, 223, 0.5),
+            transparent);
+}
+
+.jacana-gallery-hero-panel-title {
+    color: rgba(157, 203, 223, 0.95);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.jacana-gallery-hero-panel p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* === Accent Images Grid === */
+.jacana-gallery-hero-accent-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 14px;
+    align-items: stretch;
+}
+
+.jacana-gallery-hero-accent {
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    min-height: 220px;
+    height: 220px;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jacana-gallery-hero-accent.is-large {
+    grid-row: span 1;
+    min-height: 220px;
+    height: 220px;
+}
+
+.jacana-gallery-hero-accent:hover {
+    transform: scale(1.03);
+    z-index: 2;
+}
+
+.accent-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.jacana-gallery-hero-accent img,
+.jacana-gallery-hero-accent-placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: inherit;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jacana-gallery-hero-accent:hover img {
+    transform: scale(1.08);
+}
+
+.jacana-gallery-hero-accent-placeholder {
+    background: linear-gradient(135deg,
+            rgba(157, 203, 223, 0.22),
+            rgba(219, 151, 81, 0.18));
+    animation: placeholder-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes placeholder-shimmer {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* === Accent Overlay === */
+.accent-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(12, 10, 9, 0.1) 0%,
+            rgba(12, 10, 9, 0.6) 100%);
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.jacana-gallery-hero-accent:hover .accent-overlay {
+    opacity: 0.7;
+}
+
+/* === Decorative Corners === */
+.accent-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.accent-corner-tl {
+    top: 8px;
+    left: 8px;
+    border-top: 2px solid rgba(157, 203, 223, 0.8);
+    border-left: 2px solid rgba(157, 203, 223, 0.8);
+}
+
+.accent-corner-br {
+    bottom: 8px;
+    right: 8px;
+    border-bottom: 2px solid rgba(219, 151, 81, 0.8);
+    border-right: 2px solid rgba(219, 151, 81, 0.8);
+}
+
+.jacana-gallery-hero-accent:hover .accent-corner {
+    opacity: 1;
+}
+
+/* === Figcaption === */
+.jacana-gallery-hero-accent figcaption {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jacana-gallery-hero-accent:hover figcaption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.caption-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,
+            var(--jacana-sky, #9dcbdf),
+            var(--jacana-dunes, #db9751));
+    animation: caption-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes caption-dot-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+/* ============================================
+   Reveal Animations
+   ============================================ */
+
+.jacana-reveal {
+    opacity: 0;
+    animation: reveal-fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: var(--jacana-delay, 0ms);
+}
+
+@keyframes reveal-fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.jacana-reveal-scale {
+    animation-name: reveal-scale-up;
+}
+
+@keyframes reveal-scale-up {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(24px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.jacana-reveal-right {
+    animation-name: reveal-slide-left;
+}
+
+@keyframes reveal-slide-left {
+    0% {
+        opacity: 0;
+        transform: translateX(48px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.jacana-reveal-zoom {
+    animation-name: reveal-zoom;
+}
+
+@keyframes reveal-zoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.jacana-reveal-stagger>* {
+    opacity: 0;
+    animation: reveal-fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.jacana-reveal-stagger>*:nth-child(1) {
+    animation-delay: calc(var(--jacana-delay, 0ms) + 0ms);
+}
+
+.jacana-reveal-stagger>*:nth-child(2) {
+    animation-delay: calc(var(--jacana-delay, 0ms) + 100ms);
+}
+
+.jacana-reveal-stagger>*:nth-child(3) {
+    animation-delay: calc(var(--jacana-delay, 0ms) + 200ms);
+}
+
+/* ============================================
+   Responsive Styles
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .jacana-gallery-hero-shell {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .jacana-gallery-hero-copy h1 {
+        max-width: 100%;
+    }
+
+    .jacana-gallery-hero-accent-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .jacana-gallery-hero-accent.is-large {
+        grid-row: span 1;
+        min-height: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jacana-gallery-hero-widget {
+        padding: clamp(40px, 8vw, 60px) 0;
+        min-height: auto;
+    }
+
+    .jacana-gallery-hero-stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .jacana-gallery-hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .jacana-gallery-hero-actions .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .jacana-gallery-hero-accent {
+        min-height: 160px;
+        height: 160px;
+    }
+
+    .jacana-gallery-hero-accent.is-large {
+        min-height: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .jacana-gallery-hero-copy,
+    .jacana-gallery-hero-media {
+        padding: 20px;
+    }
+
+    .jacana-gallery-hero-accent-grid {
+        gap: 10px;
+    }
+
+    .hero-kicker {
+        font-size: 10px;
+    }
+}
+
+/* ============================================
+   Accessibility & Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .jacana-gallery-hero-widget *,
+    .jacana-gallery-hero-widget *::before,
+    .jacana-gallery-hero-widget *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .jacana-gallery-hero-bg-layer {
+        transform: none !important;
+    }
+
+    .particle {
+        display: none;
+    }
+}
+
+/* Focus styles for accessibility */
+.jacana-gallery-hero-widget a:focus-visible,
+.jacana-gallery-hero-widget button:focus-visible {
+    outline: 2px solid var(--jacana-sky, #9dcbdf);
+    outline-offset: 4px;
+}
+
+.jacana-gallery-grid-widget .section-header {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.jacana-gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 20px;
+}
+
+.jacana-gallery-filter {
+    border: 1px solid rgba(45, 36, 22, 0.14);
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--jacana-earth);
+    border-radius: 999px;
+    padding: 9px 12px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.jacana-gallery-filter:hover,
+.jacana-gallery-filter:focus-visible {
+    transform: translateY(-1px);
+    border-color: rgba(45, 36, 22, 0.22);
+    outline: none;
+}
+
+.jacana-gallery-filter.is-active {
+    background: linear-gradient(135deg, var(--jacana-earth), #3f3424);
+    color: #fff;
+    border-color: rgba(45, 36, 22, 0.32);
+}
+
+.jacana-gallery-curated-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.jacana-gallery-card {
+    grid-column: span 4;
+    min-width: 0;
+}
+
+.jacana-gallery-card[hidden] {
+    display: none !important;
+}
+
+.jacana-gallery-card--wide,
+.jacana-gallery-card--featured {
+    grid-column: span 8;
+}
+
+.jacana-gallery-card-button {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(45, 36, 22, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1a1510;
+    padding: 0;
+    box-shadow: 0 12px 28px rgba(34, 26, 13, 0.08);
+    transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+}
+
+.jacana-gallery-card-button:hover,
+.jacana-gallery-card-button:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 40px rgba(34, 26, 13, 0.14);
+    border-color: rgba(45, 36, 22, 0.2);
+    outline: none;
+}
+
+.jacana-gallery-card-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 18%, rgba(255, 255, 255, 0.14) 34%, transparent 50%);
+    transform: translateX(-130%);
+    transition: transform 0.7s ease;
+}
+
+.jacana-gallery-card-button:hover::before,
+.jacana-gallery-card-button:focus-visible::before {
+    transform: translateX(130%);
+}
+
+.jacana-gallery-media {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.jacana-gallery-card--wide .jacana-gallery-media,
+.jacana-gallery-card--featured .jacana-gallery-media {
+    aspect-ratio: 16 / 9;
+}
+
+.jacana-gallery-card--tall .jacana-gallery-media {
+    aspect-ratio: 3 / 4;
+}
+
+.jacana-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.01);
+    transition: transform 0.55s ease, filter 0.35s ease;
+    filter: saturate(0.98);
+}
+
+.jacana-gallery-card-button:hover .jacana-gallery-media img,
+.jacana-gallery-card-button:focus-visible .jacana-gallery-media img {
+    transform: scale(1.06);
+    filter: saturate(1.05);
+}
+
+.jacana-gallery-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0.05) 10%, rgba(12, 10, 9, 0.3) 52%, rgba(12, 10, 9, 0.84) 100%);
+    pointer-events: none;
+}
+
+.jacana-gallery-card-meta {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2;
+    display: grid;
+    gap: 4px;
+    color: #fff;
+    transform: translateY(2px);
+    transition: transform 0.28s ease;
+}
+
+.jacana-gallery-card-button:hover .jacana-gallery-card-meta,
+.jacana-gallery-card-button:focus-visible .jacana-gallery-card-meta {
+    transform: translateY(0);
+}
+
+.jacana-gallery-card-meta strong {
+    line-height: 1.15;
+    font-size: 15px;
+    font-weight: 600;
+    text-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+}
+
+.jacana-gallery-card-meta em {
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.jacana-gallery-card-meta small {
+    display: none;
+}
+
+.jacana-gallery-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.jacana-gallery-card-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 4px 7px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(12, 10, 9, 0.16);
+    color: #fff;
+    font-size: 9px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+    opacity: 0.9;
+}
+
+.jacana-gallery-card-pill.is-video {
+    background: rgba(219, 151, 81, 0.14);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+/* Responsive: 3 columns on tablets */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Responsive: 2 columns on mobile landscape */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive: 1 column on small mobile */
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gallery-item {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, #c9b28d, #7b5a3a);
+    display: flex;
+    align-items: flex-end;
+    padding: 14px;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.gallery-item.has-image {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+    isolation: isolate;
+}
+
+.gallery-item.has-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0) 40%, rgba(12, 10, 9, 0.65));
+    z-index: 0;
+}
+
+.gallery-label {
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.pricing-table th {
+    background: #f7f2e8;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input,
+textarea,
+select {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(45, 36, 22, 0.18);
+    background: var(--jacana-warm-sand, #f5f1e8);
+    color: var(--jacana-earth, #2d2416);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: rgba(45, 36, 22, 0.32);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--jacana-dunes, #db9751);
+    box-shadow: 0 0 0 3px rgba(219, 151, 81, 0.18);
+    background: #fff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(45, 36, 22, 0.42);
+}
+
+/* ── Oshiwambo / Ondelela stripe divider ── */
+.oshi-divider {
+    height: 6px;
+    width: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink)      0px,
+        var(--oshi-pink)      10px,
+        var(--oshi-black)     10px,
+        var(--oshi-black)     12px,
+        var(--oshi-red)       12px,
+        var(--oshi-red)       18px,
+        var(--oshi-dark-pink) 18px,
+        var(--oshi-dark-pink) 25px,
+        var(--oshi-black)     25px,
+        var(--oshi-black)     27px
+    );
+    flex-shrink: 0;
+}
+
+/* ── Footer ── */
+footer {
+    background: #0e0c0a;
+    color: rgba(243, 239, 232, 0.8);
+    padding: 0;
+}
+
+.footer-oshi {
+    /* inherits .oshi-divider */
+}
+
+.footer-body {
+    padding: 56px var(--content-pad) 36px;
+}
+
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    gap: 48px;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    align-items: start;
+}
+
+.footer-brand-col {}
+
+.footer-logo-link {
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.footer-logo-img {
+    height: 64px;
+    width: auto;
+    display: block;
+}
+
+.footer-tagline {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(243, 239, 232, 0.65);
+    max-width: 280px;
+    margin: 0 0 24px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(243, 239, 232, 0.75);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+.footer-social-link svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.footer-links-col h4,
+.footer-contact-col h4 {
+    font-family: "Sora", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(243, 239, 232, 0.45);
+    margin: 0 0 18px;
+}
+
+.footer-links-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links-col ul a {
+    font-size: 13.5px;
+    color: rgba(243, 239, 232, 0.78);
+    transition: color 0.18s ease;
+}
+
+.footer-links-col ul a:hover,
+.footer-links-col ul a:focus-visible {
+    color: var(--jacana-dunes);
+}
+
+.footer-contact-col address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-contact-col a {
+    font-size: 13.5px;
+    color: rgba(243, 239, 232, 0.78);
+    transition: color 0.18s ease;
+}
+
+.footer-contact-col a:hover,
+.footer-contact-col a:focus-visible {
+    color: var(--jacana-dunes);
+}
+
+.footer-contact-cta {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--jacana-dunes);
+    border: 1px solid var(--jacana-dunes);
+    padding: 10px 18px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-contact-cta:hover,
+.footer-contact-cta:focus-visible {
+    background: var(--jacana-dunes);
+    color: var(--jacana-earth);
+}
+
+.footer-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 18px var(--content-pad);
+}
+
+.footer-bar-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    font-size: 11.5px;
+    color: rgba(243, 239, 232, 0.35);
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 860px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+    }
+
+    .footer-brand-col {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 540px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand-col {
+        grid-column: auto;
+    }
+}
+
+.footer-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.destinations-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.destination-pill {
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tour-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.tour-gallery-item {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-sm);
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow-soft);
+    opacity: 1;
+    transform: none;
+    animation: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.tour-gallery-item.jacana-reveal {
+    opacity: 0;
+}
+
+.tour-gallery-button {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Curated gallery cards use the same button class for lightbox hooks, but must stay in normal flow. */
+.jacana-gallery-grid-widget .tour-gallery-button.jacana-gallery-card-button {
+    position: relative;
+    inset: auto;
+    display: block;
+    align-items: initial;
+    justify-content: initial;
+}
+
+.tour-gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0) 30%, rgba(12, 10, 9, 0.75));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tour-gallery-item:hover::after {
+    opacity: 1;
+}
+
+.tour-gallery-caption {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 16px 16px;
+    color: #f7f2e8;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tour-gallery-item:hover .tour-gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 8, 7, 0.86);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-inner {
+    max-width: min(960px, 92vw);
+    max-height: 88vh;
+    display: grid;
+    gap: 16px;
+    justify-items: center;
+}
+
+.lightbox-meta {
+    display: grid;
+    gap: 8px;
+    justify-items: center;
+}
+
+.lightbox-media {
+    max-width: min(1100px, 92vw);
+    width: 100%;
+    display: grid;
+    justify-items: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 76vh;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.lightbox-image[hidden] {
+    display: none;
+}
+
+.lightbox-video-wrap {
+    width: min(1100px, 92vw);
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.lightbox-video-wrap[hidden] {
+    display: none;
+}
+
+.lightbox-video {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.lightbox-title {
+    color: #f7f2e8;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+}
+
+.lightbox-desc {
+    color: rgba(247, 242, 232, 0.86);
+    max-width: min(920px, 92vw);
+    text-align: center;
+    line-height: 1.45;
+}
+
+.lightbox-counter {
+    color: rgba(247, 242, 232, 0.66);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(247, 242, 232, 0.34);
+    background: rgba(12, 10, 9, 0.55);
+    color: #f7f2e8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.lightbox.has-nav .lightbox-nav {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-nav:hover,
+.lightbox-nav:focus-visible {
+    background: rgba(12, 10, 9, 0.76);
+    border-color: rgba(247, 242, 232, 0.5);
+    outline: none;
+}
+
+.lightbox-prev:hover,
+.lightbox-prev:focus-visible {
+    transform: translateY(-50%) translateX(-2px);
+}
+
+.lightbox-next:hover,
+.lightbox-next:focus-visible {
+    transform: translateY(-50%) translateX(2px);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(247, 242, 232, 0.7);
+    background: rgba(12, 10, 9, 0.82);
+    color: #f7f2e8;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10002;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+    transform: scale(1.05);
+    background: rgba(12, 10, 9, 0.94);
+    border-color: rgba(247, 242, 232, 0.95);
+    outline: none;
+}
+
+.tour-gallery-item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.tour-gallery-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.tour-gallery-item:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.tour-gallery-item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.tour-gallery-item:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.tour-gallery-item:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.tour-gallery-item:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.tour-gallery-item:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.tour-gallery-item:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+@keyframes galleryFade {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.jacana-insight-wrapper {
+    max-width: var(--max-width);
+    margin: 24px auto 0;
+    padding: 0 var(--content-pad);
+}
+
+.jacana-insight-card {
+    background: rgba(15, 12, 10, 0.92);
+    border-radius: 18px;
+    padding: 20px 22px;
+    color: #f7f2e8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-soft);
+}
+
+.jacana-insight-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+.jacana-insight-title {
+    font-size: 22px;
+    margin: 8px 0 6px;
+}
+
+.jacana-insight-body {
+    color: rgba(247, 242, 232, 0.8);
+    margin-bottom: 12px;
+}
+
+.jacana-insight-cta {
+    border: none;
+    border-radius: 999px;
+    padding: 10px 16px;
+    background: linear-gradient(120deg, #c89b53, #9e6c33);
+    color: #0f0c0a;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.fullwidth-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.fullwidth-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-masonry {
+    column-count: 3;
+    column-gap: 16px;
+}
+
+.gallery-masonry-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft);
+    background-size: cover;
+    background-position: center;
+    min-height: 220px;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: galleryFade 0.8s ease forwards;
+}
+
+.gallery-masonry-item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.gallery-masonry-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.gallery-masonry-item:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.gallery-masonry-item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.gallery-masonry-item:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.gallery-masonry-item:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.gallery-masonry-item:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.gallery-masonry-item:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.gallery-masonry-item:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+@media (max-width: 960px) {
+
+    .hero-inner,
+    .split,
+    .contact-grid,
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-inner {
+        padding: 110px var(--content-pad) 80px;
+    }
+
+    .tour-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fullwidth-panel {
+        flex-direction: column;
+    }
+
+    .gallery-masonry {
+        column-count: 2;
+    }
+
+    .jacana-gallery-hero-shell,
+    .jacana-gallery-hero-accent-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-gallery-hero-accent.is-large {
+        min-height: 220px;
+    }
+
+    .jacana-gallery-curated-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .jacana-gallery-card,
+    .jacana-gallery-card--wide,
+    .jacana-gallery-card--tall,
+    .jacana-gallery-card--featured {
+        grid-column: span 3;
+    }
+
+    .jacana-team-profiles .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .jacana-tailor-story-grid,
+    .jacana-highlights-map-grid,
+    .jacana-faq-layout,
+    .jacana-social-proof-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-map-canvas.is-empty {
+        min-height: 360px;
+    }
+}
+
+@media (max-width: 780px) {
+    .header-inner {
+        grid-template-columns: 1fr auto;
+        padding: 12px var(--content-pad);
+    }
+
+    .header-actions {
+        gap: 8px;
+    }
+
+    .header-cta {
+        font-size: 10px;
+        padding: 8px 12px;
+        letter-spacing: 0.14em;
+    }
+
+    .primary-nav {
+        display: none;
+    }
+
+    .jacana-gallery-hero-copy {
+        padding: 18px;
+    }
+
+    .jacana-gallery-hero-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-gallery-curated-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .jacana-gallery-card,
+    .jacana-gallery-card--wide,
+    .jacana-gallery-card--tall,
+    .jacana-gallery-card--featured {
+        grid-column: span 1;
+    }
+
+    .jacana-gallery-media,
+    .jacana-gallery-card--wide .jacana-gallery-media,
+    .jacana-gallery-card--featured .jacana-gallery-media,
+    .jacana-gallery-card--tall .jacana-gallery-media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .primary-nav.is-open {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: absolute;
+        right: 0;
+        top: 70px;
+        background: rgba(15, 12, 10, 0.95);
+        padding: 18px 20px;
+        border-radius: 16px;
+        box-shadow: var(--shadow-soft);
+        min-width: 240px;
+        z-index: 120;
+    }
+
+    .primary-nav.is-open ul {
+        flex-direction: column;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .primary-nav li {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .primary-nav a {
+        width: 100%;
+    }
+
+    .primary-nav .sub-menu {
+        position: static;
+        min-width: unset;
+        background: transparent;
+        border: none;
+        padding: 0 0 0 12px;
+        box-shadow: none;
+        opacity: 1;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        pointer-events: auto;
+    }
+
+    .primary-nav li.is-open>.sub-menu {
+        max-height: 400px;
+    }
+
+    .primary-nav .sub-menu a {
+        padding: 6px 8px;
+        text-transform: none;
+        letter-spacing: 0.08em;
+        font-size: 12px;
+    }
+
+    .submenu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    .hero-inner {
+        padding: 100px var(--content-pad) 70px;
+    }
+
+    .hero-dots {
+        right: auto;
+        left: var(--content-pad);
+        bottom: 20px;
+    }
+
+    .tour-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-masonry {
+        column-count: 1;
+    }
+
+    .jacana-team-profiles .team-content {
+        padding: 20px 18px 18px;
+    }
+
+    .jacana-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-map-hotspot {
+        width: 20px;
+        height: 20px;
+    }
+
+    .jacana-map-hotspot::before,
+    .jacana-map-hotspot::after {
+        inset: -8px;
+    }
+
+    .jacana-map-actions {
+        flex-direction: column;
+    }
+
+    .jacana-map-actions .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .lightbox-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 21px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 46px;
+        height: 46px;
+        font-size: 24px;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeInUp 0.9s ease forwards;
+}
+
+.fade-delay-1 {
+    animation-delay: 0.15s;
+}
+
+.fade-delay-2 {
+    animation-delay: 0.3s;
+}
+
+.fade-delay-3 {
+    animation-delay: 0.45s;
+}
+
+/* Gallery hero accent tiles: keep them uniform when multiple, full-width when single */
+.jacana-gallery-hero-accent-grid.is-multi {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.jacana-gallery-hero-accent-grid.is-multi .jacana-gallery-hero-accent,
+.jacana-gallery-hero-accent-grid.is-multi .jacana-gallery-hero-accent.is-large {
+    grid-row: span 1 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+}
+
+.jacana-gallery-hero-accent-grid.is-single {
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.jacana-gallery-hero-accent-grid.is-single .jacana-gallery-hero-accent,
+.jacana-gallery-hero-accent-grid.is-single .jacana-gallery-hero-accent.is-large {
+    grid-row: span 1 !important;
+    width: 100%;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10;
+}
+
+.jacana-gallery-hero-accent-grid.is-multi .accent-image-wrapper,
+.jacana-gallery-hero-accent-grid.is-single .accent-image-wrapper {
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .jacana-gallery-hero-accent-grid.is-multi {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-gallery-hero-accent-grid.is-multi .jacana-gallery-hero-accent,
+    .jacana-gallery-hero-accent-grid.is-multi .jacana-gallery-hero-accent.is-large,
+    .jacana-gallery-hero-accent-grid.is-single .jacana-gallery-hero-accent,
+    .jacana-gallery-hero-accent-grid.is-single .jacana-gallery-hero-accent.is-large {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Booking page widgets */
+.jacana-booking-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(circle at 18% 15%, rgba(255, 250, 228, 0.28), transparent 45%),
+        radial-gradient(circle at 88% 18%, rgba(157, 203, 223, 0.2), transparent 50%),
+        linear-gradient(180deg, #21160d 0%, #1a120c 55%, #140f0b 100%);
+}
+
+.jacana-booking-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--jacana-booking-hero-bg, none);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.34;
+    transform: scale(1.02);
+    z-index: -2;
+}
+
+.jacana-booking-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(112deg, rgba(13, 9, 6, 0.92) 0%, rgba(15, 11, 8, 0.86) 46%, rgba(15, 11, 8, 0.6) 100%);
+    z-index: -1;
+}
+
+.jacana-booking-hero .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-booking-hero-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    gap: 22px;
+    align-items: stretch;
+}
+
+.jacana-booking-hero-copy,
+.jacana-booking-hero-side-card {
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(180deg, rgba(23, 17, 12, 0.78), rgba(16, 12, 9, 0.82));
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+}
+
+.jacana-booking-hero-copy {
+    padding: 24px;
+    color: #fff;
+}
+
+.jacana-booking-hero-copy h1 {
+    color: #fff;
+    margin: 8px 0 10px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.08;
+    text-wrap: balance;
+}
+
+.jacana-booking-hero-copy>p {
+    margin: 0 0 14px;
+    color: rgba(255, 255, 255, 0.86);
+    max-width: 58ch;
+}
+
+.jacana-booking-hero-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-booking-hero-list li {
+    position: relative;
+    padding: 10px 12px 10px 36px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.jacana-booking-hero-list li::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(219, 151, 81, 0.95);
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 4px rgba(219, 151, 81, 0.18);
+}
+
+.jacana-booking-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.jacana-booking-hero-actions .button {
+    min-height: 46px;
+}
+
+.jacana-booking-hero-side {
+    display: grid;
+}
+
+.jacana-booking-hero-side-card {
+    position: relative;
+    padding: 18px;
+    display: grid;
+    gap: 14px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.jacana-booking-hero-side-card::before {
+    content: "";
+    position: absolute;
+    inset: -25% auto auto -5%;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(157, 203, 223, 0.3), transparent 70%);
+    pointer-events: none;
+}
+
+.jacana-booking-hero-side-head {
+    display: grid;
+    gap: 2px;
+}
+
+.jacana-booking-hero-side-head span {
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.jacana-booking-hero-side-head strong {
+    color: #fff;
+    font-size: 1.05rem;
+}
+
+.jacana-booking-service-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.jacana-booking-service-chips span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: .9rem;
+}
+
+.jacana-booking-hero-stats {
+    display: grid;
+    gap: 10px;
+}
+
+.jacana-booking-hero-stat {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.jacana-booking-hero-stat strong {
+    color: #fffae4;
+    font-size: 1rem;
+    letter-spacing: .02em;
+    white-space: nowrap;
+}
+
+.jacana-booking-hero-stat span {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: .88rem;
+    line-height: 1.35;
+}
+
+.jacana-booking-studio .section-header {
+    margin-bottom: 18px;
+}
+
+.jacana-booking-studio-shell {
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.35fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.jacana-booking-studio-left,
+.jacana-booking-studio-right {
+    display: grid;
+    gap: 14px;
+}
+
+.jacana-booking-panel-card,
+.jacana-booking-selected-service,
+.jacana-booking-form-card,
+.jacana-booking-process-side {
+    border-radius: 16px;
+    border: 1px solid rgba(41, 31, 23, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.88));
+    box-shadow: 0 18px 50px rgba(21, 14, 10, 0.08);
+}
+
+.jacana-booking-panel-card {
+    padding: 14px;
+}
+
+.jacana-booking-panel-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(33, 22, 13, 0.58);
+    margin-bottom: 12px;
+}
+
+.jacana-booking-service-buttons {
+    display: grid;
+    gap: 10px;
+}
+
+.jacana-booking-service-button {
+    position: relative;
+    text-align: left;
+    border: 1px solid rgba(41, 31, 23, 0.08);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.88));
+    border-radius: 14px;
+    padding: 12px;
+    display: grid;
+    gap: 4px;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.jacana-booking-service-button::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    border-radius: 14px 0 0 14px;
+    background: transparent;
+    transition: background .2s ease;
+}
+
+.jacana-booking-service-button strong {
+    color: #1f160f;
+    font-size: .98rem;
+    line-height: 1.2;
+}
+
+.jacana-booking-service-button small {
+    display: block;
+    color: rgba(33, 22, 13, 0.66);
+    line-height: 1.35;
+    font-size: .85rem;
+}
+
+.jacana-booking-service-button:hover,
+.jacana-booking-service-button:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(157, 203, 223, 0.6);
+    box-shadow: 0 10px 26px rgba(22, 16, 12, 0.08);
+    outline: none;
+}
+
+.jacana-booking-service-button.is-active {
+    border-color: rgba(219, 151, 81, 0.36);
+    background:
+        radial-gradient(circle at 90% 12%, rgba(157, 203, 223, 0.16), transparent 42%),
+        linear-gradient(180deg, rgba(255, 250, 228, 0.98), rgba(255, 255, 255, 0.93));
+    box-shadow: 0 14px 30px rgba(24, 17, 12, 0.09);
+}
+
+.jacana-booking-service-button.is-active::before {
+    background: linear-gradient(180deg, #db9751, #9dcbdf);
+}
+
+.jacana-booking-service-tag {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    min-height: 22px;
+    padding: 0 8px;
+    border-radius: 999px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: #5d3d22;
+    background: rgba(219, 151, 81, 0.14);
+    border: 1px solid rgba(219, 151, 81, 0.15);
+}
+
+.jacana-booking-prep-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-booking-prep-list li {
+    position: relative;
+    padding: 9px 10px 9px 30px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.66);
+    border: 1px solid rgba(41, 31, 23, 0.06);
+    color: rgba(33, 22, 13, 0.8);
+}
+
+.jacana-booking-prep-list li::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: radial-gradient(circle, #9dcbdf 10%, #db9751 90%);
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 3px rgba(157, 203, 223, 0.15);
+}
+
+.jacana-booking-meta-notes {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(41, 31, 23, 0.1);
+    display: grid;
+    gap: 6px;
+}
+
+.jacana-booking-meta-notes p {
+    margin: 0;
+    color: rgba(33, 22, 13, 0.68);
+    font-size: .86rem;
+}
+
+.jacana-booking-selected-service {
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.jacana-booking-selected-service::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 92% 10%, rgba(157, 203, 223, 0.2), transparent 38%),
+        radial-gradient(circle at 8% 92%, rgba(219, 151, 81, 0.13), transparent 44%);
+    pointer-events: none;
+}
+
+.jacana-booking-selected-service>* {
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-booking-selected-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.jacana-booking-selected-tag,
+.jacana-booking-rate-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    border-radius: 999px;
+    padding: 0 10px;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.jacana-booking-selected-tag {
+    background: rgba(157, 203, 223, 0.16);
+    color: #24556e;
+}
+
+.jacana-booking-rate-pill {
+    background: rgba(219, 151, 81, 0.12);
+    color: #7a4a1e;
+    border: 1px solid rgba(219, 151, 81, 0.14);
+}
+
+.jacana-booking-selected-service h3 {
+    margin: 10px 0 8px;
+    color: #17110d;
+}
+
+.jacana-booking-selected-summary {
+    margin: 0;
+    color: rgba(33, 22, 13, 0.73);
+}
+
+.jacana-booking-selected-facts {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.jacana-booking-fact {
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(41, 31, 23, 0.07);
+    background: rgba(255, 255, 255, 0.65);
+    display: grid;
+    gap: 4px;
+}
+
+.jacana-booking-fact span {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: rgba(33, 22, 13, 0.52);
+}
+
+.jacana-booking-fact strong {
+    font-size: .9rem;
+    color: #21160d;
+    line-height: 1.3;
+}
+
+.jacana-booking-selected-checklist {
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(41, 31, 23, 0.07);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 250, 228, 0.52));
+}
+
+.jacana-booking-selected-checklist h4 {
+    margin: 0 0 10px;
+    font-size: .93rem;
+    color: #1d140f;
+}
+
+.jacana-booking-selected-checklist ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 7px;
+}
+
+.jacana-booking-selected-checklist li {
+    position: relative;
+    padding-left: 22px;
+    color: rgba(33, 22, 13, 0.82);
+    line-height: 1.35;
+}
+
+.jacana-booking-selected-checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .34em;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 2px solid #9dcbdf;
+    box-shadow: 0 0 0 3px rgba(157, 203, 223, 0.13);
+}
+
+.jacana-booking-form-card {
+    padding: 18px;
+}
+
+.jacana-booking-form-head span {
+    display: inline-flex;
+    margin-bottom: 6px;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(33, 22, 13, 0.56);
+}
+
+.jacana-booking-form-head h3 {
+    margin: 0 0 8px;
+    color: #18120d;
+}
+
+.jacana-booking-form-head p {
+    margin: 0 0 12px;
+    color: rgba(33, 22, 13, 0.68);
+}
+
+.jacana-booking-form-shell {
+    border-radius: 14px;
+    border: 1px solid rgba(41, 31, 23, 0.07);
+    background: rgba(255, 255, 255, 0.72);
+    padding: 14px;
+}
+
+.jacana-booking-form-placeholder {
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 250, 228, 0.88), rgba(255, 255, 255, 0.9));
+    border: 1px dashed rgba(219, 151, 81, 0.35);
+}
+
+.jacana-booking-form-placeholder p {
+    margin: 0;
+    color: rgba(33, 22, 13, 0.75);
+}
+
+.jacana-booking-form-placeholder p+p {
+    margin-top: 8px;
+}
+
+.jacana-booking-form-shell .wpcf7-form,
+.jacana-booking-form-shell form {
+    display: grid;
+    gap: 12px;
+}
+
+.jacana-booking-form-shell input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+.jacana-booking-form-shell select,
+.jacana-booking-form-shell textarea {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(41, 31, 23, 0.14);
+    background: rgba(255, 255, 255, 0.96);
+    min-height: 46px;
+    padding: 0 12px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.jacana-booking-form-shell textarea {
+    min-height: 140px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.jacana-booking-form-shell input:focus,
+.jacana-booking-form-shell select:focus,
+.jacana-booking-form-shell textarea:focus {
+    border-color: rgba(157, 203, 223, 0.85);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(157, 203, 223, 0.18);
+}
+
+.jacana-booking-form-shell input[type="submit"],
+.jacana-booking-form-shell button[type="submit"] {
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    min-height: 46px;
+    padding: 0 16px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #db9751, #c98138);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .02em;
+    box-shadow: 0 12px 26px rgba(181, 111, 36, 0.22);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.jacana-booking-form-shell input[type="submit"]:hover,
+.jacana-booking-form-shell button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(181, 111, 36, 0.28);
+    filter: saturate(1.05);
+}
+
+.jacana-booking-process-timeline {
+    background:
+        radial-gradient(circle at 85% 10%, rgba(157, 203, 223, 0.1), transparent 46%),
+        radial-gradient(circle at 8% 88%, rgba(219, 151, 81, 0.08), transparent 42%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 250, 228, 0.34));
+}
+
+.jacana-booking-process-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.jacana-booking-process-main {
+    min-width: 0;
+}
+
+.jacana-booking-process-header {
+    margin-bottom: 16px;
+}
+
+.jacana-booking-process-rail {
+    display: grid;
+    gap: 12px;
+    position: relative;
+}
+
+.jacana-booking-process-rail::before {
+    content: "";
+    position: absolute;
+    left: 19px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(157, 203, 223, 0.45), rgba(219, 151, 81, 0.3));
+    border-radius: 999px;
+}
+
+.jacana-booking-step-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+}
+
+.jacana-booking-step-index {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #9dcbdf, #db9751);
+    color: #13100c;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(18, 13, 10, 0.12);
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-booking-step-body {
+    border-radius: 14px;
+    border: 1px solid rgba(41, 31, 23, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 14px;
+    box-shadow: 0 10px 24px rgba(17, 13, 10, 0.05);
+}
+
+.jacana-booking-step-body h3 {
+    margin: 0 0 6px;
+    color: #17110d;
+    font-size: 1rem;
+}
+
+.jacana-booking-step-body p {
+    margin: 0;
+    color: rgba(33, 22, 13, 0.7);
+    line-height: 1.42;
+}
+
+.jacana-booking-step-meta {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 9px;
+    min-height: 24px;
+    padding: 0 8px;
+    border-radius: 999px;
+    background: rgba(157, 203, 223, 0.14);
+    color: #28576f;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.jacana-booking-process-side {
+    padding: 16px;
+    position: sticky;
+    top: 96px;
+    display: grid;
+    gap: 12px;
+}
+
+.jacana-booking-process-side-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(33, 22, 13, 0.56);
+}
+
+.jacana-booking-assurance-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-booking-assurance-list li {
+    position: relative;
+    padding: 10px 10px 10px 31px;
+    border-radius: 12px;
+    border: 1px solid rgba(41, 31, 23, 0.07);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 250, 228, 0.7));
+    color: rgba(33, 22, 13, 0.8);
+}
+
+.jacana-booking-assurance-list li::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background: #db9751;
+    box-shadow: 0 0 0 4px rgba(219, 151, 81, 0.16);
+}
+
+.jacana-booking-process-cta {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .jacana-booking-hero-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-booking-studio-shell,
+    .jacana-booking-process-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-booking-process-side {
+        position: static;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .jacana-booking-hero-copy,
+    .jacana-booking-hero-side-card,
+    .jacana-booking-form-card,
+    .jacana-booking-selected-service,
+    .jacana-booking-panel-card,
+    .jacana-booking-process-side {
+        border-radius: 14px;
+    }
+
+    .jacana-booking-hero-copy {
+        padding: 16px;
+    }
+
+    .jacana-booking-hero-actions .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .jacana-booking-selected-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-booking-form-card {
+        padding: 14px;
+    }
+
+    .jacana-booking-form-shell {
+        padding: 12px;
+    }
+}
+
+/* ============================================================
+   Tailor-made Story Widget — Premium Upgrade
+   ============================================================ */
+
+/* ── Grid layout ── */
+.jacana-tailor-story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 52px;
+    align-items: stretch;
+}
+
+/* Left column fills its grid cell height */
+.jacana-tailor-story-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Right column — image natural height, features fill remaining */
+.jacana-tailor-story-media {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+}
+
+/* ── Decorative ornament ── */
+.jacana-tailor-story-ornament {
+    display: block;
+    font-size: 22px;
+    color: var(--jacana-dunes, #db9751);
+    opacity: 0;
+    /* managed by .jacana-reveal */
+    margin-bottom: 18px;
+    line-height: 1;
+    letter-spacing: 0;
+    transform: scale(0.78) translate3d(0, 16px, 0);
+    transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 0.68, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.jacana-tailor-story-ornament.is-visible {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+}
+
+/* ── Kicker ── */
+.jacana-tailor-story-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--jacana-dunes, #db9751);
+    padding: 0 0 0 14px;
+    border-left: 2px solid var(--jacana-dunes, #db9751);
+    margin-bottom: 22px;
+}
+
+/* ── Heading — spans both grid columns ── */
+.jacana-tailor-story-heading {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 48px;
+    grid-column: 1 / -1;
+}
+
+/* ── Body copy ── */
+.jacana-tailor-story-body {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.75;
+    color: rgba(45, 36, 22, 0.78);
+    max-width: 520px;
+    margin-bottom: 0;
+    flex: 1; /* pushes CTAs to bottom of left column */
+}
+
+/* ── Decorative divider between body and CTA ── */
+.jacana-tailor-story-divider {
+    display: flex;
+    align-items: center;
+    margin: 28px 0 32px;
+    gap: 0;
+}
+
+.jacana-tailor-story-divider span:nth-child(1) {
+    display: block;
+    width: 44px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-tailor-story-divider span:nth-child(2) {
+    display: block;
+    padding: 0 11px;
+    font-size: 11px;
+    color: var(--jacana-dunes, #db9751);
+    opacity: 0.72;
+    line-height: 1;
+    flex-shrink: 0;
+    letter-spacing: 0;
+}
+
+.jacana-tailor-story-divider span:nth-child(3) {
+    display: block;
+    flex: 1;
+    max-width: 140px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(200, 155, 83, 0.52), transparent);
+}
+
+/* ── Trust blockquote ── */
+.jacana-tailor-story-trust {
+    margin: 0 0 2em;
+    padding: 20px 24px;
+    background:
+        linear-gradient(120deg, rgba(200, 155, 83, 0.13), rgba(200, 155, 83, 0));
+    border: 1px solid rgba(200, 155, 83, 0.28);
+    border-left: 3px solid var(--jacana-dunes, #db9751);
+    border-radius: 0 var(--radius-sm, 10px) var(--radius-sm, 10px) 0;
+}
+
+.jacana-tailor-story-trust p {
+    margin: 0;
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(45, 36, 22, 0.84);
+}
+
+/* ── CTA actions row ── */
+.jacana-tailor-story-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 0.5em;
+}
+
+/* Primary CTA with animated arrow */
+.jacana-tailor-cta-primary .jacana-cta-arrow {
+    display: inline-block;
+    transition: transform 0.22s ease;
+}
+
+.jacana-tailor-cta-primary:hover .jacana-cta-arrow {
+    transform: translateX(5px);
+}
+
+/* ── Media column — grid-template-rows handled in grid layout block above ── */
+
+/* ── Feature image figure ── */
+.jacana-tailor-story-figure {
+    margin: 0;
+    position: relative;
+    border-radius: 6px;
+    overflow: visible;
+    line-height: 0;
+}
+
+/* Corner accent frame */
+.jacana-tailor-story-figure::after {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border: 1px solid rgba(200, 155, 83, 0.38);
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.45s ease 0.3s;
+}
+
+.jacana-tailor-story-figure.is-visible::after {
+    opacity: 1;
+}
+
+.jacana-tailor-story-figure .jacana-tailor-story-figure-inner {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--jacana-line, rgba(45, 36, 22, 0.14));
+    box-shadow: 0 24px 48px rgba(45, 36, 22, 0.18);
+    background: var(--jacana-warm-sand, #f5f1e8);
+}
+
+.jacana-tailor-story-figure img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.22, 0.6, 0.2, 1), filter 0.5s ease;
+    filter: saturate(0.92);
+}
+
+.jacana-tailor-story-figure:hover img {
+    transform: scale(1.04);
+    filter: saturate(1.06);
+}
+
+/* ── Feature cards ── */
+.jacana-tailor-story-features {
+    display: grid;
+    row-gap: 16px;
+    counter-reset: tailor-feature;
+    align-content: stretch;
+}
+
+.jacana-tailor-story-card {
+    position: relative;
+    padding: 22px 24px 22px 64px;
+    border-radius: 6px;
+    border: 1px solid var(--jacana-line, rgba(45, 36, 22, 0.14));
+    background:
+        radial-gradient(120% 140% at 100% 0%, rgba(157, 203, 223, 0.10), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #fbf8f2 100%);
+    box-shadow:
+        0 6px 14px rgba(45, 36, 22, 0.06),
+        0 14px 30px rgba(45, 36, 22, 0.08);
+    transition:
+        transform 0.28s cubic-bezier(0.22, 0.68, 0.2, 1),
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+    will-change: transform;
+    counter-increment: tailor-feature;
+}
+
+/* Top accent line */
+.jacana-tailor-story-card::before {
+    content: counter(tailor-feature, decimal-leading-zero);
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--jacana-dunes, #db9751);
+    opacity: 0.55;
+    transition: opacity 0.28s ease;
+}
+
+/* Right edge gold glow on hover */
+.jacana-tailor-story-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(200, 155, 83, 0);
+    transition: box-shadow 0.3s ease;
+    pointer-events: none;
+}
+
+.jacana-tailor-story-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(200, 155, 83, 0.35);
+    box-shadow:
+        0 10px 22px rgba(45, 36, 22, 0.09),
+        0 22px 44px rgba(45, 36, 22, 0.13);
+}
+
+.jacana-tailor-story-card:hover::before {
+    opacity: 0.9;
+}
+
+.jacana-tailor-story-card:hover::after {
+    box-shadow: 0 0 0 2px rgba(200, 155, 83, 0.22);
+}
+
+.jacana-tailor-story-card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: var(--jacana-earth, #2d2416);
+}
+
+.jacana-tailor-story-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(45, 36, 22, 0.74);
+    margin: 0;
+}
+
+/* ── Responsive: single column ≤ 900px ── */
+@media (max-width: 900px) {
+    .jacana-tailor-story-heading {
+        text-wrap: balance;
+        grid-column: auto;
+    }
+
+    .jacana-tailor-story-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .jacana-tailor-story-content {
+        display: flex; /* keep flex so divider + actions still flow correctly */
+    }
+
+    .jacana-tailor-story-media {
+        grid-template-rows: auto auto;
+    }
+
+    .jacana-tailor-story-body {
+        max-width: none;
+        flex: none;
+    }
+
+    .jacana-tailor-story-figure img {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 600px) {
+    .jacana-tailor-story-divider {
+        margin: 20px 0 24px;
+    }
+
+    .jacana-tailor-story-card {
+        padding: 18px 18px 18px 52px;
+    }
+
+    .jacana-tailor-story-card::before {
+        left: 16px;
+        font-size: 22px;
+    }
+}
+
+/* ============================================================
+   Tours Inclusions Widget — Premium Upgrade
+   ============================================================ */
+
+/* ── Section header ── */
+.jacana-tours-inclusions .jacana-incl-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 52px;
+}
+
+.jacana-tours-inclusions .jacana-tailor-story-kicker {
+    justify-content: center;
+    border-left: none;
+    padding-left: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.jacana-tours-inclusions .jacana-tailor-story-kicker::before,
+.jacana-tours-inclusions .jacana-tailor-story-kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200, 155, 83, 0.5), transparent);
+    max-width: 48px;
+}
+
+.jacana-incl-heading {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(28px, 3vw, 46px);
+    line-height: 1.14;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 0.6em;
+}
+
+.jacana-incl-intro {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0;
+}
+
+/* ── Two-column card grid ── */
+.jacana-incl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* ── Individual card ── */
+.jacana-incl-card {
+    position: relative;
+    padding: 36px 32px 32px;
+    border-radius: 8px;
+    border: 1px solid var(--jacana-line, rgba(45, 36, 22, 0.14));
+    background:
+        radial-gradient(130% 120% at 100% 0%, rgba(157, 203, 223, 0.12), transparent 52%),
+        linear-gradient(180deg, #ffffff 0%, #faf7f1 100%);
+    box-shadow:
+        0 8px 18px rgba(45, 36, 22, 0.06),
+        0 20px 44px rgba(45, 36, 22, 0.10);
+    transition:
+        transform 0.32s cubic-bezier(0.22, 0.68, 0.2, 1),
+        box-shadow 0.32s ease,
+        border-color 0.32s ease;
+    will-change: transform;
+}
+
+/* Top gradient accent line */
+.jacana-incl-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    border-radius: 8px 8px 0 0;
+    background: linear-gradient(90deg, var(--jacana-sky, #9dcbdf), var(--jacana-dunes, #db9751));
+}
+
+.jacana-incl-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(200, 155, 83, 0.28);
+    box-shadow:
+        0 14px 28px rgba(45, 36, 22, 0.08),
+        0 28px 56px rgba(45, 36, 22, 0.14);
+}
+
+/* Guided card — sky accent on hover */
+.jacana-incl-card--guided:hover {
+    border-color: rgba(157, 203, 223, 0.4);
+}
+
+/* ── Badge ── */
+.jacana-incl-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    background: rgba(157, 203, 223, 0.22);
+    color: var(--jacana-earth, #2d2416);
+    border: 1px solid rgba(157, 203, 223, 0.5);
+    margin-bottom: 20px;
+}
+
+.jacana-incl-badge--alt {
+    background: rgba(200, 155, 83, 0.15);
+    border-color: rgba(200, 155, 83, 0.4);
+    color: var(--jacana-earth, #2d2416);
+}
+
+/* ── Icon circle ── */
+.jacana-incl-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--jacana-sky, #9dcbdf), var(--jacana-dunes, #db9751));
+    display: grid;
+    place-items: center;
+    color: #fff;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 18px rgba(45, 36, 22, 0.14);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.jacana-incl-card:hover .jacana-incl-card-icon {
+    transform: scale(1.08);
+    box-shadow: 0 10px 24px rgba(45, 36, 22, 0.18);
+}
+
+/* ── Card title + copy ── */
+.jacana-incl-card-title {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(22px, 2.2vw, 30px);
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 12px;
+    line-height: 1.2;
+}
+
+.jacana-incl-card-copy {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0 0 28px;
+}
+
+/* ── List section groups ── */
+.jacana-incl-lists {
+    display: grid;
+    gap: 22px;
+    border-top: 1px solid var(--jacana-line, rgba(45, 36, 22, 0.1));
+    padding-top: 24px;
+}
+
+.jacana-incl-list-group {
+    display: grid;
+    gap: 8px;
+}
+
+/* ── List group label ── */
+.jacana-incl-list-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin: 0 0 8px;
+}
+
+.jacana-incl-list-label--yes {
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-incl-list-label--no {
+    color: rgba(45, 36, 22, 0.48);
+}
+
+/* ── Checklist items ── */
+.jacana-incl-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 9px;
+}
+
+.jacana-incl-list li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Included items — gold checkmark */
+.jacana-incl-list--yes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.4em;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4a855, #b07a2e);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8.5l3.5 3.5 6.5-8' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8.5l3.5 3.5 6.5-8' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.jacana-incl-list--yes li {
+    color: rgba(45, 36, 22, 0.84);
+}
+
+/* Excluded items — muted with a soft ✕ */
+.jacana-incl-list--no li::before {
+    content: "×";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 16px;
+    line-height: 1.35;
+    color: rgba(45, 36, 22, 0.3);
+    font-weight: 300;
+}
+
+.jacana-incl-list--no li {
+    color: rgba(45, 36, 22, 0.52);
+}
+
+/* ── Responsive: single column ≤ 900px ── */
+@media (max-width: 900px) {
+    .jacana-incl-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .jacana-tours-inclusions .jacana-incl-header {
+        margin-bottom: 36px;
+    }
+}
+
+@media (max-width: 600px) {
+    .jacana-incl-card {
+        padding: 28px 22px 26px;
+    }
+}
+
+/* ============================================================
+   Accommodation Styles Widget — Premium Upgrade
+   ============================================================ */
+
+/* ── Section header ── */
+.jacana-accommodation-styles .jacana-accom-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 44px;
+}
+
+.jacana-accommodation-styles .jacana-tailor-story-kicker {
+    justify-content: center;
+    border-left: none;
+    padding-left: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.jacana-accommodation-styles .jacana-tailor-story-kicker::before,
+.jacana-accommodation-styles .jacana-tailor-story-kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200, 155, 83, 0.5), transparent);
+    max-width: 48px;
+}
+
+.jacana-accom-heading {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(28px, 3vw, 46px);
+    line-height: 1.14;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 0.55em;
+}
+
+.jacana-accom-intro {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0;
+}
+
+/* ── Photo card strip ── */
+.jacana-accom-cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.jacana-accom-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background-color: var(--jacana-earth, #2d2416);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+}
+
+.jacana-accom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.jacana-accom-card-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.jacana-accom-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.jacana-accom-card:hover .jacana-accom-card-img {
+    transform: scale(1.12);
+}
+
+.jacana-accom-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(12, 10, 9, 0) 20%,
+            rgba(12, 10, 9, 0.4) 60%,
+            rgba(12, 10, 9, 0.85) 100%);
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.jacana-accom-card:hover .jacana-accom-card-overlay {
+    background: linear-gradient(180deg,
+            rgba(12, 10, 9, 0) 10%,
+            rgba(12, 10, 9, 0.5) 50%,
+            rgba(12, 10, 9, 0.95) 100%);
+}
+
+.jacana-accom-card-content {
+    position: relative;
+    margin-top: auto;
+    padding: 20px 18px 22px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.jacana-accom-card-title {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+    display: block;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.jacana-accom-card-desc {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    line-height: 1.4;
+    opacity: 0.9;
+    transform: translateY(0);
+    transition: color 0.3s ease;
+}
+
+.jacana-accom-card:hover .jacana-accom-card-desc {
+    color: var(--jacana-dunes, #db9751);
+}
+
+/* Gold top accent bar */
+.jacana-accom-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--jacana-dunes, #db9751), var(--jacana-sky, #9dcbdf));
+    opacity: 0;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+}
+
+.jacana-accom-card:hover::before {
+    opacity: 1;
+}
+
+/* ── CTA card (full-bleed background) ── */
+.jacana-accom-cta-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+}
+
+.jacana-accom-cta-card {
+    position: relative;
+    background-color: var(--jacana-earth, #2d2416);
+    padding: 72px 64px;
+}
+
+.jacana-accom-cta-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    max-width: 100%;
+}
+
+.jacana-accom-cta-content {
+    max-width: 580px;
+}
+
+.jacana-accom-cta-title {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 16px;
+    line-height: 1.15;
+}
+
+.jacana-accom-cta-copy {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0;
+}
+
+.jacana-accom-cta-actions {
+    flex-shrink: 0;
+}
+
+.jacana-accom-cta-actions .button {
+    padding: 16px 36px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .jacana-accom-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .jacana-accom-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .jacana-accom-cta-card {
+        padding: 56px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jacana-accom-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .jacana-accom-card {
+        aspect-ratio: 4 / 5;
+    }
+}
+
+@media (max-width: 480px) {
+    .jacana-accom-card-content {
+        padding: 14px 12px 16px;
+    }
+
+    .jacana-accom-card-title {
+        font-size: 16px;
+    }
+}
+
+/* ============================================================
+   Featured Attractions Widget (New)
+   ============================================================ */
+
+.jacana-featured-attractions {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--jacana-earth, #2d2416);
+    color: #f7f2e8;
+    padding: 100px 0;
+}
+
+.jacana-featured-attractions .jacana-attr-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0.82) 0%, rgba(45, 36, 22, 0.88) 100%);
+    z-index: 1;
+}
+
+.jacana-featured-attractions .section-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* ── Section header ── */
+.jacana-featured-attractions .jacana-attr-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+}
+
+.jacana-featured-attractions .jacana-attr-kicker {
+    justify-content: center;
+    border-left: none;
+    padding-left: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-featured-attractions .jacana-attr-kicker::before,
+.jacana-featured-attractions .jacana-attr-kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(219, 151, 81, 0.5), transparent);
+    max-width: 48px;
+}
+
+.jacana-featured-attractions .jacana-attr-heading {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(32px, 3.5vw, 52px);
+    line-height: 1.15;
+    color: #fff;
+    margin: 0 0 0.5em;
+}
+
+.jacana-featured-attractions .jacana-attr-intro {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(247, 242, 232, 0.76);
+    margin: 0;
+}
+
+/* ── 2x2 Grid ── */
+.jacana-attr-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ── Service Cards ── */
+.jacana-attr-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    transition: all 0.32s cubic-bezier(0.22, 0.68, 0.2, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+}
+
+.jacana-attr-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(219, 151, 81, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(12, 10, 9, 0.2);
+}
+
+.jacana-attr-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(219, 151, 81, 0.15), rgba(157, 203, 223, 0.1));
+    border: 1px solid rgba(219, 151, 81, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.jacana-attr-card:hover .jacana-attr-icon {
+    background: linear-gradient(135deg, rgba(219, 151, 81, 0.25), rgba(157, 203, 223, 0.15));
+    border-color: var(--jacana-dunes, #db9751);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.jacana-attr-title {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #f7f2e8;
+    margin: 0 0 14px;
+}
+
+.jacana-attr-copy {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(247, 242, 232, 0.72);
+    margin: 0 0 24px;
+    flex-grow: 1;
+}
+
+/* ── Bullet List ── */
+.jacana-attr-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.jacana-attr-list li {
+    font-size: 14px;
+    color: rgba(247, 242, 232, 0.88);
+    position: relative;
+    padding-left: 24px;
+    line-height: 1.4;
+}
+
+.jacana-attr-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #a66a2f);
+}
+
+/* ── CTA Button ── */
+.jacana-attr-btn {
+    align-self: flex-start;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #b37435);
+    color: #1e150c;
+    border: none;
+    font-weight: 600;
+}
+
+.jacana-attr-btn:hover {
+    background: linear-gradient(135deg, #e0a463, #c48240);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(219, 151, 81, 0.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .jacana-attr-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .jacana-attr-card {
+        padding: 32px 24px;
+    }
+}
+
+/* Contact page Elementor overrides */
+.page-id-526 {
+    --j-savannah: #fffae4;
+    --j-sky: #9dcbdf;
+    --j-dune: #db9751;
+    --j-stone: #57534e;
+    --j-oshi-pink: #e6007e;
+    --j-oshi-red: #cc0000;
+    --j-oshi-black: #000000;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-7db2dd3b {
+    position: relative;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-7db2dd3b:not(.elementor-motion-effects-element-type-background),
+.page-id-526 .elementor-526 .elementor-element.elementor-element-7db2dd3b > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+    background-image: url("http://jacana-safaris-and-tours.local/wp-content/uploads/2026/04/activities.jpg") !important;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-7db2dd3b::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 10px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--j-oshi-pink) 0,
+        var(--j-oshi-pink) 10px,
+        var(--j-oshi-black) 10px,
+        var(--j-oshi-black) 12px,
+        var(--j-oshi-red) 12px,
+        var(--j-oshi-red) 18px,
+        var(--j-oshi-black) 18px,
+        var(--j-oshi-black) 20px
+    );
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-50f4740f:not(.elementor-motion-effects-element-type-background),
+.page-id-526 .elementor-526 .elementor-element.elementor-element-50f4740f > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+    background:
+        radial-gradient(circle at 16% 16%, rgba(157, 203, 223, 0.22), transparent 30%),
+        radial-gradient(circle at 88% 82%, rgba(219, 151, 81, 0.18), transparent 26%),
+        var(--j-savannah) !important;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-167d2c0:not(.elementor-motion-effects-element-type-background),
+.page-id-526 .elementor-526 .elementor-element.elementor-element-167d2c0 > .elementor-motion-effects-container > .elementor-motion-effects-layer,
+.page-id-526 .elementor-526 .elementor-element.elementor-element-ff5b89d:not(.elementor-motion-effects-element-type-background),
+.page-id-526 .elementor-526 .elementor-element.elementor-element-ff5b89d > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+    background-color: #ffffff;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-3ad4e418:not(.elementor-motion-effects-element-type-background),
+.page-id-526 .elementor-526 .elementor-element.elementor-element-3ad4e418 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+    background-color: var(--j-dune);
+}
+
+.page-id-526 .elementor-526 .elementor-widget-icon-box .elementor-icon-box-title,
+.page-id-526 .elementor-526 .elementor-widget-icon-box .elementor-icon-box-description {
+    color: var(--j-stone);
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-4ac4f085 .elementor-icon-box-title,
+.page-id-526 .elementor-526 .elementor-element.elementor-element-4ac4f085 .elementor-icon-box-description {
+    color: #ffffff;
+}
+
+.page-id-526 .elementor-526 .elementor-widget-icon-box .elementor-icon-box-description a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(230, 0, 126, 0.45);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.page-id-526 .elementor-526 .elementor-widget-icon-box .elementor-icon-box-description a:hover {
+    color: var(--j-oshi-pink);
+    border-color: var(--j-oshi-black);
+}
+
+.page-id-526 .jacana-contact-subline {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-4ac4f085.elementor-view-stacked .elementor-icon {
+    background-color: #ffffff !important;
+    color: var(--j-dune) !important;
+    fill: var(--j-dune) !important;
+    border-radius: 2px !important;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-719ff0e8:not(.elementor-motion-effects-element-type-background),
+.page-id-526 .elementor-526 .elementor-element.elementor-element-719ff0e8 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+    background:
+        radial-gradient(circle at 14% 20%, rgba(255, 250, 228, 0.18), transparent 24%),
+        radial-gradient(circle at 90% 80%, rgba(157, 203, 223, 0.2), transparent 28%),
+        var(--j-dune) !important;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-59241f20 .elementor-heading-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-59241f20 .elementor-heading-title,
+.page-id-526 .elementor-526 .elementor-element.elementor-element-7f90fa43 .elementor-heading-title,
+.page-id-526 .elementor-526 .elementor-element.elementor-element-586f5e2e .elementor-heading-title {
+    color: #ffffff;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-3c900ae9 .elementor-social-icon {
+    background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-3c900ae9 .elementor-social-icon i,
+.page-id-526 .elementor-526 .elementor-element.elementor-element-3c900ae9 .elementor-social-icon svg {
+    color: var(--j-stone) !important;
+    fill: var(--j-stone) !important;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-3c900ae9 .elementor-social-icon:hover {
+    background-color: var(--j-oshi-pink) !important;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-3c900ae9 .elementor-social-icon:hover i,
+.page-id-526 .elementor-526 .elementor-element.elementor-element-3c900ae9 .elementor-social-icon:hover svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-a607af0:not(.elementor-motion-effects-element-type-background),
+.page-id-526 .elementor-526 .elementor-element.elementor-element-a607af0 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+    background-color: rgba(255, 250, 228, 0.96);
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-1051b37b .elementor-button {
+    min-width: min(100%, 360px);
+    padding: 18px 26px;
+    background: var(--j-dune);
+    color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 14px 30px rgba(87, 83, 78, 0.16);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.page-id-526 .elementor-526 .elementor-element.elementor-element-1051b37b .elementor-button:hover,
+.page-id-526 .elementor-526 .elementor-element.elementor-element-1051b37b .elementor-button:focus {
+    background: #c98640;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(87, 83, 78, 0.22);
+}
+
+@media (max-width: 767px) {
+    .page-id-526 .elementor-526 .elementor-element.elementor-element-1051b37b .elementor-button {
+        width: 100%;
+    }
+}

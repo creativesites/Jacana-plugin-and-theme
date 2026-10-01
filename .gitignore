@@ -1,0 +1,43 @@
+# OS & Editor
+.DS_Store
+.DS_Store?
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# WordPress generated / cache files
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+*.log
+
+# WordPress core (not stored here — only custom code)
+# If you ever add a full WP install, ignore core:
+# wp-admin/
+# wp-includes/
+# wp-*.php
+# index.php
+# xmlrpc.php
+
+# Plugin / theme build artefacts
+node_modules/
+vendor/
+*.zip
+*.tar.gz
+
+# Language backup dumps (large auto-generated files)
+plugins/jacana-i18n/languages/backups/
+
+# Sensitive files
+wp-config.php
+.env
+*.pem
+*.key
+
+# PHP opcache
+*.php.cache
+
+# macOS extended attributes
+*.xattr

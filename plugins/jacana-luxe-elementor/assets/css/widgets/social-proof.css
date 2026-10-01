@@ -1,0 +1,133 @@
+/* Styles for jacana_social_proof */
+
+.jacana-social-proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.jacana-social-feed h3 {
+    margin-bottom: 12px;
+}
+
+.jacana-social-embed {
+    border: 1px solid var(--jacana-line);
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 12px;
+    background: #fff;
+}
+
+.jacana-social-reviews {
+    display: grid;
+    gap: 14px;
+}
+
+.jacana-review-card {
+    padding: 20px;
+}
+
+.jacana-review-rating {
+    color: var(--jacana-dunes);
+    font-size: 15px;
+    letter-spacing: 0.18em;
+}
+
+.jacana-review-copy {
+    margin: 8px 0 12px;
+}
+
+.jacana-review-meta {
+    margin: 0;
+    display: grid;
+    gap: 2px;
+    color: rgba(45, 36, 22, 0.78);
+}
+
+.jacana-review-meta span {
+    font-size: 13px;
+}
+
+.jacana-review-feedback {
+    width: fit-content;
+}
+
+.jacana-social-review-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.jacana-review-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 22px;
+    border: 1px solid rgba(129, 93, 56, 0.14);
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(245, 235, 222, 0.82));
+}
+
+.jacana-review-form[hidden] {
+    display: none !important;
+}
+
+.jacana-review-form label {
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-review-form span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(95, 71, 48, 0.82);
+}
+
+.jacana-review-form input,
+.jacana-review-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(129, 93, 56, 0.14);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.jacana-review-form-wide {
+    grid-column: 1 / -1;
+}
+
+.jacana-review-form-consent {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.jacana-review-form-consent input {
+    width: auto;
+    margin-top: 2px;
+}
+
+.jacana-review-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.jacana-review-form-status {
+    font-size: 13px;
+    color: rgba(67, 54, 37, 0.82);
+}
+
+@media (max-width: 960px) {
+    .jacana-social-proof-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-review-form {
+        grid-template-columns: 1fr;
+    }
+}

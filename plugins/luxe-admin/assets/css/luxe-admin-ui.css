@@ -1,0 +1,78 @@
+/* Global Luxe Admin UI Overrides */
+/* This file is loaded across the entire admin dashboard to provide a premium feel. */
+
+body.wp-admin {
+    background: #f8fafc;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* Sidebar Styling */
+#adminmenuback, #adminmenu, #adminmenu .wp-submenu {
+    border-right: none !important;
+}
+
+#adminmenu li.wp-menu-separator {
+    background: transparent;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    margin: 10px 15px;
+}
+
+#adminmenu li.menu-top:hover, 
+#adminmenu li.opensub > a.menu-top, 
+#adminmenu li > a.menu-top:focus {
+    background: rgba(0,0,0,0.02) !important;
+}
+
+/* Card Styling for Meta Boxes */
+.postbox {
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 20px rgba(0,0,0,0.02) !important;
+    overflow: hidden;
+}
+
+.postbox-header {
+    border-bottom: 1px solid #f1f5f9 !important;
+    background: #fff !important;
+    padding: 5px 10px !important;
+}
+
+/* Admin Bar (Toolbar) Styling */
+#wpadminbar {
+    background: #111 !important;
+    height: 48px !important;
+}
+
+#wpadminbar .ab-item, #wpadminbar a.ab-item {
+    font-weight: 500 !important;
+    font-size: 13px !important;
+}
+
+#wpadminbar .luxe-brand-node > .ab-item {
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+/* Buttons */
+.wp-core-ui .button-primary {
+    background: #111 !important;
+    border: none !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    padding: 0 20px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    transition: all 0.2s ease !important;
+}
+
+.wp-core-ui .button-primary:hover {
+    background: #333 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Dashboard Widget Wrap */
+.luxe-welcome-wrap {
+    padding: 10px;
+}

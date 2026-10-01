@@ -1,0 +1,16 @@
+{
+"translations": {
+"post_220.widget_78d12315.settings.dynamic.title": "[elementor-tag id=\"c778bc8\" name=\"post-title\" settings=\"%7B%7D\"]",
+"post_252.widget_462aee0a.settings.dynamic.title": "[elementor-tag id=\"c778bc8\" name=\"post-title\" settings=\"%7B%7D\"]",
+"post_255.widget_49886da7.settings.dynamic.title": "[elementor-tag id=\"c778bc8\" name=\"post-title\" settings=\"%7B%7D\"]",
+"post_260.widget_6735b12.settings.dynamic.title": "[elementor-tag id=\"cb4f4ad\" name=\"current-date-time\" settings=\"%7B%22date_format%22%3A%22custom%22%2C%22custom_format%22%3A%22%20Y%20%22%2C%22before%22%3A%22Copyright%20%C2%A9%22%2C%22after%22%3A%22%20Jacana%20Safaris%20and%20Tours%2C%20All%20rights%20reserved.%20%22%7D\"]",
+"post_292.widget_226146a9.settings.dynamic.title": "[elementor-tag id=\"006193c\" name=\"archive-title\" settings=\"%7B%7D\"]",
+"post_296.widget_2428a51d.settings.dynamic.title": "[elementor-tag id=\"af56fc6\" name=\"post-title\" settings=\"%7B%7D\"]",
+"post_296.widget_3582e944.settings.dynamic.title": "[elementor-tag id=\"9bedaaa\" name=\"post-terms\" settings=\"%7B%22separator%22%3A%22%2C%20%22%2C%22taxonomy%22%3A%22category%22%7D\"]",
+"post_318.widget_481fa3e1.settings.dynamic.title": "[elementor-tag id=\"c778bc8\" name=\"post-title\" settings=\"%7B%7D\"]",
+"post_325.widget_796f47e9.settings.dynamic.title": "[elementor-tag id=\"c778bc8\" name=\"post-title\" settings=\"%7B%7D\"]",
+"post_360.widget_2239527f.settings.dynamic.title": "[elementor-tag id=\"c778bc8\" name=\"post-title\" settings=\"%7B%7D\"]",
+"post_760.widget_7168f6eb.settings.dynamic.title": "[elementor-tag id=\"c778bc8\" name=\"post-title\" settings=\"%7B%7D\"]",
+"post_780.widget_961a47d.settings.dynamic.title": "[elementor-tag id=\"c778bc8\" name=\"post-title\" settings=\"%7B%7D\"]"
+}
+}

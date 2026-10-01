@@ -1,0 +1,222 @@
+/* Styles for jacana_car_rental_premium_hero */
+
+.jacana-rental-hero-premium {
+    position: relative;
+    background:
+        linear-gradient(180deg, rgba(12, 10, 9, 0.34), rgba(12, 10, 9, 0.54)),
+        var(--jacana-rental-hero-bg, linear-gradient(140deg, #6e7f89, #37291c));
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.jacana-rental-hero-premium::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(70% 90% at 12% 12%, rgba(157, 203, 223, 0.2), transparent 62%),
+        radial-gradient(75% 90% at 90% 82%, rgba(219, 151, 81, 0.18), transparent 60%);
+    pointer-events: none;
+}
+
+.jacana-rental-hero-premium .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-rental-hero-shell {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 22px;
+    align-items: stretch;
+}
+
+.jacana-rental-hero-copy {
+    background: rgba(14, 12, 10, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 56px rgba(10, 8, 7, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.jacana-rental-hero-copy h1 {
+    margin: 0;
+    color: #fff;
+    line-height: 1.06;
+    max-width: 16ch;
+}
+
+.jacana-rental-hero-copy>p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.jacana-rental-hero-list {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.jacana-rental-hero-list li {
+    position: relative;
+    padding-left: 18px;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.jacana-rental-hero-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--jacana-sky), var(--jacana-dunes));
+}
+
+.jacana-rental-hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.jacana-rental-hero-side {
+    display: grid;
+    gap: 12px;
+}
+
+.jacana-rental-hero-stage {
+    position: relative;
+    min-height: 280px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background:
+        linear-gradient(160deg, rgba(13, 12, 11, 0.18), rgba(13, 12, 11, 0.42)),
+        linear-gradient(135deg, rgba(157, 203, 223, 0.08), rgba(219, 151, 81, 0.12));
+    box-shadow: 0 20px 48px rgba(10, 8, 7, 0.2);
+    overflow: hidden;
+}
+
+.jacana-rental-hero-stage::before,
+.jacana-rental-hero-stage::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(12px);
+}
+
+.jacana-rental-hero-stage::before {
+    width: 180px;
+    height: 180px;
+    background: rgba(157, 203, 223, 0.22);
+    top: -26px;
+    left: -18px;
+}
+
+.jacana-rental-hero-stage::after {
+    width: 220px;
+    height: 220px;
+    background: rgba(219, 151, 81, 0.2);
+    bottom: -34px;
+    right: -22px;
+}
+
+.jacana-rental-hero-stage-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 7px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(12, 10, 9, 0.34);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.jacana-rental-hero-glow {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(45% 45% at 30% 55%, rgba(157, 203, 223, 0.22), transparent 62%),
+        radial-gradient(45% 45% at 68% 48%, rgba(219, 151, 81, 0.22), transparent 64%);
+    animation: jacana-rental-pulse 6s ease-in-out infinite;
+}
+
+@keyframes jacana-rental-pulse {
+
+    0%,
+    100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+}
+
+.jacana-rental-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.jacana-rental-hero-stat {
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(12, 10, 9, 0.28);
+    box-shadow: 0 14px 24px rgba(10, 8, 7, 0.15);
+    padding: 12px;
+    display: grid;
+    gap: 4px;
+}
+
+.jacana-rental-hero-stat strong {
+    color: #fff;
+    line-height: 1.1;
+    font-size: 18px;
+}
+
+.jacana-rental-hero-stat span {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+@media (max-width: 1024px) {
+    .jacana-rental-hero-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .jacana-rental-hero-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .jacana-rental-hero-copy {
+        gap: 12px;
+    }
+
+    .jacana-rental-hero-copy h1 {
+        max-width: 100%;
+    }
+
+    .jacana-rental-hero-actions .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .jacana-rental-hero-stage {
+        min-height: 200px;
+    }
+}

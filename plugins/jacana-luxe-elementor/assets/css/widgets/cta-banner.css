@@ -1,0 +1,163 @@
+:root {
+    --savannah: #fffae4;
+    --sky-soft: rgba(157, 203, 223, 0.2);
+    --dune-soft: rgba(219, 151, 81, 0.15);
+    --dune: #db9751;
+    --oshi-pink: #e6007e;
+    --oshi-red: #cc0000;
+    --oshi-black: #000000;
+    --stone-900: #1c1917;
+    --stone-600: #57534e;
+}
+
+.jacana-luxe-bespoke-cta {
+    background-color: var(--savannah);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Background Blurs */
+.blur-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.blob-sky {
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: var(--sky-soft);
+}
+
+.blob-dune {
+    bottom: -150px;
+    right: -150px;
+    width: 450px;
+    height: 450px;
+    background: var(--dune-soft);
+}
+
+.section-inner {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Tagline Line Detail */
+.bespoke-tagline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.bespoke-tagline .line {
+    width: 32px;
+    height: 1px;
+    background-color: var(--dune);
+}
+
+.bespoke-tagline .tag-text {
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--stone-600);
+}
+
+/* Typography */
+.luxe-main-heading {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--stone-900);
+    line-height: 1.1;
+    margin-bottom: 32px;
+}
+
+.italic-dune {
+    font-style: italic;
+    color: var(--dune);
+    font-family: 'Playfair Display', serif;
+    /* Or similar premium serif */
+}
+
+.luxe-description {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--stone-600);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+/* Buttons */
+.luxe-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-dune-solid {
+    background-color: var(--dune);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 20px 40px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-dune-solid:hover {
+    background-color: #c48243;
+    transform: translateY(-2px);
+}
+
+.btn-luxe-text {
+    color: var(--stone-900);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    text-decoration: none;
+    border-bottom: 2px solid var(--oshi-pink);
+    padding-bottom: 4px;
+    transition: 0.3s ease;
+}
+
+.btn-luxe-text:hover {
+    color: var(--oshi-pink);
+    border-bottom-color: var(--stone-900);
+}
+
+/* The Oshiwambo Stripe Hem */
+.oshi-footer-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    opacity: 0.3;
+    /* As requested, kept subtle */
+}
+
+.oshi-stripe-pattern {
+    height: 100%;
+    background: repeating-linear-gradient(90deg,
+            var(--oshi-pink) 0, var(--oshi-pink) 10px,
+            var(--oshi-black) 10px, var(--oshi-black) 12px,
+            var(--oshi-red) 12px, var(--oshi-red) 18px,
+            var(--oshi-black) 18px, var(--oshi-black) 20px);
+}

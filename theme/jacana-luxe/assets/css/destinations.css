@@ -1,0 +1,1070 @@
+/**
+ * Destination Archive, Discovery Grid & Single Post Styles
+ * Jacana Safaris & Tours
+ */
+
+/* ═══════════════════════════════════════
+   SINGLE DESTINATION
+════════════════════════════════════════ */
+
+/* ── Hero ── */
+.dest-hero {
+    position: relative;
+    min-height: 80svh;
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--jacana-earth, #2d2416);
+    background-size: cover;
+    background-position: center;
+    margin-top: -80px;
+    overflow: hidden;
+}
+
+.dest-hero--no-image {
+    min-height: 40svh;
+    background: linear-gradient(135deg, #1a1007, var(--jacana-earth, #2d2416));
+}
+
+.dest-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(0deg, rgba(8,5,3,0.95) 0%, rgba(8,5,3,0.55) 45%, transparent 80%),
+        linear-gradient(90deg, rgba(8,5,3,0.30) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.dest-hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 160px var(--content-pad, 40px) 80px;
+}
+
+.dest-hero-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.dest-hero-region,
+.dest-hero-type {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.20em;
+    padding: 5px 12px;
+    border-radius: 999px;
+}
+
+.dest-hero-region {
+    color: var(--jacana-sky, #9dcbdf);
+    border: 1px solid rgba(157, 203, 223, 0.35);
+}
+
+.dest-hero-type {
+    color: var(--jacana-dunes, #db9751);
+    border: 1px solid rgba(219, 151, 81, 0.35);
+}
+
+.dest-hero-title {
+    font-size: clamp(40px, 6vw, 80px) !important;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: rgba(255, 250, 228, 0.97) !important;
+    margin: 0 0 18px;
+    max-width: 760px;
+}
+
+.dest-hero-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 250, 228, 0.65);
+    margin: 0 0 32px;
+    max-width: 560px;
+}
+
+.dest-hero-reasons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dest-hero-reasons li {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: rgba(255, 250, 228, 0.80);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.dest-hero-reasons li::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.dest-hero-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    z-index: 3;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e)      0px,  var(--oshi-pink, #e6007e)      7px,
+        var(--oshi-black, #000)         7px,  var(--oshi-black, #000)         9px,
+        var(--oshi-red, #cc0000)        9px,  var(--oshi-red, #cc0000)       14px,
+        var(--oshi-dark-pink, #800040) 14px,  var(--oshi-dark-pink, #800040) 18px,
+        var(--oshi-black, #000)        18px,  var(--oshi-black, #000)        20px
+    );
+}
+
+/* ── Quick Facts Bar ── */
+.dest-facts-bar {
+    background: rgba(45, 36, 22, 0.85); /* Jacana Earth base with opacity */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dest-facts-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.dest-fact {
+    padding: 22px 32px 22px 0;
+    margin-right: 32px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dest-fact:last-child {
+    border-right: none;
+}
+
+.dest-fact-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(255, 250, 228, 0.40);
+}
+
+.dest-fact-value {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--jacana-dunes, #db9751);
+    line-height: 1.2;
+}
+
+/* ── Shared section layout ── */
+.dest-body,
+.dest-activities,
+.dest-trust,
+.dest-logistics,
+.dest-faq,
+.dest-cta-section {
+    padding: 80px 0;
+}
+
+.dest-section-inner,
+.dest-body-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+}
+
+.dest-section-heading {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 48px;
+    line-height: 1.15;
+}
+
+/* ── Weather in quick-facts bar ── */
+.dest-fact--weather {
+    margin-left: auto;
+    border-right: none;
+    padding-right: 0;
+    justify-content: center;
+}
+
+/* ── Location Map ── */
+.dest-map-section {
+    background: #fff;
+    padding: 80px 0;
+    border-top: 1px solid rgba(45, 36, 22, 0.07);
+}
+
+.dest-map-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+}
+
+.dest-map-heading {
+    font-size: clamp(24px, 2.5vw, 38px);
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 28px;
+    line-height: 1.15;
+}
+
+.dest-map-frame {
+    width: 100%;
+    height: 420px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    box-shadow: 0 4px 20px rgba(45, 36, 22, 0.07);
+}
+
+.dest-map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 14px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: rgba(45, 36, 22, 0.52);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(45, 36, 22, 0.18);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.dest-map-link:hover {
+    color: var(--jacana-dunes, #db9751);
+    border-color: var(--jacana-dunes, #db9751);
+    text-decoration: none;
+}
+
+/* ── Body ── */
+.dest-body {
+    background: var(--jacana-savannah, #fffae4);
+}
+
+.dest-summary {
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--jacana-dunes, #db9751);
+    margin: 0 0 36px;
+    max-width: 820px;
+}
+
+.dest-content {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(45, 36, 22, 0.78);
+    max-width: 760px;
+}
+
+.dest-content p { margin: 0 0 1.4em; }
+
+/* ── Activities ── */
+.dest-activities {
+    background: #10100d;
+}
+
+.dest-activities .dest-section-heading {
+    color: rgba(255, 250, 228, 0.92);
+}
+
+.dest-activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.dest-activity-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 28px;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(0);
+}
+
+.dest-activity-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(219, 151, 81, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dest-activity-name {
+    font-size: 22px;
+    color: rgba(255, 250, 228, 0.92) !important;
+    margin: 0 0 10px;
+}
+
+.dest-activity-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 250, 228, 0.55);
+    margin: 0 0 16px;
+}
+
+.dest-activity-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.dest-activity-meta span {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--jacana-dunes, #db9751);
+    background: rgba(219, 151, 81, 0.10);
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+/* ── Trust ── */
+.dest-trust {
+    background: var(--jacana-savannah, #fffae4);
+}
+
+.dest-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.dest-trust-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(45, 36, 22, 0.06);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 4px 16px rgba(45, 36, 22, 0.03);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(0);
+}
+
+.dest-trust-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(45, 36, 22, 0.08);
+}
+
+.dest-trust-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--jacana-dunes, #db9751);
+    margin: 0 0 12px;
+}
+
+.dest-trust-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0;
+}
+
+/* ── Logistics ── */
+.dest-logistics {
+    background: #fff;
+    border-top: 1px solid rgba(45, 36, 22, 0.07);
+    border-bottom: 1px solid rgba(45, 36, 22, 0.07);
+}
+
+.dest-logistics-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0;
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dest-logistics-row {
+    padding: 22px 28px;
+    border-bottom: 1px solid rgba(45, 36, 22, 0.07);
+    border-right: 1px solid rgba(45, 36, 22, 0.07);
+    transition: background 0.3s ease;
+}
+
+.dest-logistics-row:hover {
+    background: rgba(45, 36, 22, 0.02);
+}
+
+.dest-logistics-row:last-child {
+    border-bottom: none;
+}
+
+.dest-logistics-row dt {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(45, 36, 22, 0.45);
+    margin-bottom: 6px;
+}
+
+.dest-logistics-row dd {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0;
+}
+
+/* ── FAQ ── */
+.dest-faq {
+    background: var(--jacana-savannah, #fffae4);
+}
+
+.dest-faq-list {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dest-faq-item {
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 10px;
+    padding: 24px 28px;
+}
+
+.dest-faq-item dt {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    margin-bottom: 10px;
+}
+
+.dest-faq-item dd {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0;
+}
+
+/* ── Gallery ── */
+.dest-gallery {
+    background: var(--jacana-savannah, #fffae4);
+    padding: 80px 0;
+    border-top: 1px solid rgba(45, 36, 22, 0.08);
+}
+
+.dest-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.dest-gallery-item {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(45, 36, 22, 0.06);
+    position: relative;
+}
+
+.dest-gallery-item::after {
+    content: "View";
+    position: absolute;
+    inset: 0;
+    background: rgba(45, 36, 22, 0.4);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.dest-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.dest-gallery-item:hover::after {
+    opacity: 1;
+}
+
+.dest-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ── Lightbox ── */
+.dest-lightbox {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    background: transparent;
+    overflow: hidden;
+}
+
+/* ::backdrop covers the page behind the dialog */
+.dest-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.93);
+}
+
+/* flex layout only when the dialog is actually open */
+dialog[open].dest-lightbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.dest-lightbox-figure {
+    margin: 0;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.dest-lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+}
+
+.dest-lightbox-close,
+.dest-lightbox-prev,
+.dest-lightbox-next {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    z-index: 10;
+}
+
+.dest-lightbox-close:hover,
+.dest-lightbox-prev:hover,
+.dest-lightbox-next:hover {
+    background: rgba(219, 151, 81, 0.25);
+    border-color: var(--jacana-dunes, #db9751);
+}
+
+.dest-lightbox-close { top: 20px; right: 20px; }
+.dest-lightbox-prev  { left: 20px; top: 50%; transform: translateY(-50%); }
+.dest-lightbox-next  { right: 20px; top: 50%; transform: translateY(-50%); }
+
+/* ── Photo count badge on archive cards ── */
+.destination-card-photo-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: rgba(255, 250, 228, 0.55);
+    margin-bottom: 8px;
+}
+
+/* ── Gallery responsive ── */
+@media (max-width: 900px) {
+    .dest-gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 540px) {
+    .dest-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
+    .dest-lightbox-prev { left: 8px; }
+    .dest-lightbox-next { right: 8px; }
+}
+
+/* ── CTA ── */
+.dest-cta-section {
+    background: var(--jacana-earth, #2d2416);
+}
+
+.dest-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.dest-cta-kicker {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--jacana-dunes, #db9751);
+    margin: 0 0 12px;
+}
+
+.dest-cta-heading {
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 600;
+    color: rgba(255, 250, 228, 0.95) !important;
+    margin: 0;
+    line-height: 1.15;
+}
+
+.dest-cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.dest-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 4px;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, gap 0.22s ease;
+    box-shadow: 0 6px 20px rgba(192, 122, 48, 0.28);
+}
+
+.dest-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(192, 122, 48, 0.38);
+    gap: 15px;
+    color: #fff;
+}
+
+.dest-cta-back {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 250, 228, 0.55) !important;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 250, 228, 0.20);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.dest-cta-back:hover {
+    color: rgba(255, 250, 228, 0.85);
+    border-bottom-color: rgba(255, 250, 228, 0.40);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .dest-facts-inner { gap: 0; overflow-x: auto; flex-wrap: nowrap; }
+    .dest-fact { flex-shrink: 0; }
+    .dest-trust-grid,
+    .dest-activities-grid { grid-template-columns: 1fr 1fr; }
+    .dest-cta-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 540px) {
+    .dest-hero-inner { padding: 120px 20px 60px; }
+    .dest-body,
+    .dest-activities,
+    .dest-trust,
+    .dest-logistics,
+    .dest-faq,
+    .dest-map-section,
+    .dest-cta-section { padding: 56px 0; }
+    .dest-map-frame { height: 280px; border-radius: 10px; }
+    .dest-fact--weather { margin-left: 0; }
+    .dest-trust-grid,
+    .dest-activities-grid { grid-template-columns: 1fr; }
+    .dest-logistics-list { grid-template-columns: 1fr; }
+    .dest-cta-actions { flex-direction: column; align-items: flex-start; width: 100%; }
+    .dest-cta-primary { width: 100%; justify-content: center; }
+}
+
+/* ═══════════════════════════════════════
+   ARCHIVE & DISCOVERY GRID
+════════════════════════════════════════ */
+
+/* ── Hero Section ─────────────────────────────────────────── */
+.destinations-hero {
+    position: relative;
+    padding: 160px 0 100px;
+    background-color: var(--obsidian, #0e0c0a);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    margin-top: -80px; /* Adjust for sticky header */
+}
+
+.destinations-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(14, 12, 10, 0.4) 0%, rgba(14, 12, 10, 0.8) 100%);
+    z-index: 1;
+}
+
+.destinations-hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--content-pad);
+}
+
+.destinations-hero h1 {
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #fff !important;
+}
+
+.destinations-hero .subtitle {
+    font-family: "Sora", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--sand, #e8dcc6);
+    opacity: 0.9;
+}
+
+/* ── Filter Bar ───────────────────────────────────────────── */
+.destinations-filters {
+    background: var(--mist, #f3efe8);
+    border-bottom: 1px solid var(--jacana-line, rgba(45, 36, 22, 0.14));
+    position: sticky;
+    top: 76px; /* Matches site header height */
+    z-index: 90;
+    padding: 20px 0;
+}
+
+.filter-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-pad);
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.filter-inner::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.filter-pill {
+    white-space: nowrap;
+    padding: 10px 24px;
+    border-radius: 999px;
+    background: transparent;
+    border: 1.5px solid rgba(45, 36, 22, 0.12);
+    color: var(--espresso, #2c1f1a);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: all 0.3s ease;
+}
+
+.filter-pill:hover,
+.filter-pill.is-active {
+    background: var(--jacana-earth, #2d2416);
+    border-color: var(--jacana-earth, #2d2416);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(45, 36, 22, 0.15);
+}
+
+/* ── Discovery Grid ───────────────────────────────────────── */
+.discovery-section {
+    padding: 80px 0 120px;
+    background: var(--mist, #f3efe8);
+}
+
+.discovery-grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-pad);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+/* ── Destination Card ─────────────────────────────────────── */
+.destination-card {
+    position: relative;
+    border-radius: var(--radius-lg, 28px);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #1a1512;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.destination-card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
+
+.destination-card-media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.destination-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.destination-card:hover .destination-card-media img {
+    transform: scale(1.08);
+}
+
+.destination-card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        180deg,
+        rgba(14, 12, 10, 0) 40%,
+        rgba(14, 12, 10, 0.4) 65%,
+        rgba(14, 12, 10, 0.9) 100%
+    );
+}
+
+.destination-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    z-index: 3;
+    color: #fff;
+}
+
+.destination-card-region {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--jacana-sky, #9dcbdf);
+    margin-bottom: 8px;
+}
+
+.destination-card h3 {
+    color: #fff !important;
+    font-size: 28px;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.destination-card-subtitle {
+    font-size: 12px;
+    font-family: "Sora", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.destination-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--jacana-dunes, #db9751);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.destination-card:hover .destination-card-cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Discovery Map Explorer ───────────────────────────────── */
+.destinations-discovery-map {
+    background-color: #0e0c0a; /* Obsidian */
+    padding: 100px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.destinations-discovery-map .jacana-map-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 60px;
+}
+
+.destinations-discovery-map .jacana-map-heading {
+    color: #fff !important;
+    font-size: clamp(32px, 4vw, 54px);
+    margin-bottom: 20px;
+}
+
+.destinations-discovery-map .jacana-map-intro {
+    color: rgba(255, 250, 228, 0.65);
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.destinations-discovery-map .jacana-highlights-map-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 40px;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto 50px;
+}
+
+.destinations-discovery-map .jacana-map-canvas {
+    background: #14110e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+}
+
+.destinations-discovery-map .jacana-map-panel {
+    background: rgba(26, 21, 18, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.destinations-discovery-map .jacana-map-panel-media-title {
+    background: rgba(45, 36, 22, 0.85);
+    color: #fff !important;
+    border: 1px solid rgba(219, 151, 81, 0.3);
+}
+
+.destinations-discovery-map .jacana-map-panel-teaser {
+    color: var(--jacana-dunes, #db9751);
+}
+
+.destinations-discovery-map .jacana-map-panel-description {
+    color: rgba(255, 250, 228, 0.7);
+}
+
+.destinations-discovery-map .jacana-map-place-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 250, 228, 0.6);
+}
+
+.destinations-discovery-map .jacana-map-place-pill:hover,
+.destinations-discovery-map .jacana-map-place-pill.is-active {
+    background: var(--jacana-dunes, #db9751);
+    color: #fff;
+    border-color: var(--jacana-dunes, #db9751);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .destinations-discovery-map .jacana-highlights-map-grid {
+        grid-template-columns: 1fr;
+    }
+    .destinations-discovery-map .jacana-map-panel {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .destinations-hero {
+        padding: 120px 0 60px;
+    }
+    .discovery-grid {
+        grid-template-columns: 1fr;
+    }
+    .destination-card {
+        aspect-ratio: 1 / 1;
+    }
+    .filter-inner {
+        justify-content: flex-start;
+        padding-bottom: 4px;
+    }
+    .destinations-discovery-map {
+        padding: 60px 0;
+    }
+}

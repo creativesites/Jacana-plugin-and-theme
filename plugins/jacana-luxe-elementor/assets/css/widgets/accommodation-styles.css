@@ -1,0 +1,437 @@
+/* Styles for jacana_accommodation_styles */
+
+.jacana-accommodation-styles {
+    position: relative;
+    overflow: clip;
+    background:
+        radial-gradient(1100px 520px at 8% 0%, rgba(157, 203, 223, 0.18), transparent 68%),
+        radial-gradient(900px 480px at 92% 100%, rgba(219, 151, 81, 0.16), transparent 70%),
+        linear-gradient(180deg, #fffcf3 0%, #f7f1e5 100%);
+}
+.jacana-zoora-parity.jacana-accommodation-styles{
+    padding-bottom: 0;
+}
+.jacana-accommodation-styles::before {
+    content: "";
+    position: absolute;
+    inset: -30% -8% auto;
+    height: 420px;
+    background:
+        radial-gradient(circle at 30% 45%, rgba(157, 203, 223, 0.2), transparent 62%),
+        radial-gradient(circle at 72% 52%, rgba(219, 151, 81, 0.2), transparent 62%);
+    filter: blur(14px);
+    animation: jacana-accom-aurora 20s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes jacana-accom-aurora {
+    0% {
+        transform: translate3d(-2%, -2%, 0) scale(1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translate3d(2%, 2%, 0) scale(1.06);
+        opacity: 1;
+    }
+}
+
+.jacana-accommodation-styles .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-accom-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.jacana-accommodation-styles .jacana-tailor-story-kicker {
+    justify-content: center;
+    border-left: none;
+    padding-left: 0;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.jacana-accommodation-styles .jacana-tailor-story-kicker::before,
+.jacana-accommodation-styles .jacana-tailor-story-kicker::after {
+    content: "";
+    width: 46px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200, 155, 83, 0.6), transparent);
+}
+
+.jacana-accom-heading {
+    margin: 0;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.06;
+    color: var(--jacana-earth, #2d2416);
+    text-wrap: balance;
+}
+
+.jacana-accom-intro {
+    margin: 14px auto 0;
+    max-width: 62ch;
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(45, 36, 22, 0.74);
+}
+
+.jacana-accom-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 34px;
+}
+
+.jacana-accom-card {
+    grid-column: span 4;
+    position: relative;
+    min-height: 320px;
+    aspect-ratio: auto;
+    border-radius: 18px;
+    border: 1px solid rgba(45, 36, 22, 0.12);
+    overflow: hidden;
+    background: #1c1510;
+    box-shadow: 0 16px 34px rgba(20, 14, 9, 0.14);
+    transition: transform 0.34s cubic-bezier(0.2, 0.75, 0.2, 1), box-shadow 0.34s ease, border-color 0.34s ease;
+    will-change: transform;
+}
+
+.jacana-accom-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(90deg, var(--jacana-sky, #9dcbdf), var(--jacana-dunes, #db9751));
+    transform: scaleX(0.16);
+    transform-origin: left;
+    transition: transform 0.34s ease;
+    z-index: 4;
+}
+
+.jacana-accom-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.2) 48%, transparent 62%);
+    transform: translateX(-140%);
+    transition: transform 0.8s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.jacana-accom-card:hover,
+.jacana-accom-card:focus-within {
+    transform: translateY(-8px);
+    border-color: rgba(45, 36, 22, 0.24);
+    box-shadow: 0 26px 56px rgba(20, 14, 9, 0.22);
+}
+
+.jacana-accom-card:hover::before,
+.jacana-accom-card:focus-within::before {
+    transform: scaleX(1);
+}
+
+.jacana-accom-card:hover::after,
+.jacana-accom-card:focus-within::after {
+    transform: translateX(140%);
+}
+
+.jacana-accom-card-media {
+    position: absolute;
+    inset: 0;
+}
+
+.jacana-accom-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.01);
+    transition: transform 0.8s cubic-bezier(0.2, 0.75, 0.2, 1), filter 0.4s ease;
+    filter: saturate(0.94) contrast(1.02);
+}
+
+.jacana-accom-card:hover .jacana-accom-card-img,
+.jacana-accom-card:focus-within .jacana-accom-card-img {
+    transform: scale(1.08);
+    filter: saturate(1.04) contrast(1.04);
+}
+
+.jacana-accom-card-img-placeholder {
+    background:
+        radial-gradient(circle at 22% 28%, rgba(157, 203, 223, 0.42), transparent 52%),
+        radial-gradient(circle at 76% 78%, rgba(219, 151, 81, 0.42), transparent 52%),
+        linear-gradient(135deg, #2f261b, #18120d);
+}
+
+.jacana-accom-card-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(12, 10, 9, 0.05) 12%, rgba(12, 10, 9, 0.38) 52%, rgba(12, 10, 9, 0.88) 100%);
+    z-index: 1;
+}
+
+.jacana-accom-card-content {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    margin: 0;
+    padding: 14px 16px 16px;
+    display: grid;
+    gap: 6px;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0) 0%, rgba(12, 10, 9, 0.62) 38%, rgba(12, 10, 9, 0.9) 100%);
+}
+
+.elementor-widget-jacana_accommodation_styles .jacana-accom-card {
+    aspect-ratio: auto;
+}
+
+.elementor-widget-jacana_accommodation_styles .jacana-accom-card-content {
+    position: absolute;
+    inset: auto 0 0 0;
+    margin: 0 !important;
+}
+
+.jacana-accom-card-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.jacana-accom-card-index,
+.jacana-accom-card-label {
+    min-height: 24px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+}
+
+.jacana-accom-card-index {
+    padding: 0 8px;
+    font-weight: 700;
+    color: #19120d;
+    background: rgba(255, 250, 228, 0.95);
+}
+
+.jacana-accom-card-label {
+    padding: 0 10px;
+    color: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(12, 10, 9, 0.26);
+    backdrop-filter: blur(4px);
+}
+
+.jacana-accom-card-title {
+    margin: 0;
+    color: #fff !important;
+    font-size: clamp(20px, 2vw, 30px);
+    line-height: 1.08;
+    text-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+}
+
+.jacana-accom-card-desc {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 14px;
+    line-height: 1.45;
+    max-width: 56ch;
+}
+
+.jacana-accom-card-link {
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    gap: 12px;
+    width: fit-content;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 250, 228, 0.18);
+    background: rgba(255, 250, 228, 0.05);
+    color: #fffae4;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    opacity: 0.86;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.jacana-accom-card-link span {
+    transition: transform 0.26s ease;
+}
+
+.jacana-accom-card:hover .jacana-accom-card-link,
+.jacana-accom-card:focus-within .jacana-accom-card-link {
+    opacity: 1;
+    background: rgba(255, 250, 228, 0.12);
+    border-color: rgba(255, 250, 228, 0.34);
+    transform: translateY(-1px);
+}
+
+.jacana-accom-card:hover .jacana-accom-card-link span,
+.jacana-accom-card:focus-within .jacana-accom-card-link span {
+    transform: translateX(3px);
+}
+
+.jacana-accom-cta-wrap {
+    margin-top: 56px;
+    margin-left: calc(var(--content-pad) * -1);
+    margin-right: calc(var(--content-pad) * -1);
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.jacana-accom-cta-card {
+    position: relative;
+    background-image: linear-gradient(112deg, rgba(12, 10, 9, 0.92) 0%, rgba(12, 10, 9, 0.82) 45%, rgba(12, 10, 9, 0.55) 100%);
+    background-size: cover;
+    background-position: center;
+    padding: clamp(56px, 7vw, 92px) 0;
+}
+
+.jacana-accom-cta-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(600px 240px at 18% 10%, rgba(157, 203, 223, 0.28), transparent 70%),
+        radial-gradient(500px 220px at 92% 90%, rgba(219, 151, 81, 0.22), transparent 70%);
+    pointer-events: none;
+}
+
+.jacana-accom-cta-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px;
+    align-items: center;
+}
+
+.jacana-accom-cta-content {
+    max-width: 62ch;
+}
+
+.jacana-accom-cta-kicker {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.jacana-accom-cta-title {
+    margin: 0;
+    color: #fff !important;
+    font-size: clamp(26px, 3.2vw, 44px);
+    line-height: 1.1;
+}
+
+.jacana-accom-cta-copy {
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.jacana-accom-cta-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.jacana-accom-cta-actions .button {
+    min-height: 48px;
+    padding: 0 24px;
+}
+
+@media (max-width: 1200px) {
+    .jacana-accom-card {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 860px) {
+    .jacana-accom-cta-inner {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .jacana-accom-cta-actions {
+        justify-content: flex-start;
+    }
+
+    .jacana-accom-cta-actions .button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 760px) {
+    .jacana-accom-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .jacana-accom-card {
+        grid-column: span 6;
+        min-height: 300px;
+        border-radius: 14px;
+    }
+
+    .jacana-accom-card-content {
+        padding: 16px;
+    }
+
+    .jacana-accom-card-title {
+        font-size: clamp(20px, 6vw, 30px);
+    }
+}
+
+@media (max-width: 480px) {
+    .jacana-accom-grid {
+        gap: 12px;
+    }
+
+    .jacana-accom-card {
+        min-height: 260px;
+    }
+
+    .jacana-accom-card-desc {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .jacana-accommodation-styles::before,
+    .jacana-accom-card,
+    .jacana-accom-card::after,
+    .jacana-accom-card-img,
+    .jacana-accom-card-link,
+    .jacana-accom-card-link span {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}

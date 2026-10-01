@@ -1,0 +1,178 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Weather Badge  ·  jacana-wx-badge-  prefix
+   Compact, single-destination weather display.
+   Sits inside destination cards, the Explorer panel, or the facts bar.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Base badge ────────────────────────────────────────────────────────────── */
+
+.jacana-wx-badge {
+	font-family: "Sora", sans-serif;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	line-height: 1;
+}
+
+/* ── Icon ──────────────────────────────────────────────────────────────────── */
+
+.jacana-wx-badge-icon {
+	width: 28px;
+	height: 28px;
+	flex-shrink: 0;
+	color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-wx-badge-icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+/* ── Temperature + condition ───────────────────────────────────────────────── */
+
+.jacana-wx-badge-main {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+}
+
+.jacana-wx-badge-temp {
+	font-family: "Cormorant Garamond", Georgia, serif;
+	font-size: 22px;
+	font-weight: 600;
+	font-style: italic;
+	line-height: 1;
+}
+
+.jacana-wx--light .jacana-wx-badge-temp { color: var(--jacana-earth, #2d2416); }
+.jacana-wx--dark  .jacana-wx-badge-temp { color: rgba(255, 250, 228, 0.92); }
+
+.jacana-wx-badge-unit {
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 600;
+	color: var(--jacana-dunes, #db9751);
+	vertical-align: super;
+}
+
+.jacana-wx-badge-condition {
+	font-size: 10px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+}
+
+.jacana-wx--light .jacana-wx-badge-condition { color: rgba(45, 36, 22, 0.52); }
+.jacana-wx--dark  .jacana-wx-badge-condition { color: rgba(255, 250, 228, 0.46); }
+
+/* ── Stats (wind, humidity, UV) ────────────────────────────────────────────── */
+
+.jacana-wx-badge-stats {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.jacana-wx-badge-stat {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.jacana-wx-badge-stat-label {
+	font-size: 8.5px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+}
+
+.jacana-wx--light .jacana-wx-badge-stat-label { color: rgba(45, 36, 22, 0.42); }
+.jacana-wx--dark  .jacana-wx-badge-stat-label { color: rgba(255, 250, 228, 0.36); }
+
+.jacana-wx-badge-stat-val {
+	font-size: 11px;
+	font-weight: 700;
+}
+
+.jacana-wx--light .jacana-wx-badge-stat-val { color: var(--jacana-earth, #2d2416); }
+.jacana-wx--dark  .jacana-wx-badge-stat-val { color: rgba(255, 250, 228, 0.82); }
+
+.jacana-wx-badge-stat-unit {
+	font-weight: 400;
+	font-size: 10px;
+}
+
+/* ── Destination name (compact-card only) ──────────────────────────────────── */
+
+.jacana-wx-badge-dest {
+	font-family: "Cormorant Garamond", Georgia, serif;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+}
+
+.jacana-wx--light .jacana-wx-badge-dest { color: var(--jacana-earth, #2d2416); }
+.jacana-wx--dark  .jacana-wx-badge-dest { color: rgba(255, 250, 228, 0.72); }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Inline style  — horizontal strip that sits inside a fact bar
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.jacana-wx-badge--inline {
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+}
+
+.jacana-wx-badge--inline .jacana-wx-badge-icon { width: 22px; height: 22px; }
+.jacana-wx-badge--inline .jacana-wx-badge-temp { font-size: 18px; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Compact-card style  — self-contained framed card
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.jacana-wx-badge--compact-card {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 18px 20px;
+	border-radius: 12px;
+	width: fit-content;
+}
+
+.jacana-wx--light.jacana-wx-badge--compact-card {
+	background: rgba(255, 255, 255, 0.72);
+	border: 1px solid rgba(45, 36, 22, 0.09);
+	box-shadow: 0 4px 14px rgba(45, 36, 22, 0.06);
+}
+
+.jacana-wx--dark.jacana-wx-badge--compact-card {
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.jacana-wx-badge--compact-card .jacana-wx-badge-main {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3px;
+}
+
+.jacana-wx-badge--compact-card .jacana-wx-badge-stats {
+	flex-direction: row;
+	gap: 16px;
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+	.jacana-wx-badge,
+	.jacana-wx-badge * {
+		transition: none !important;
+		animation: none !important;
+	}
+}

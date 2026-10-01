@@ -1,0 +1,56 @@
+/* Jacana Zoora Home Hero Widget Styling */
+.jacana-zoora-home-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(20px, 4vw, 40px);
+}
+
+.jacana-z-hero-content {
+    flex: 1 1 45%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.jacana-z-hero-image {
+    flex: 1 1 45%;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jacana-z-hero-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Typography falls back to theme defaults unless specified by Elementor */
+.jacana-zoora-home-hero h1 {
+    margin-bottom: clamp(15px, 2vw, 30px);
+}
+
+.jacana-zoora-home-hero h4 {
+    margin-bottom: clamp(20px, 3vw, 40px);
+    font-weight: normal;
+    line-height: 1.6;
+}
+
+.jacana-z-hero-button {
+    align-self: flex-start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .jacana-zoora-home-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .jacana-z-hero-button {
+        align-self: center;
+    }
+}

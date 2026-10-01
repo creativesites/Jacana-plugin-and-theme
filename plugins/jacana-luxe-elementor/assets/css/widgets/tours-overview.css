@@ -1,0 +1,19 @@
+/* Styles for jacana_tours_overview */
+
+.jacana-tours-overview .split {
+    align-items: start;
+}
+
+.jacana-tours-overview .tabs {
+    margin-top: 22px;
+}
+
+.jacana-tours-overview .card:last-child {
+    max-width: 100%;
+}
+
+@media (max-width: 767px) {
+    .jacana-tours-overview .tabs {
+        gap: 12px;
+    }
+}

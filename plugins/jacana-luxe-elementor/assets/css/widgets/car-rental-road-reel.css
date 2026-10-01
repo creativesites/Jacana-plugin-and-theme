@@ -1,0 +1,315 @@
+/* ── Car Rental Road Reel ─────────────────────────────────────────────────── */
+
+.jacana-crr-section {
+	background: #10100d;
+	padding: 120px 0;
+	position: relative;
+	overflow: hidden;
+}
+
+/* ── Ambient glows ── */
+.jacana-crr-glow {
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+}
+.jacana-crr-glow--warm {
+	top: -100px;
+	left: -80px;
+	width: 600px;
+	height: 600px;
+	background: radial-gradient(circle, rgba(219, 151, 81, 0.09), transparent 65%);
+}
+.jacana-crr-glow--cool {
+	bottom: -60px;
+	right: -60px;
+	width: 500px;
+	height: 500px;
+	background: radial-gradient(circle, rgba(157, 203, 223, 0.07), transparent 65%);
+}
+
+/* ── Layout grid ── */
+.jacana-crr-inner {
+	max-width: var(--max-width, 1180px);
+	margin: 0 auto;
+	padding: 0 var(--content-pad, 40px);
+	display: grid;
+	grid-template-columns: 320px 1fr;
+	gap: 40px 88px;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+}
+
+/* ── Video column ── */
+.jacana-crr-video-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Cinematic portrait panel */
+.jacana-crr-video-panel {
+	position: relative;
+	width: 100%;
+	max-width: 320px;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow:
+		0 0 0 1px rgba(219, 151, 81, 0.14),
+		0 40px 80px rgba(0, 0, 0, 0.70);
+}
+
+/* 9:16 aspect ratio */
+.jacana-crr-ratio {
+	position: relative;
+	padding-bottom: 177.78%;
+	background: #08060a;
+}
+
+.jacana-crr-iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: block;
+	pointer-events: none;
+}
+
+/* Gradient masks */
+.jacana-crr-mask {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	pointer-events: none;
+}
+
+/* Top mask: solid-to-transparent — completely hides channel name */
+.jacana-crr-mask--top {
+	top: 0;
+	height: 72px;
+	background: linear-gradient(180deg, #10100d 0%, #10100d 55%, transparent 100%);
+}
+
+/* Bottom mask: depth gradient */
+.jacana-crr-mask--bottom {
+	bottom: 5px; /* sits above the stripe */
+	height: 80px;
+	background: linear-gradient(0deg, rgba(16, 16, 13, 0.72) 0%, transparent 100%);
+}
+
+/* Oshiwambo stripe at bottom of panel */
+.jacana-crr-stripe {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 5px;
+	z-index: 3;
+	background: repeating-linear-gradient(
+		90deg,
+		var(--oshi-pink, #e6007e)      0px,  var(--oshi-pink, #e6007e)      7px,
+		var(--oshi-black, #000)         7px,  var(--oshi-black, #000)         9px,
+		var(--oshi-red, #cc0000)        9px,  var(--oshi-red, #cc0000)       14px,
+		var(--oshi-dark-pink, #800040) 14px,  var(--oshi-dark-pink, #800040) 18px,
+		var(--oshi-black, #000)        18px,  var(--oshi-black, #000)        20px
+	);
+}
+
+/* ── Content column ── */
+.jacana-crr-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+/* Kicker */
+.jacana-crr-kicker {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.34em;
+	font-size: 10px;
+	font-weight: 700;
+	color: var(--jacana-dunes, #db9751);
+	margin-bottom: 22px;
+}
+.jacana-crr-kicker::before,
+.jacana-crr-kicker::after {
+	content: "";
+	display: block;
+	width: 22px;
+	height: 1px;
+	background: var(--jacana-dunes, #db9751);
+	flex-shrink: 0;
+}
+
+/* Heading */
+.jacana-crr-heading {
+	font-size: clamp(38px, 5vw, 72px);
+	font-weight: 600;
+	line-height: 1.04;
+	letter-spacing: -0.02em;
+	color: rgba(255, 250, 228, 0.97) !important;
+	margin: 0 0 28px;
+}
+.jacana-crr-heading em {
+	font-style: italic;
+	display: block;
+	color: var(--jacana-dunes, #db9751) !important;
+}
+
+/* Copy */
+.jacana-crr-copy {
+	font-family: "Sora", sans-serif;
+	font-size: 16px;
+	line-height: 1.75;
+	color: rgba(255, 250, 228, 0.56);
+	max-width: 480px;
+	margin: 0 0 44px;
+}
+
+/* ── Features list ── */
+.jacana-crr-features {
+	list-style: none;
+	margin: 0 0 48px;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.jacana-crr-feature {
+	display: flex;
+	gap: 18px;
+	align-items: flex-start;
+	padding: 20px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.jacana-crr-feature:first-child {
+	border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.jacana-crr-feature-dot {
+	flex-shrink: 0;
+	margin-top: 5px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--jacana-dunes, #db9751);
+	box-shadow: 0 0 10px rgba(219, 151, 81, 0.45);
+}
+
+.jacana-crr-feature-text {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.jacana-crr-feature-label {
+	font-family: "Sora", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.10em;
+	color: rgba(255, 250, 228, 0.90);
+}
+
+.jacana-crr-feature-detail {
+	font-family: "Sora", sans-serif;
+	font-size: 14px;
+	line-height: 1.65;
+	color: rgba(255, 250, 228, 0.52);
+}
+
+/* ── Actions ── */
+.jacana-crr-actions {
+	display: flex;
+	align-items: center;
+	gap: 32px;
+	flex-wrap: wrap;
+}
+
+.jacana-crr-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+	
+	font-family: "Sora", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	text-decoration: none;
+	padding: 15px 28px;
+	border-radius: 4px;
+	transition: transform 0.22s ease, box-shadow 0.22s ease, gap 0.22s ease;
+	box-shadow: 0 6px 20px rgba(192, 122, 48, 0.28);
+}
+.jacana-crr-cta:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 28px rgba(192, 122, 48, 0.38);
+	gap: 15px;
+	color: #fff !important;
+}
+
+.jacana-crr-cta-ghost {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: rgba(255, 250, 228, 0.60);
+	font-family: "Sora", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	text-decoration: none;
+	padding: 15px 4px;
+	border-bottom: 1px solid rgba(255, 250, 228, 0.20);
+	transition: color 0.22s ease, border-color 0.22s ease, gap 0.22s ease;
+}
+.jacana-crr-cta-ghost:hover {
+	color: rgba(255, 250, 228, 0.90);
+	border-color: rgba(255, 250, 228, 0.50);
+	gap: 13px;
+}
+
+.jacana-crr-arrow {
+	display: inline-block;
+	transition: transform 0.22s ease;
+}
+.jacana-crr-cta:hover .jacana-crr-arrow,
+.jacana-crr-cta-ghost:hover .jacana-crr-arrow {
+	transform: translateX(4px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 980px) {
+	.jacana-crr-inner {
+		grid-template-columns: 1fr;
+		gap: 56px;
+	}
+	.jacana-crr-video-col {
+		order: -1;
+	}
+	.jacana-crr-video-panel {
+		max-width: 280px;
+	}
+}
+
+@media (max-width: 540px) {
+	.jacana-crr-section {
+		padding: 80px 0;
+	}
+	.jacana-crr-video-panel {
+		max-width: 240px;
+	}
+	.jacana-crr-actions {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+	}
+}

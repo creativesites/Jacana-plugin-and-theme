@@ -1,0 +1,191 @@
+/* Styles for jacana_featured_attractions */
+
+   Featured Attractions Widget (New)
+   ============================================================ */
+
+.jacana-featured-attractions {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--jacana-earth, #2d2416);
+    color: #f7f2e8;
+    padding: 100px 0;
+}
+
+.jacana-featured-attractions .jacana-attr-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 10, 9, 0.82) 0%, rgba(45, 36, 22, 0.88) 100%);
+    z-index: 1;
+}
+
+.jacana-featured-attractions .section-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* -- Section header -- */
+.jacana-featured-attractions .jacana-attr-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+}
+
+.jacana-featured-attractions .jacana-attr-kicker {
+    justify-content: center;
+    border-left: none;
+    padding-left: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-featured-attractions .jacana-attr-kicker::before,
+.jacana-featured-attractions .jacana-attr-kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(219, 151, 81, 0.5), transparent);
+    max-width: 48px;
+}
+
+.jacana-featured-attractions .jacana-attr-heading {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(32px, 3.5vw, 52px);
+    line-height: 1.15;
+    color: #fff;
+    margin: 0 0 0.5em;
+}
+
+.jacana-featured-attractions .jacana-attr-intro {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(247, 242, 232, 0.76);
+    margin: 0;
+}
+
+/* -- 2x2 Grid -- */
+.jacana-attr-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* -- Service Cards -- */
+.jacana-attr-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    transition: all 0.32s cubic-bezier(0.22, 0.68, 0.2, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+}
+
+.jacana-attr-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(219, 151, 81, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(12, 10, 9, 0.2);
+}
+
+.jacana-attr-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(219, 151, 81, 0.15), rgba(157, 203, 223, 0.1));
+    border: 1px solid rgba(219, 151, 81, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.jacana-attr-card:hover .jacana-attr-icon {
+    background: linear-gradient(135deg, rgba(219, 151, 81, 0.25), rgba(157, 203, 223, 0.15));
+    border-color: var(--jacana-dunes, #db9751);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.jacana-attr-title {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #f7f2e8;
+    margin: 0 0 14px;
+}
+
+.jacana-attr-copy {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(247, 242, 232, 0.72);
+    margin: 0 0 24px;
+    flex-grow: 1;
+}
+
+/* -- Bullet List -- */
+.jacana-attr-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.jacana-attr-list li {
+    font-size: 14px;
+    color: rgba(247, 242, 232, 0.88);
+    position: relative;
+    padding-left: 24px;
+    line-height: 1.4;
+}
+
+.jacana-attr-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #a66a2f);
+}
+
+/* -- CTA Button -- */
+.jacana-attr-btn {
+    align-self: flex-start;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #b37435);
+    color: #1e150c;
+    border: none;
+    font-weight: 600;
+}
+
+.jacana-attr-btn:hover {
+    background: linear-gradient(135deg, #e0a463, #c48240);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(219, 151, 81, 0.3);
+}
+
+/* -- Responsive -- */
+@media (max-width: 900px) {
+    .jacana-attr-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .jacana-attr-card {
+        padding: 32px 24px;
+    }
+}

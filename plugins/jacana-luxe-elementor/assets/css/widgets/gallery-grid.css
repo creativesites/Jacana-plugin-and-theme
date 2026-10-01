@@ -1,0 +1,480 @@
+/* ── Gallery Grid ────────────────────────────────────────── */
+
+.jacana-gg-section {
+    background: var(--jacana-savannah, #fffae4);
+    padding: 120px 0 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+.jacana-gg-section::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.07), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.jacana-gg-section::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(157, 203, 223, 0.06), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.jacana-gg-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 48px);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.jacana-gg-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 80px;
+    align-items: end;
+    margin-bottom: 52px;
+}
+
+.jacana-gg-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.jacana-gg-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    width: fit-content;
+}
+
+.jacana-gg-kicker::before,
+.jacana-gg-kicker::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-gg-heading {
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0;
+}
+
+.jacana-gg-header-right {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 6px;
+}
+
+.jacana-gg-intro {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0;
+    max-width: 46ch;
+}
+
+/* ── Filter bar ──────────────────────────────────────────── */
+.jacana-gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+    justify-content: center;
+}
+
+.jacana-gallery-filter {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 18px;
+    border: 1px solid rgba(45, 36, 22, 0.14);
+    background: rgba(255, 255, 255, 0.70);
+    color: rgba(45, 36, 22, 0.72);
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+        background 0.22s ease,
+        border-color 0.22s ease,
+        color 0.22s ease,
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.jacana-gallery-filter:hover,
+.jacana-gallery-filter:focus-visible {
+    transform: translateY(-1px);
+    border-color: rgba(219, 151, 81, 0.45);
+    background: rgba(219, 151, 81, 0.08);
+    outline: none;
+}
+
+.jacana-gallery-filter.is-active {
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 16px rgba(192, 122, 48, 0.30);
+}
+
+/* ── Main grid ───────────────────────────────────────────── */
+.jacana-gallery-curated-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.jacana-gallery-card {
+    grid-column: span 4;
+    min-width: 0;
+}
+
+.jacana-gallery-card[hidden] {
+    display: none !important;
+}
+
+.jacana-gallery-card--wide,
+.jacana-gallery-card--featured {
+    grid-column: span 8;
+}
+
+/* ── Card button ─────────────────────────────────────────── */
+.jacana-gallery-card-btn,
+.jacana-gallery-card-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #1a1510;
+    padding: 0;
+    cursor: pointer;
+    box-shadow:
+        0 4px 16px rgba(34, 26, 13, 0.08),
+        0 1px 4px  rgba(34, 26, 13, 0.06);
+    transition:
+        transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
+        box-shadow 0.35s ease;
+}
+
+.jacana-gallery-card-btn:hover,
+.jacana-gallery-card-btn:focus-visible,
+.jacana-gallery-card-button:hover,
+.jacana-gallery-card-button:focus-visible {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+        0 24px 52px rgba(34, 26, 13, 0.18),
+        0 6px 16px  rgba(34, 26, 13, 0.10);
+    outline: none;
+}
+
+/* Shimmer sweep */
+.jacana-gallery-card-btn::before,
+.jacana-gallery-card-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.08) 36%, transparent 52%);
+    transform: translateX(-130%);
+    transition: transform 0.75s ease;
+}
+
+.jacana-gallery-card-btn:hover::before,
+.jacana-gallery-card-btn:focus-visible::before,
+.jacana-gallery-card-button:hover::before,
+.jacana-gallery-card-button:focus-visible::before {
+    transform: translateX(130%);
+}
+
+/* ── Media ───────────────────────────────────────────────── */
+.jacana-gallery-media {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.jacana-gallery-card--wide .jacana-gallery-media,
+.jacana-gallery-card--featured .jacana-gallery-media {
+    aspect-ratio: 16 / 9;
+}
+
+.jacana-gallery-card--tall .jacana-gallery-media {
+    aspect-ratio: 3 / 4;
+}
+
+.jacana-gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.03);
+    transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1), filter 0.5s ease;
+    filter: saturate(0.88) brightness(0.94);
+}
+
+.jacana-gallery-card-btn:hover .jacana-gallery-media img,
+.jacana-gallery-card-btn:focus-visible .jacana-gallery-media img,
+.jacana-gallery-card-button:hover .jacana-gallery-media img,
+.jacana-gallery-card-button:focus-visible .jacana-gallery-media img {
+    transform: scale(1.10);
+    filter: saturate(1.02) brightness(1.0);
+}
+
+/* ── Cinematic overlay ───────────────────────────────────── */
+.jacana-gallery-card-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg,
+            rgba(8, 5, 3, 0.12)  0%,
+            transparent          30%,
+            rgba(8, 5, 3, 0.60)  72%,
+            rgba(8, 5, 3, 0.86)  100%
+        );
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.35s ease;
+}
+
+.jacana-gallery-card-btn:hover .jacana-gallery-card-overlay,
+.jacana-gallery-card-button:hover .jacana-gallery-card-overlay {
+    opacity: 0.9;
+}
+
+/* ── Oshiwambo stripe ────────────────────────────────────── */
+.jacana-gallery-card-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    z-index: 3;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e)      0px,  var(--oshi-pink, #e6007e)      7px,
+        var(--oshi-black, #000)         7px,  var(--oshi-black, #000)         9px,
+        var(--oshi-red, #cc0000)        9px,  var(--oshi-red, #cc0000)       14px,
+        var(--oshi-dark-pink, #800040) 14px,  var(--oshi-dark-pink, #800040) 18px,
+        var(--oshi-black, #000)        18px,  var(--oshi-black, #000)        20px
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.jacana-gallery-card-btn:hover .jacana-gallery-card-stripe,
+.jacana-gallery-card-btn:focus-visible .jacana-gallery-card-stripe,
+.jacana-gallery-card-button:hover .jacana-gallery-card-stripe,
+.jacana-gallery-card-button:focus-visible .jacana-gallery-card-stripe {
+    opacity: 1;
+}
+
+/* ── Expand icon ─────────────────────────────────────────── */
+.jacana-gallery-card-expand {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: grid;
+    place-items: center;
+    color: rgba(255, 250, 228, 0.80);
+    opacity: 0;
+    transform: scale(0.75);
+    transition: opacity 0.28s ease, transform 0.28s ease, background 0.22s ease;
+    pointer-events: none;
+}
+
+.jacana-gallery-card-btn:hover .jacana-gallery-card-expand,
+.jacana-gallery-card-btn:focus-visible .jacana-gallery-card-expand,
+.jacana-gallery-card-button:hover .jacana-gallery-card-expand,
+.jacana-gallery-card-button:focus-visible .jacana-gallery-card-expand {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ── Meta block ──────────────────────────────────────────── */
+.jacana-gallery-card-meta {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transform: translateY(5px);
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.jacana-gallery-card-btn:hover .jacana-gallery-card-meta,
+.jacana-gallery-card-btn:focus-visible .jacana-gallery-card-meta,
+.jacana-gallery-card-button:hover .jacana-gallery-card-meta,
+.jacana-gallery-card-button:focus-visible .jacana-gallery-card-meta {
+    transform: translateY(0);
+}
+
+.jacana-gallery-card-title {
+    display: block;
+    font-size: clamp(17px, 1.8vw, 22px);
+    font-weight: 600;
+    line-height: 1.18;
+    color: rgba(255, 250, 228, 0.97);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.30);
+}
+
+.jacana-gallery-card-location {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.20em;
+    color: rgba(255, 250, 228, 0.60);
+}
+
+/* ── Category pills ──────────────────────────────────────── */
+.jacana-gallery-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.jacana-gallery-card-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 4px 10px;
+    border: 1px solid rgba(255, 250, 228, 0.22);
+    background: rgba(255, 250, 228, 0.10);
+    color: rgba(255, 250, 228, 0.88);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.jacana-gallery-card-pill--video {
+    background: rgba(219, 151, 81, 0.20);
+    border-color: rgba(219, 151, 81, 0.45);
+    color: var(--jacana-dunes, #db9751);
+}
+
+/* ── Empty state ─────────────────────────────────────────── */
+.jacana-gg-empty {
+    padding: 48px;
+    border: 1px dashed rgba(45, 36, 22, 0.14);
+    border-radius: 16px;
+    text-align: center;
+    color: rgba(45, 36, 22, 0.52);
+    font-size: 15px;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .jacana-gallery-curated-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .jacana-gallery-card,
+    .jacana-gallery-card--wide,
+    .jacana-gallery-card--featured {
+        grid-column: span 3;
+    }
+
+    .jacana-gallery-card--wide .jacana-gallery-media,
+    .jacana-gallery-card--featured .jacana-gallery-media {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 900px) {
+    .jacana-gg-header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .jacana-gg-intro {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .jacana-gg-section {
+        padding: 80px 0 100px;
+    }
+
+    .jacana-gallery-curated-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .jacana-gallery-card,
+    .jacana-gallery-card--wide,
+    .jacana-gallery-card--featured,
+    .jacana-gallery-card--tall {
+        grid-column: span 1;
+    }
+
+    .jacana-gallery-card--wide .jacana-gallery-media,
+    .jacana-gallery-card--featured .jacana-gallery-media {
+        aspect-ratio: 4 / 3;
+    }
+
+    /* Always show meta and expand icon on touch */
+    .jacana-gallery-card-meta,
+    .jacana-gallery-card-btn:hover .jacana-gallery-card-meta,
+    .jacana-gallery-card-button:hover .jacana-gallery-card-meta {
+        transform: translateY(0);
+    }
+
+    .jacana-gallery-card-expand {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .jacana-gallery-curated-grid {
+        grid-template-columns: 1fr;
+    }
+}

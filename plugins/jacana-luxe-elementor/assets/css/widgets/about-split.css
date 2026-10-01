@@ -1,0 +1,251 @@
+/* ── About Story (Who We Are) ────────────────────────────── */
+
+.jacana-about-story {
+    background: var(--jacana-savannah, #fffae4);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 60px;
+}
+
+/* Override any theme section-inner max-width */
+.jacana-about-story .section-inner {
+    max-width: none;
+    padding: 0;
+}
+
+/* Subtle warm radial glow top-right */
+.jacana-about-story::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.11), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.jacana-about-story-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 80px;
+    align-items: center;
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 clamp(40px, 7vw, 100px);
+}
+
+/* ── Text column ─────────────────────────────────────────── */
+.jacana-about-story-text { min-width: 0; }
+
+.jacana-about-story-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 20px;
+}
+
+.jacana-about-story-kicker::before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-about-story-text h2 {
+    font-size: clamp(28px, 3.2vw, 48px);
+    color: var(--jacana-earth, #2d2416);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.jacana-about-story-body {
+    font-size: 16.5px;
+    line-height: 1.76;
+    color: rgba(45, 36, 22, 0.76);
+    margin-bottom: 28px;
+}
+
+/* Highlight block — dunes left border */
+.jacana-about-story-highlight {
+    position: relative;
+    padding: 18px 22px 18px 24px;
+    margin-bottom: 32px;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(to right, rgba(219, 151, 81, 0.1), rgba(219, 151, 81, 0.02));
+    border-left: 3.5px solid var(--jacana-dunes, #db9751);
+}
+
+.jacana-about-story-highlight p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    line-height: 1.62;
+}
+
+/* Services block */
+.jacana-about-story-services { margin-top: 4px; }
+
+.jacana-about-story-services-label {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 9.5px;
+    font-weight: 700;
+    color: rgba(45, 36, 22, 0.42);
+    margin: 0 0 16px;
+}
+
+.jacana-about-story-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 24px;
+}
+
+.jacana-about-story-checklist li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 13.5px;
+    color: rgba(45, 36, 22, 0.82);
+    line-height: 1.45;
+}
+
+/* Dunes dot */
+.jacana-about-story-checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--jacana-dunes, #db9751);
+}
+
+/* ── Photo column ────────────────────────────────────────── */
+.jacana-about-story-media { min-width: 0; }
+
+.jacana-about-story-figure {
+    margin: 0;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+        0 2px 0 0 var(--jacana-dunes, #db9751),
+        0 32px 80px rgba(45, 36, 22, 0.2);
+}
+
+/* Oshiwambo stripe at photo bottom */
+.jacana-about-story-figure::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e) 0px, var(--oshi-pink, #e6007e) 8px,
+        var(--oshi-black, #000) 8px, var(--oshi-black, #000) 10px,
+        var(--oshi-red, #cc0000) 10px, var(--oshi-red, #cc0000) 15px,
+        var(--oshi-dark-pink, #800040) 15px, var(--oshi-dark-pink, #800040) 20px,
+        var(--oshi-black, #000) 20px, var(--oshi-black, #000) 22px
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Bottom caption gradient */
+.jacana-about-story-figure::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(8, 5, 3, 0.55), transparent);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.jacana-about-story-figure img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.55s ease;
+}
+
+.jacana-about-story-figure:hover img {
+    transform: scale(1.04);
+}
+
+.jacana-about-story-figcaption {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    right: 16px;
+    z-index: 3;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    color: rgba(245, 240, 232, 0.82);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+.jacana-about-story-photo-placeholder {
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(135deg, #e8dfd2, #d4c8b8);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+}
+
+.jacana-about-story-photo-placeholder span {
+    font-size: 13px;
+    color: rgba(45, 36, 22, 0.45);
+    font-style: italic;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 960px) {
+    .jacana-about-story-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    .jacana-about-story-media { order: -1; }
+    .jacana-about-story-figure img { aspect-ratio: 16 / 9; }
+    .jacana-about-story-checklist { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+    .jacana-about-story {
+        padding: 72px 0;
+    }
+    .jacana-about-story-inner {
+        padding: 0 clamp(20px, 5vw, 40px);
+        gap: 36px;
+    }
+    .jacana-about-story-text h2 {
+        font-size: clamp(24px, 7vw, 36px);
+    }
+    .jacana-about-story-checklist {
+        gap: 10px 0;
+    }
+}

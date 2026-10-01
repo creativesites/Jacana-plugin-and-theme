@@ -1,0 +1,127 @@
+.jacana-ytbg-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  width: 100%;
+  background: #050505;
+}
+
+.jacana-ytbg-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.jacana-ytbg-hero.is-ready .jacana-ytbg-media {
+  opacity: 1;
+}
+
+.jacana-ytbg-player {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.jacana-ytbg-player iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.78vh;
+  height: 56.25vw;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
+}
+
+.jacana-ytbg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 5, 0.62) 0%,
+    rgba(5, 5, 5, 0.24) 32%,
+    rgba(5, 5, 5, 0.52) 100%
+  );
+}
+
+.jacana-ytbg-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.jacana-ytbg-mask--top {
+  top: 0;
+  height: 110px;
+  background: linear-gradient(180deg, #050505 0%, rgba(5, 5, 5, 0.95) 48%, transparent 100%);
+}
+
+.jacana-ytbg-mask--bottom {
+  bottom: 0;
+  height: 80px;
+  background: linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, 0.92) 52%, transparent 100%);
+}
+
+.jacana-ytbg-content {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  min-height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(28px, 6vw, 96px) var(--content-pad, 40px);
+}
+
+.jacana-ytbg-copy {
+  width: 100%;
+  max-width: min(var(--max-width, 1180px), 820px);
+}
+
+.jacana-ytbg-copy .elementor-heading-title {
+  margin: 0 0 18px;
+}
+
+.jacana-ytbg-copy .elementor-widget-heading {
+  margin: 0 0 28px;
+}
+
+.jacana-ytbg-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.jacana-ytbg-actions .elementor-button {
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .jacana-ytbg-mask--top {
+    height: 86px;
+  }
+
+  .jacana-ytbg-mask--bottom {
+    height: 64px;
+  }
+
+  .jacana-ytbg-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

@@ -1,0 +1,850 @@
+/* ============================================================
+   Destination Explorer — jacana-dex-
+   Light savannah theme
+   ============================================================ */
+
+/* ── hidden fix: CSS display overrides HTML hidden attribute ── */
+.jacana-dex-detail[hidden],
+.jacana-dex-empty[hidden] { display: none !important; }
+
+/* ── Section ── */
+.jacana-dex-section {
+    padding: 100px 0 80px;
+    background: var(--jacana-savannah, #fffae4);
+    position: relative;
+    overflow: hidden;
+}
+
+.jacana-dex-section::before {
+    content: "";
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.07), transparent 65%);
+    pointer-events: none;
+}
+
+/* ── Header ── */
+.jacana-dex-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 52px;
+    position: relative;
+    z-index: 1;
+    padding: 0 var(--content-pad, 40px);
+}
+
+.jacana-dex-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 18px;
+}
+
+.jacana-dex-kicker::before,
+.jacana-dex-kicker::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-dex-heading {
+    font-size: clamp(28px, 3vw, 46px);
+    font-weight: 600;
+    line-height: 1.14;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 0.6em;
+}
+
+.jacana-dex-intro {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(45, 36, 22, 0.62);
+    margin: 0;
+}
+
+/* ── Grid ── */
+.jacana-dex-grid {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 24px;
+    align-items: start;
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto 40px;
+    padding: 0 var(--content-pad, 40px);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Map column (canvas + pills) ── */
+.jacana-dex-map-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+/* ── Map canvas ── */
+.jacana-dex-canvas {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(45, 36, 22, 0.05);
+    border: 1px solid rgba(45, 36, 22, 0.10);
+    box-shadow:
+        0 4px 16px rgba(45, 36, 22, 0.08),
+        0 16px 48px rgba(45, 36, 22, 0.06);
+}
+
+.jacana-dex-canvas.is-empty { min-height: 480px; }
+
+.jacana-dex-map-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ── Hotspots ── */
+.jacana-dex-hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent !important;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: 50%;
+    overflow: visible;
+    transition: z-index 0.3s step-end;
+}
+
+.jacana-dex-hotspot:hover,
+.jacana-dex-hotspot.is-active {
+    z-index: 20;
+}
+
+/* Dot — dunes gold via ::before, matching jacana-map-hotspot */
+.jacana-dex-hotspot::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #a66a2f);
+    border: 2px solid #fff;
+    box-shadow: 0 4px 12px rgba(45, 36, 22, 0.25);
+    transition: transform 0.3s cubic-bezier(0.22, 0.68, 0.2, 1), border-color 0.3s ease;
+    z-index: 2;
+}
+
+/* Pulse ring via ::after */
+.jacana-dex-hotspot::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    border: 1px solid var(--jacana-dunes, #db9751);
+    opacity: 0;
+    pointer-events: none;
+    animation: dexPulse 2.8s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+    z-index: 1;
+}
+
+.jacana-dex-hotspot:nth-child(even)::after { animation-delay: 1.4s; }
+
+@keyframes dexPulse {
+    0%   { transform: scale(0.6); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0;   }
+}
+
+.jacana-dex-hotspot:hover::before,
+.jacana-dex-hotspot.is-active::before {
+    transform: scale(1.3);
+    border-color: var(--jacana-sky, #9dcbdf);
+}
+
+.jacana-dex-hotspot.is-active::after {
+    animation: none;
+    inset: 6px;
+    opacity: 1;
+    border: 2px solid var(--jacana-sky, #9dcbdf);
+    transform: scale(1);
+    background: rgba(157, 203, 223, 0.15);
+}
+
+/* Hide unused child spans — dot/ring now use pseudo-elements */
+.jacana-dex-hotspot-dot,
+.jacana-dex-hotspot-ring { display: none; }
+
+.jacana-dex-hotspot-label {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: var(--jacana-earth, #2d2416);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 13px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.22s cubic-bezier(0.22, 0.68, 0.2, 1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    z-index: 30;
+}
+
+.jacana-dex-hotspot-label::after {
+    content: "";
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--jacana-earth, #2d2416);
+}
+
+.jacana-dex-hotspot:hover .jacana-dex-hotspot-label,
+.jacana-dex-hotspot.is-active .jacana-dex-hotspot-label {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ── Panel ── */
+.jacana-dex-panel {
+    border-radius: 16px;
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    background: #fff;
+    overflow: hidden;
+    box-shadow:
+        0 4px 16px rgba(45, 36, 22, 0.08),
+        0 20px 48px rgba(45, 36, 22, 0.07);
+    display: flex;
+    flex-direction: column;
+    min-height: 560px;
+    max-height: 740px;
+}
+
+/* ── Empty state ── */
+.jacana-dex-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex: 1;
+    padding: 60px 32px;
+    text-align: center;
+}
+
+.jacana-dex-empty-icon {
+    color: rgba(45, 36, 22, 0.18);
+}
+
+.jacana-dex-empty-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(45, 36, 22, 0.45);
+    max-width: 240px;
+    margin: 0;
+}
+
+/* ── Detail view ── */
+.jacana-dex-detail {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* ── Image slider ── */
+.jacana-dex-slider {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: rgba(45, 36, 22, 0.06);
+}
+
+.jacana-dex-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+}
+
+.jacana-dex-slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.jacana-dex-slide--empty {
+    background: linear-gradient(135deg, rgba(219,151,81,0.08), rgba(157,203,223,0.06));
+}
+
+/* Slider nav buttons */
+.jacana-dex-sl-prev,
+.jacana-dex-sl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    line-height: 1;
+}
+
+.jacana-dex-sl-prev { left: 12px; }
+.jacana-dex-sl-next { right: 12px; }
+
+.jacana-dex-sl-prev:hover,
+.jacana-dex-sl-next:hover {
+    background: rgba(219, 151, 81, 0.55);
+    border-color: var(--jacana-dunes, #db9751);
+}
+
+/* Counter */
+.jacana-dex-sl-counter {
+    position: absolute;
+    top: 12px; right: 12px;
+    z-index: 4;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.88);
+    background: rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(8px);
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+/* Slider overlay: tags + title */
+.jacana-dex-sl-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 40%, transparent 70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px 14px 16px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.jacana-dex-sl-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-self: flex-start;
+}
+
+.jacana-dex-tag {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.jacana-dex-tag--region {
+    color: var(--jacana-sky, #9dcbdf);
+    border: 1px solid rgba(157, 203, 223, 0.45);
+}
+
+.jacana-dex-tag--type {
+    color: var(--jacana-dunes, #db9751);
+    border: 1px solid rgba(219, 151, 81, 0.45);
+}
+
+.jacana-dex-sl-title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #fff !important;
+    margin: 0;
+    align-self: flex-end;
+}
+
+/* ── Thumbnail strip ── */
+.jacana-dex-thumbs {
+    display: flex;
+    gap: 4px;
+    padding: 6px 8px;
+    background: rgba(45, 36, 22, 0.88);
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-shrink: 0;
+}
+
+.jacana-dex-thumbs::-webkit-scrollbar { display: none; }
+
+.jacana-dex-thumb {
+    min-width: 48px;
+    height: 36px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+    opacity: 0.55;
+    padding: 0;
+}
+
+.jacana-dex-thumb.is-active,
+.jacana-dex-thumb:hover {
+    border-color: var(--jacana-dunes, #db9751);
+    opacity: 1;
+}
+
+/* ── Scrollable body ── */
+.jacana-dex-body {
+    overflow-y: auto;
+    flex: 1;
+    padding: 20px 22px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(219, 151, 81, 0.25) transparent;
+}
+
+.jacana-dex-body::-webkit-scrollbar { width: 3px; }
+.jacana-dex-body::-webkit-scrollbar-track { background: transparent; }
+.jacana-dex-body::-webkit-scrollbar-thumb { background: rgba(219, 151, 81, 0.3); border-radius: 2px; }
+
+.jacana-dex-subtitle {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--jacana-dunes, #db9751);
+    margin: 0 0 10px;
+    line-height: 1.4;
+}
+
+.jacana-dex-excerpt {
+    font-size: 13.5px;
+    line-height: 1.68;
+    color: rgba(45, 36, 22, 0.70);
+    margin: 0 0 14px;
+}
+
+/* Quick facts row */
+.jacana-dex-facts-row {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.jacana-dex-fact {
+    flex: 1;
+    min-width: 80px;
+    padding: 10px 14px;
+    border-right: 1px solid rgba(45, 36, 22, 0.09);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.jacana-dex-fact:last-child { border-right: none; }
+
+.jacana-dex-fact-lbl {
+    font-size: 8.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(45, 36, 22, 0.45);
+}
+
+.jacana-dex-fact-val {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--jacana-dunes, #db9751);
+    line-height: 1.2;
+}
+
+/* Summary */
+.jacana-dex-summary {
+    font-size: 13.5px;
+    line-height: 1.68;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 0 0 16px;
+}
+
+/* Why visit */
+.jacana-dex-why {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.jacana-dex-why li {
+    font-size: 13px;
+    color: rgba(45, 36, 22, 0.80);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.jacana-dex-why li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--jacana-dunes, #db9751);
+}
+
+/* Section subheadings */
+.jacana-dex-body-heading {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(45, 36, 22, 0.45);
+    margin: 0 0 10px;
+}
+
+/* Activities grid */
+.jacana-dex-acts-wrap { margin-bottom: 18px; }
+
+.jacana-dex-acts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.jacana-dex-act {
+    background: rgba(45, 36, 22, 0.04);
+    border: 1px solid rgba(45, 36, 22, 0.08);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.jacana-dex-act:hover {
+    background: rgba(45, 36, 22, 0.07);
+    border-color: rgba(219, 151, 81, 0.28);
+}
+
+.jacana-dex-act-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(45, 36, 22, 0.88);
+    line-height: 1.3;
+}
+
+.jacana-dex-act-meta {
+    font-size: 10px;
+    color: rgba(45, 36, 22, 0.55);
+    font-weight: 500;
+}
+
+/* Natural highlights */
+.jacana-dex-nature-wrap { margin-bottom: 4px; }
+
+.jacana-dex-nature-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.jacana-dex-nat-card {
+    background: rgba(45, 36, 22, 0.03);
+    border-left: 2px solid var(--jacana-dunes, #db9751);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+}
+
+.jacana-dex-nat-lbl {
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 4px;
+}
+
+.jacana-dex-nat-card p {
+    font-size: 12.5px;
+    line-height: 1.58;
+    color: rgba(45, 36, 22, 0.70);
+    margin: 0;
+}
+
+/* ── Panel footer ── */
+.jacana-dex-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+    padding: 12px 16px;
+    border-top: 1px solid rgba(45, 36, 22, 0.09);
+    background: rgba(45, 36, 22, 0.02);
+    flex-shrink: 0;
+}
+
+/* AI button — scoped to footer for specificity over Bootstrap/Elementor */
+.jacana-dex-footer .jacana-dex-ai-btn {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(192, 122, 48, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, gap 0.2s ease;
+}
+
+.jacana-dex-footer .jacana-dex-ai-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(192, 122, 48, 0.36);
+    gap: 11px;
+    color: #fff;
+}
+
+/* Explore destination — flat button with Oshiwambo stripe bottom border */
+.jacana-dex-footer .jacana-dex-page-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: rgba(45, 36, 22, 0.68);
+    text-decoration: none;
+    padding: 9px 14px 12px;
+    border: none;
+    border-radius: 4px 4px 0 0;
+    background: rgba(45, 36, 22, 0.04);
+    white-space: nowrap;
+    overflow: hidden;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+/* Oshiwambo stripe bottom border */
+.jacana-dex-footer .jacana-dex-page-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e)       0px,  var(--oshi-pink, #e6007e)       7px,
+        var(--oshi-black, #000)          7px,  var(--oshi-black, #000)          9px,
+        var(--oshi-red, #cc0000)         9px,  var(--oshi-red, #cc0000)        14px,
+        var(--oshi-dark-pink, #800040)  14px,  var(--oshi-dark-pink, #800040)  18px,
+        var(--oshi-black, #000)         18px,  var(--oshi-black, #000)         20px
+    );
+}
+
+.jacana-dex-footer .jacana-dex-page-link:hover {
+    color: var(--jacana-earth, #2d2416);
+    background: rgba(45, 36, 22, 0.07);
+    text-decoration: none;
+}
+
+/* ── Pill list ── */
+.jacana-dex-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.jacana-dex-pill {
+    min-height: 40px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(45, 36, 22, 0.62);
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    cursor: pointer;
+    transition: all 0.22s ease;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.jacana-dex-pill:hover,
+.jacana-dex-pill.is-active {
+    background: rgba(219, 151, 81, 0.12);
+    border-color: var(--jacana-dunes, #db9751);
+    color: var(--jacana-dunes, #db9751);
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .jacana-dex-grid { grid-template-columns: 1fr; }
+    .jacana-dex-panel { min-height: 500px; max-height: 620px; }
+}
+
+@media (max-width: 540px) {
+    .jacana-dex-section { padding: 72px 0 60px; }
+    .jacana-dex-header  { margin-bottom: 36px; }
+    .jacana-dex-acts-grid { grid-template-columns: 1fr; }
+    .jacana-dex-footer .jacana-dex-ai-btn,
+    .jacana-dex-footer .jacana-dex-page-link { justify-content: center; }
+    .jacana-dex-pill    { font-size: 12px; }
+}
+
+/* ── Weather strip (sits between quick-facts and summary) ── */
+.jacana-dex-wx-row {
+    margin-bottom: 16px;
+}
+
+.jacana-dex-wx {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(219, 151, 81, 0.06);
+    border: 1px solid rgba(219, 151, 81, 0.18);
+    border-radius: 8px;
+    padding: 10px 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.jacana-dex-wx-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-dex-wx-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.jacana-dex-wx-main {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.jacana-dex-wx-temp {
+    font-size: 24px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1;
+    color: var(--jacana-earth, #2d2416);
+}
+
+.jacana-dex-wx-unit {
+    font-family: "Sora", sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    vertical-align: super;
+}
+
+.jacana-dex-wx-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(45, 36, 22, 0.52);
+    align-self: center;
+}
+
+.jacana-dex-wx-stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    flex-wrap: wrap;
+}
+
+.jacana-dex-wx-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-end;
+}
+
+.jacana-dex-wx-stat-lbl {
+    font-size: 7.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(45, 36, 22, 0.40);
+}
+
+.jacana-dex-wx-stat-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--jacana-earth, #2d2416);
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .jacana-dex-hotspot::before,
+    .jacana-dex-hotspot::after,
+    .jacana-dex-slides,
+    .jacana-dex-footer .jacana-dex-ai-btn { transition: none; animation: none; }
+}

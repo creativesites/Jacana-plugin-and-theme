@@ -1,0 +1,352 @@
+/* Terms of Service Widget  –  jacana-tos- */
+
+.jacana-tos-root {
+    background: var(--jacana-savannah, #fffae4);
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+.jacana-tos-hero {
+    position: relative;
+    background: var(--jacana-earth, #2d2416);
+    overflow: hidden;
+    padding: 100px 0 80px;
+}
+.jacana-tos-hero::before {
+    content: "";
+    position: absolute;
+    top: -80px; left: -60px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.08), transparent 60%);
+    pointer-events: none;
+}
+
+.jacana-tos-hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-tos-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 18px;
+}
+.jacana-tos-kicker::before,
+.jacana-tos-kicker::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-tos-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 600;
+    line-height: 1.05;
+    color: rgba(255, 250, 228, 0.97);
+    margin: 0 0 18px;
+}
+
+.jacana-tos-intro {
+    font-size: 16px;
+    line-height: 1.72;
+    color: rgba(255, 250, 228, 0.60);
+    margin: 0 0 16px;
+    max-width: 560px;
+}
+
+.jacana-tos-meta {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255, 250, 228, 0.38);
+    margin: 0;
+}
+
+.jacana-tos-stripe {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    z-index: 2;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e)      0px,  var(--oshi-pink, #e6007e)      7px,
+        var(--oshi-black, #000)         7px,  var(--oshi-black, #000)         9px,
+        var(--oshi-red, #cc0000)        9px,  var(--oshi-red, #cc0000)       14px,
+        var(--oshi-dark-pink, #800040) 14px,  var(--oshi-dark-pink, #800040) 18px,
+        var(--oshi-black, #000)        18px,  var(--oshi-black, #000)        20px
+    );
+}
+
+/* ── Body ─────────────────────────────────────────── */
+.jacana-tos-body {
+    padding: 72px 0 100px;
+}
+
+.jacana-tos-body-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+}
+
+/* ── Table of Contents ───────────────────────────── */
+.jacana-tos-toc {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(45, 36, 22, 0.08);
+    border-left: 3px solid var(--jacana-dunes, #db9751);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 52px;
+}
+.jacana-tos-toc-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(45, 36, 22, 0.50);
+    margin-bottom: 12px;
+}
+.jacana-tos-toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+}
+.jacana-tos-toc a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(219, 151, 81, 0.3);
+    padding-bottom: 1px;
+    transition: color 0.18s ease, border-color 0.18s ease;
+}
+.jacana-tos-toc a:hover {
+    color: var(--jacana-dunes, #db9751);
+    border-color: var(--jacana-dunes, #db9751);
+}
+
+/* ── Sections ─────────────────────────────────────── */
+.jacana-tos-section {
+    margin-bottom: 52px;
+    padding-bottom: 52px;
+    border-bottom: 1px solid rgba(45, 36, 22, 0.08);
+}
+.jacana-tos-section:last-of-type {
+    border-bottom: none;
+}
+
+.jacana-tos-section h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 18px;
+    padding-top: 8px;
+}
+.jacana-tos-section h3 {
+    font-family: "Sora", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: rgba(45, 36, 22, 0.72);
+    margin: 28px 0 10px;
+}
+.jacana-tos-section p {
+    font-size: 15px;
+    line-height: 1.78;
+    color: rgba(45, 36, 22, 0.78);
+    margin: 0 0 14px;
+}
+.jacana-tos-section ul,
+.jacana-tos-section ol {
+    padding-left: 20px;
+    margin: 0 0 16px;
+}
+.jacana-tos-section ul li,
+.jacana-tos-section ol li {
+    font-size: 15px;
+    line-height: 1.72;
+    color: rgba(45, 36, 22, 0.75);
+    margin-bottom: 5px;
+}
+.jacana-tos-section a {
+    color: var(--jacana-dunes, #db9751);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Definitions list ────────────────────────────── */
+.jacana-tos-definitions {
+    margin: 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.jacana-tos-def-item {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(45, 36, 22, 0.08);
+    border-left: 3px solid var(--jacana-dunes, #db9751);
+    border-radius: 8px;
+    padding: 14px 18px;
+}
+.jacana-tos-def-term {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--jacana-earth, #2d2416);
+    margin-bottom: 4px;
+    display: block;
+}
+.jacana-tos-def-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.70);
+    margin: 0;
+}
+
+/* ── Highlight box ───────────────────────────────── */
+.jacana-tos-highlight {
+    background: rgba(219, 151, 81, 0.08);
+    border: 1px solid rgba(219, 151, 81, 0.22);
+    border-left: 3px solid var(--jacana-dunes, #db9751);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.80);
+    margin: 18px 0;
+}
+
+/* ── Note box ────────────────────────────────────── */
+.jacana-tos-note {
+    background: var(--jacana-savannah, #fffae4);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: rgba(45, 36, 22, 0.66);
+    margin: 16px 0;
+}
+
+/* ── Cancellation table ──────────────────────────── */
+.jacana-tos-table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+    border-radius: 10px;
+    border: 1px solid rgba(45, 36, 22, 0.09);
+}
+.jacana-tos-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.jacana-tos-table th {
+    background: rgba(45, 36, 22, 0.05);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: rgba(45, 36, 22, 0.60);
+    border-bottom: 1px solid rgba(45, 36, 22, 0.09);
+    white-space: nowrap;
+}
+.jacana-tos-table td {
+    padding: 13px 16px;
+    color: rgba(45, 36, 22, 0.76);
+    line-height: 1.55;
+    border-bottom: 1px solid rgba(45, 36, 22, 0.06);
+    vertical-align: top;
+}
+.jacana-tos-table tr:last-child td {
+    border-bottom: none;
+}
+.jacana-tos-table tbody tr:nth-child(even) td {
+    background: rgba(255, 250, 228, 0.5);
+}
+.jacana-tos-table td strong {
+    color: var(--jacana-earth, #2d2416);
+    font-weight: 700;
+}
+
+/* ── Contact block ───────────────────────────────── */
+.jacana-tos-contact-block {
+    background: rgba(255, 255, 255, 0.80);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-left: 3px solid var(--jacana-dunes, #db9751);
+    border-radius: 8px;
+    padding: 22px 24px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(45, 36, 22, 0.78);
+    margin-top: 14px;
+}
+.jacana-tos-contact-block a {
+    color: var(--jacana-dunes, #db9751);
+}
+
+/* ── Related links ───────────────────────────────── */
+.jacana-tos-related {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(45, 36, 22, 0.08);
+    margin-top: 52px;
+}
+.jacana-tos-related-label {
+    width: 100%;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(45, 36, 22, 0.44);
+    margin-bottom: 4px;
+}
+.jacana-tos-related-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(219, 151, 81, 0.3);
+    padding-bottom: 2px;
+    transition: color 0.18s ease, border-color 0.18s ease;
+}
+.jacana-tos-related-link:hover {
+    color: var(--jacana-earth, #2d2416);
+    border-color: var(--jacana-earth, #2d2416);
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 540px) {
+    .jacana-tos-hero {
+        padding: 72px 0 60px;
+    }
+    .jacana-tos-toc ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .jacana-tos-table th,
+    .jacana-tos-table td {
+        padding: 10px 12px;
+    }
+}

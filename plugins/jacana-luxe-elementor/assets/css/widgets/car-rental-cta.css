@@ -1,0 +1,15 @@
+/* Styles for jacana_car_rental_cta */
+
+.elementor-widget-jacana_car_rental_cta .section-header {
+    max-width: 760px;
+}
+
+.elementor-widget-jacana_car_rental_cta .button {
+    min-width: min(260px, 100%);
+}
+
+@media (max-width: 767px) {
+    .elementor-widget-jacana_car_rental_cta .button {
+        width: 100%;
+    }
+}

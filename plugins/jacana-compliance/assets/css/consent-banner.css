@@ -1,0 +1,313 @@
+/* Jacana Consent Banner & Preferences Panel */
+
+/* ── Shell ───────────────────────────────────────── */
+.jacana-cb-shell {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99000;
+    font-family: "Sora", sans-serif;
+}
+.jacana-cb-shell[hidden] {
+    display: none !important;
+}
+
+/* ── Banner ──────────────────────────────────────── */
+.jacana-cb-banner {
+    background: var(--jacana-earth, #2d2416);
+    border-top: 1px solid rgba(219, 151, 81, 0.22);
+    animation: jacana-cb-slide-up 0.34s ease;
+}
+@keyframes jacana-cb-slide-up {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);   opacity: 1; }
+}
+
+.jacana-cb-banner-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px clamp(20px, 4vw, 48px);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.jacana-cb-banner-text {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.jacana-cb-banner-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 250, 228, 0.97);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.jacana-cb-banner-desc {
+    font-size: 12px;
+    color: rgba(255, 250, 228, 0.52);
+    line-height: 1.55;
+}
+
+.jacana-cb-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+.jacana-cb-btn {
+    font-family: "Sora", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    border-radius: 4px;
+    padding: 10px 18px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
+    white-space: nowrap;
+}
+.jacana-cb-btn:hover {
+    transform: translateY(-1px);
+}
+.jacana-cb-btn--accept {
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(192, 122, 48, 0.28);
+}
+.jacana-cb-btn--accept:hover {
+    box-shadow: 0 6px 20px rgba(192, 122, 48, 0.4);
+}
+.jacana-cb-btn--ghost {
+    background: transparent;
+    color: rgba(255, 250, 228, 0.60);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.jacana-cb-btn--ghost:hover {
+    color: rgba(255, 250, 228, 0.90);
+    border-color: rgba(255, 255, 255, 0.30);
+}
+.jacana-cb-btn--reject {
+    background: transparent;
+    color: rgba(255, 250, 228, 0.44);
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 10px 6px;
+}
+.jacana-cb-btn--reject:hover {
+    color: rgba(255, 250, 228, 0.75);
+    transform: none;
+}
+
+/* ── Preferences Panel ───────────────────────────── */
+.jacana-cb-prefs {
+    background: #fff;
+    border-top: 3px solid var(--jacana-dunes, #db9751);
+    box-shadow: 0 -8px 40px rgba(16, 12, 10, 0.22);
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: jacana-cb-slide-up 0.34s ease;
+}
+.jacana-cb-prefs[hidden] {
+    display: none !important;
+}
+
+.jacana-cb-prefs-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px clamp(20px, 4vw, 48px) 36px;
+    position: relative;
+}
+
+.jacana-cb-prefs-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    color: rgba(45, 36, 22, 0.44);
+    padding: 4px 8px;
+    transition: color 0.18s ease;
+}
+.jacana-cb-prefs-close:hover {
+    color: var(--jacana-earth, #2d2416);
+}
+
+.jacana-cb-prefs-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 8px;
+}
+.jacana-cb-prefs-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 8px;
+    line-height: 1.1;
+}
+.jacana-cb-prefs-desc {
+    font-size: 13px;
+    color: rgba(45, 36, 22, 0.58);
+    margin: 0 0 28px;
+}
+
+/* ── Preference Rows ─────────────────────────────── */
+.jacana-cb-prefs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+.jacana-cb-pref-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 20px;
+    background: #fff;
+    border-bottom: 1px solid rgba(45, 36, 22, 0.07);
+}
+.jacana-cb-pref-row:last-child {
+    border-bottom: none;
+}
+.jacana-cb-pref-info {
+    flex: 1;
+    min-width: 0;
+}
+.jacana-cb-pref-info strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--jacana-earth, #2d2416);
+    margin-bottom: 3px;
+}
+.jacana-cb-pref-info p {
+    font-size: 12px;
+    color: rgba(45, 36, 22, 0.56);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── Toggle ──────────────────────────────────────── */
+.jacana-cb-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.jacana-cb-toggle--locked {
+    cursor: default;
+}
+.jacana-cb-toggle-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+}
+.jacana-cb-toggle-track {
+    display: block;
+    width: 40px;
+    height: 22px;
+    background: rgba(45, 36, 22, 0.14);
+    border-radius: 11px;
+    position: relative;
+    transition: background 0.22s ease;
+    flex-shrink: 0;
+}
+.jacana-cb-toggle-track.is-on,
+.jacana-cb-toggle-input:checked ~ .jacana-cb-toggle-track {
+    background: var(--jacana-dunes, #db9751);
+}
+.jacana-cb-toggle-thumb {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    transition: transform 0.22s ease;
+}
+.jacana-cb-toggle-track.is-on .jacana-cb-toggle-thumb,
+.jacana-cb-toggle-input:checked ~ .jacana-cb-toggle-track .jacana-cb-toggle-thumb {
+    transform: translateX(18px);
+}
+.jacana-cb-toggle-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: rgba(45, 36, 22, 0.44);
+    min-width: 48px;
+}
+.jacana-cb-toggle-label--state::before {
+    content: "Off";
+}
+.jacana-cb-toggle-input:checked ~ .jacana-cb-toggle-label--state::before {
+    content: "On";
+    color: var(--jacana-dunes, #db9751);
+}
+
+/* ── Prefs Footer ────────────────────────────────── */
+.jacana-cb-prefs-footer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.jacana-cb-prefs-footer .jacana-cb-btn--accept {
+    color: #fff;
+}
+.jacana-cb-prefs-footer .jacana-cb-btn--ghost {
+    color: rgba(45, 36, 22, 0.56);
+    border-color: rgba(45, 36, 22, 0.18);
+}
+.jacana-cb-prefs-footer .jacana-cb-btn--ghost:hover {
+    color: var(--jacana-earth, #2d2416);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 640px) {
+    .jacana-cb-banner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+    .jacana-cb-banner-actions {
+        width: 100%;
+    }
+    .jacana-cb-btn--accept {
+        flex: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .jacana-cb-banner,
+    .jacana-cb-prefs {
+        animation: none;
+    }
+}

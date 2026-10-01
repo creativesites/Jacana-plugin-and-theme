@@ -1,0 +1,1140 @@
+#jacana-ai-layer {
+  position: relative;
+  z-index: 90;
+  --jacana-ai-ink: var(--jacana-earth, #2d2416);
+  --jacana-ai-gold: var(--jacana-dunes, #db9751);
+  --jacana-ai-cream: var(--jacana-savannah, #fffae4);
+  --jacana-ai-sky: var(--jacana-sky, #9dcbdf);
+  --jacana-ai-shell: rgba(18, 14, 11, 0.94);
+  --jacana-ai-shell-soft: rgba(255, 250, 244, 0.94);
+  --jacana-ai-paper: rgba(255, 255, 255, 0.78);
+  --jacana-ai-paper-strong: rgba(255, 255, 255, 0.9);
+  --jacana-ai-border: rgba(45, 36, 22, 0.1);
+  --jacana-ai-border-strong: rgba(45, 36, 22, 0.16);
+  --jacana-ai-copy: rgba(45, 36, 22, 0.74);
+  --jacana-ai-copy-muted: rgba(45, 36, 22, 0.68);
+  --jacana-ai-cream-muted: rgba(255, 250, 228, 0.72);
+  --jacana-ai-shadow: 0 24px 64px rgba(20, 14, 9, 0.24);
+  --jacana-ai-shadow-soft: 0 16px 38px rgba(45, 36, 22, 0.12);
+}
+
+#jacana-ai-layer,
+#jacana-ai-layer * {
+  box-sizing: border-box;
+}
+
+.jacana-ai-rail,
+.jacana-ai-sheet,
+.jacana-ai-inline-card,
+.jacana-ai-chip,
+.jacana-ai-option,
+.jacana-ai-mini-button,
+.jacana-ai-form input,
+.jacana-ai-form textarea,
+.jacana-ai-form select {
+  font-family: "Sora", sans-serif;
+}
+
+.jacana-ai-rail {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  gap: 0;
+  width: min(332px, calc(100vw - 36px));
+  padding: 16px 16px 14px;
+  border: 1px solid rgba(255, 250, 228, 0.12);
+  border-radius: 24px;
+  background:
+    linear-gradient(160deg, rgba(255, 250, 228, 0.04), transparent 36%),
+    radial-gradient(circle at top right, rgba(157, 203, 223, 0.16), transparent 46%),
+    linear-gradient(145deg, rgba(26, 20, 15, 0.96), rgba(15, 11, 8, 0.94));
+  box-shadow: 0 22px 54px rgba(9, 7, 5, 0.34);
+  backdrop-filter: blur(20px) saturate(1.05);
+  -webkit-backdrop-filter: blur(20px) saturate(1.05);
+  overflow: hidden;
+}
+
+.jacana-ai-rail::before,
+.jacana-ai-sheet::before,
+.jacana-ai-inline-card::before,
+.jacana-ai-sheet-result::before,
+.jacana-ai-step::before,
+.jacana-ai-booking-form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.jacana-ai-rail::before {
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(219, 151, 81, 0.68), transparent);
+}
+
+.jacana-ai-rail::after,
+.jacana-ai-inline-card::after,
+.jacana-ai-step::after,
+.jacana-ai-sheet-result::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--oshi-pink, #e6007e) 0px,
+    var(--oshi-pink, #e6007e) 7px,
+    var(--oshi-black, #000) 7px,
+    var(--oshi-black, #000) 9px,
+    var(--oshi-red, #cc0000) 9px,
+    var(--oshi-red, #cc0000) 14px,
+    var(--oshi-dark-pink, #800040) 14px,
+    var(--oshi-dark-pink, #800040) 18px,
+    var(--oshi-black, #000) 18px,
+    var(--oshi-black, #000) 20px
+  );
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.jacana-ai-rail[hidden] {
+  display: none !important;
+}
+
+.jacana-ai-rail-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 14px;
+}
+
+.jacana-ai-rail-toggle {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 250, 228, 0.96);
+  cursor: pointer;
+}
+
+.jacana-ai-rail-icon-wrap {
+  grid-row: 1 / 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 250, 228, 0.06);
+  border: 1px solid rgba(255, 250, 228, 0.1);
+  padding: 4px;
+}
+
+.jacana-ai-rail-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.jacana-ai-rail-dismiss,
+.jacana-ai-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(45, 36, 22, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: rgba(45, 36, 22, 0.72);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.jacana-ai-rail-dismiss {
+  border-color: rgba(255, 250, 228, 0.14);
+  background: rgba(255, 250, 228, 0.08);
+  color: rgba(255, 250, 228, 0.8);
+}
+
+.jacana-ai-rail-dismiss:hover,
+.jacana-ai-rail-dismiss:focus-visible,
+.jacana-ai-close:hover,
+.jacana-ai-close:focus-visible {
+  transform: translateY(-1px);
+}
+
+.jacana-ai-rail-dismiss:hover,
+.jacana-ai-rail-dismiss:focus-visible {
+  border-color: rgba(219, 151, 81, 0.4);
+  background: rgba(255, 250, 228, 0.14);
+  color: rgba(255, 250, 228, 0.98);
+}
+
+.jacana-ai-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+.jacana-ai-close:hover,
+.jacana-ai-close:focus-visible {
+  border-color: rgba(219, 151, 81, 0.36);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--jacana-ai-ink);
+}
+
+.jacana-ai-rail-label,
+.jacana-ai-sheet-kicker,
+.jacana-ai-inline-chip,
+.jacana-ai-step-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 0;
+  color: var(--jacana-ai-gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.jacana-ai-rail-label::before,
+.jacana-ai-rail-label::after,
+.jacana-ai-sheet-kicker::before,
+.jacana-ai-sheet-kicker::after,
+.jacana-ai-inline-chip::before,
+.jacana-ai-inline-chip::after,
+.jacana-ai-step-label::before,
+.jacana-ai-step-label::after {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.jacana-ai-sheet-kicker,
+.jacana-ai-inline-chip,
+.jacana-ai-step-label {
+  color: var(--jacana-ai-gold);
+}
+
+.jacana-ai-rail-summary,
+.jacana-ai-sheet p,
+.jacana-ai-inline-card p,
+.jacana-ai-option,
+.jacana-ai-form label span,
+.jacana-ai-form input,
+.jacana-ai-form textarea,
+.jacana-ai-form select {
+  font-family: "Sora", sans-serif;
+}
+
+.jacana-ai-rail-summary {
+  color: rgba(255, 250, 228, 0.7);
+  font-size: 12px;
+  line-height: 1.65;
+  max-width: 23ch;
+}
+
+.jacana-ai-rail-actions,
+.jacana-ai-inline-actions,
+.jacana-ai-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.jacana-ai-rail-actions {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 250, 228, 0.12);
+}
+
+.jacana-ai-rail-actions[hidden] {
+  display: none !important;
+}
+
+.jacana-ai-mini-button,
+.jacana-ai-chip,
+.jacana-ai-option {
+  appearance: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.jacana-ai-mini-button,
+.jacana-ai-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 11px 17px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.jacana-ai-mini-button {
+  background: linear-gradient(135deg, var(--jacana-ai-gold) 0%, rgba(183, 119, 56, 1) 100%);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(192, 122, 48, 0.24);
+}
+
+.jacana-ai-mini-button.is-secondary {
+  border-color: rgba(45, 36, 22, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--jacana-ai-ink);
+  box-shadow: none;
+}
+
+.jacana-ai-rail .jacana-ai-mini-button {
+  flex: 1 1 0;
+}
+
+.jacana-ai-rail .jacana-ai-mini-button.is-secondary {
+  border-color: rgba(255, 250, 228, 0.16);
+  background: rgba(255, 250, 228, 0.08);
+  color: rgba(255, 250, 228, 0.9);
+}
+
+.jacana-ai-mini-button:hover,
+.jacana-ai-chip:hover,
+.jacana-ai-option:hover,
+.jacana-ai-mini-button:focus-visible,
+.jacana-ai-chip:focus-visible,
+.jacana-ai-option:focus-visible {
+  transform: translateY(-2px);
+}
+
+.jacana-ai-mini-button:hover,
+.jacana-ai-mini-button:focus-visible {
+  box-shadow: 0 16px 30px rgba(192, 122, 48, 0.32);
+}
+
+.jacana-ai-mini-button.is-secondary:hover,
+.jacana-ai-mini-button.is-secondary:focus-visible {
+  border-color: rgba(219, 151, 81, 0.34);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 28px rgba(45, 36, 22, 0.12);
+}
+
+.jacana-ai-rail .jacana-ai-mini-button.is-secondary:hover,
+.jacana-ai-rail .jacana-ai-mini-button.is-secondary:focus-visible {
+  background: rgba(255, 250, 228, 0.14);
+  color: rgba(255, 250, 228, 0.98);
+  box-shadow: none;
+}
+
+.jacana-ai-mini-button:focus-visible,
+.jacana-ai-chip:focus-visible,
+.jacana-ai-option:focus-visible,
+.jacana-ai-rail-dismiss:focus-visible,
+.jacana-ai-close:focus-visible,
+.jacana-ai-form input:focus-visible,
+.jacana-ai-form textarea:focus-visible,
+.jacana-ai-form select:focus-visible {
+  outline: 3px solid var(--jacana-ai-sky);
+  outline-offset: 2px;
+}
+
+.jacana-ai-sheet-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+}
+
+.jacana-ai-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 5, 3, 0.38), rgba(8, 5, 3, 0.54)),
+    radial-gradient(circle at top right, rgba(157, 203, 223, 0.12), transparent 32%);
+  backdrop-filter: blur(2px);
+}
+
+.jacana-ai-sheet {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: min(620px, calc(100vw - 32px));
+  max-height: min(86vh, 900px);
+  overflow: auto;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(157, 203, 223, 0.14), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(219, 151, 81, 0.07), transparent 36%),
+    linear-gradient(160deg, rgba(255, 253, 249, 0.99) 0%, rgba(250, 243, 233, 0.99) 100%);
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.8) inset,
+    0 40px 90px rgba(14, 10, 6, 0.3),
+    0 8px 24px rgba(14, 10, 6, 0.14);
+  animation: jacanaAiSheetIn 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.jacana-ai-sheet::-webkit-scrollbar {
+  width: 10px;
+}
+
+.jacana-ai-sheet::-webkit-scrollbar-thumb {
+  background: rgba(45, 36, 22, 0.18);
+  border-radius: 999px;
+}
+
+.jacana-ai-sheet::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.jacana-ai-sheet-head {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-right: 54px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(45, 36, 22, 0.08);
+}
+
+/* Gold top accent for the booking form header */
+.jacana-ai-booking-head {
+  padding-top: 20px;
+}
+.jacana-ai-booking-head::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--jacana-ai-gold), rgba(219, 151, 81, 0.3) 80%, transparent);
+  pointer-events: none;
+}
+
+.jacana-ai-sheet-head h3,
+.jacana-ai-inline-card h3,
+.jacana-ai-sheet-result h4 {
+  margin: 0;
+  color: var(--jacana-ai-ink);
+  font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.jacana-ai-step h4 {
+  margin: 0;
+  color: var(--jacana-ai-ink);
+  font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+  font-size: clamp(1.55rem, 2.2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.jacana-ai-sheet-head p,
+.jacana-ai-inline-card p,
+.jacana-ai-sheet-result p {
+  margin: 0;
+  color: var(--jacana-ai-copy);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.jacana-ai-success-head,
+.jacana-ai-loading-head {
+  min-height: 220px;
+  align-content: center;
+}
+
+.jacana-ai-step,
+.jacana-ai-sheet-result,
+.jacana-ai-chip-bar,
+.jacana-ai-booking-form {
+  position: relative;
+  padding: 18px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.64)),
+    linear-gradient(135deg, rgba(219, 151, 81, 0.04), rgba(157, 203, 223, 0.06));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.68),
+    inset 0 0 0 1px rgba(45, 36, 22, 0.08),
+    0 18px 40px rgba(45, 36, 22, 0.1);
+}
+
+/* Booking summary card — standalone treatment */
+.jacana-ai-booking-summary {
+  position: relative;
+}
+
+/* ── Inline card — redesigned ─────────────────────────────────────────── */
+.jacana-ai-inline-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 22px 0 0;
+  border-radius: 22px;
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 240, 0.78)),
+    radial-gradient(circle at top right, rgba(157, 203, 223, 0.14), transparent 44%),
+    radial-gradient(circle at bottom left,  rgba(219, 151, 81, 0.06), transparent 44%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 0 1px rgba(45, 36, 22, 0.09),
+    0 24px 52px rgba(45, 36, 22, 0.12),
+    0 4px 12px rgba(45, 36, 22, 0.06);
+  overflow: hidden;
+  animation: jacanaCardIn 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.jacana-ai-inline-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--jacana-ai-gold), rgba(219, 151, 81, 0.28) 72%, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Card head row: chip label + dismiss button */
+.jacana-ai-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 16px 0;
+}
+
+/* Card body: title + copy + CTAs */
+.jacana-ai-card-body {
+  display: grid;
+  gap: 14px;
+  padding: 10px 20px 20px;
+}
+
+/* Dismiss button */
+.jacana-ai-card-dismiss {
+  appearance: none;
+  background: rgba(45, 36, 22, 0.04);
+  border: 1px solid rgba(45, 36, 22, 0.1);
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  line-height: 1;
+  color: rgba(45, 36, 22, 0.4);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 220ms ease;
+}
+
+.jacana-ai-card-dismiss:hover,
+.jacana-ai-card-dismiss:focus-visible {
+  border-color: rgba(219, 151, 81, 0.32);
+  color: var(--jacana-ai-ink);
+  background: rgba(219, 151, 81, 0.08);
+  transform: scale(1.12) rotate(90deg);
+  outline: none;
+}
+
+/* Namibia fact strip */
+.jacana-ai-card-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 20px 18px;
+  background: rgba(219, 151, 81, 0.04);
+  border-top: 1px solid rgba(45, 36, 22, 0.07);
+  position: relative;
+}
+
+.jacana-ai-card-fact-icon {
+  font-size: 18px;
+  line-height: 1.35;
+  flex-shrink: 0;
+}
+
+.jacana-ai-card-fact p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: rgba(45, 36, 22, 0.58);
+}
+
+.jacana-ai-card-fact-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--jacana-ai-gold);
+  margin-bottom: 2px;
+}
+
+@keyframes jacanaCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.jacana-ai-step,
+.jacana-ai-sheet-result {
+  display: grid;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.jacana-ai-step::before,
+.jacana-ai-sheet-result::before,
+.jacana-ai-booking-form::before {
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top right, rgba(157, 203, 223, 0.08), transparent 34%);
+}
+
+.jacana-ai-option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  gap: 12px;
+}
+
+.jacana-ai-option {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  min-height: 72px;
+  padding: 16px 16px 15px;
+  border: 1px solid rgba(45, 36, 22, 0.09);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--jacana-ai-ink);
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
+  text-align: left;
+}
+
+.jacana-ai-option::before,
+.jacana-ai-check-chip::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(219, 151, 81, 0.48), transparent);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.jacana-ai-option strong,
+.jacana-ai-option small {
+  display: block;
+}
+
+.jacana-ai-option strong {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.jacana-ai-option small {
+  color: var(--jacana-ai-copy-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.jacana-ai-option:hover,
+.jacana-ai-option:focus-visible {
+  border-color: rgba(219, 151, 81, 0.28);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 28px rgba(45, 36, 22, 0.12);
+}
+
+.jacana-ai-option:hover::before,
+.jacana-ai-option:focus-visible::before,
+.jacana-ai-check-chip:hover::before,
+.jacana-ai-check-chip:focus-within::before,
+.jacana-ai-option.is-selected::before,
+.jacana-ai-check-chip:has(input:checked)::before {
+  opacity: 1;
+}
+
+.jacana-ai-option.is-selected {
+  border-color: rgba(219, 151, 81, 0.34);
+  background:
+    linear-gradient(135deg, rgba(219, 151, 81, 0.16), rgba(157, 203, 223, 0.16)),
+    rgba(255, 255, 255, 0.88);
+  box-shadow: 0 18px 34px rgba(45, 36, 22, 0.14);
+}
+
+.jacana-ai-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.jacana-ai-form.is-loading {
+  opacity: 0.78;
+  pointer-events: none;
+}
+
+.jacana-ai-form-grid,
+.jacana-ai-check-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.jacana-ai-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.jacana-ai-booking-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  background:
+    linear-gradient(135deg, rgba(219, 151, 81, 0.06), rgba(255, 253, 248, 0.5)),
+    rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(219, 151, 81, 0.16);
+  border-radius: 18px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 4px 16px rgba(45, 36, 22, 0.06);
+}
+
+/* Override the generic panel style for the summary */
+.jacana-ai-booking-summary.jacana-span-2 {
+  background:
+    linear-gradient(135deg, rgba(219, 151, 81, 0.06), rgba(255, 253, 248, 0.5)),
+    rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 4px 16px rgba(45, 36, 22, 0.06);
+  padding: 20px;
+  border: 1px solid rgba(219, 151, 81, 0.16);
+}
+
+.jacana-ai-booking-summary .jacana-ai-sheet-kicker {
+  margin-bottom: 2px;
+}
+
+.jacana-ai-booking-summary-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.jacana-ai-booking-summary-grid span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(45, 36, 22, 0.09);
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--jacana-ai-ink);
+  white-space: nowrap;
+}
+
+.jacana-ai-booking-summary-grid span strong {
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--jacana-ai-gold);
+  flex-shrink: 0;
+}
+
+.jacana-ai-booking-summary > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.jacana-ai-booking-summary > button {
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+.jacana-ai-check-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.jacana-ai-check-grid {
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+}
+
+.jacana-ai-check-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(45, 36, 22, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.jacana-ai-check-chip:hover,
+.jacana-ai-check-chip:focus-within {
+  transform: translateY(-1px);
+  border-color: rgba(219, 151, 81, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 20px rgba(45, 36, 22, 0.09);
+}
+
+.jacana-ai-check-chip input {
+  width: auto;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--jacana-ai-gold);
+}
+
+.jacana-ai-check-chip span {
+  color: var(--jacana-ai-copy);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.3;
+}
+
+.jacana-ai-check-chip:has(input:checked) {
+  border-color: rgba(219, 151, 81, 0.42);
+  background: linear-gradient(135deg, rgba(219, 151, 81, 0.11), rgba(157, 203, 223, 0.1)), rgba(255, 255, 255, 0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 6px 16px rgba(219, 151, 81, 0.14);
+}
+.jacana-ai-check-chip:has(input:checked) span {
+  color: var(--jacana-ai-ink);
+  font-weight: 700;
+}
+
+.jacana-ai-form label {
+  display: grid;
+  gap: 7px;
+}
+
+.jacana-ai-form-edit {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(45, 36, 22, 0.08);
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.jacana-ai-form-edit[hidden] {
+  display: none !important;
+}
+
+.jacana-ai-form label span {
+  color: rgba(45, 36, 22, 0.56);
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.jacana-ai-form input,
+.jacana-ai-form textarea,
+.jacana-ai-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(45, 36, 22, 0.13);
+  border-radius: 12px;
+  background: rgba(255, 254, 250, 0.96);
+  color: var(--jacana-ai-ink);
+  font-size: 14px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.jacana-ai-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.jacana-ai-form input::placeholder,
+.jacana-ai-form textarea::placeholder {
+  color: rgba(45, 36, 22, 0.36);
+  font-style: italic;
+}
+
+.jacana-ai-form input:focus,
+.jacana-ai-form textarea:focus,
+.jacana-ai-form select:focus {
+  border-color: rgba(219, 151, 81, 0.5);
+  box-shadow:
+    0 0 0 3px rgba(219, 151, 81, 0.12),
+    0 2px 8px rgba(45, 36, 22, 0.06);
+  background: #fff;
+  outline: none;
+}
+
+.jacana-span-2 {
+  grid-column: 1 / -1;
+}
+
+.jacana-ai-error {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(157, 44, 44, 0.06);
+  border: 1px solid rgba(157, 44, 44, 0.16);
+  border-radius: 10px;
+  color: #8a2020;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.jacana-ai-booking-form {
+  gap: 18px;
+}
+
+/* Form actions — elevated separator */
+.jacana-ai-form-actions {
+  padding-top: 18px;
+  border-top: 1px solid rgba(45, 36, 22, 0.08);
+  margin-top: 2px;
+}
+
+.jacana-ai-form.is-loading .jacana-ai-mini-button[type="submit"] {
+  position: relative;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.jacana-ai-form.is-loading .jacana-ai-mini-button[type="submit"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: jacanaAiSpin 700ms linear infinite;
+}
+
+.jacana-ai-loader {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.jacana-ai-loader span {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--jacana-ai-gold), rgba(124, 91, 56, 1));
+  animation: jacanaAiPulse 900ms ease-in-out infinite;
+}
+
+.jacana-ai-loader span:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.jacana-ai-loader span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+/* ── Chip bar ─────────────────────────────────────────────────────────── */
+.jacana-ai-chip-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 12px 14px 12px 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 252, 244, 0.62)),
+    rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(219, 151, 81, 0.13);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 6px 18px rgba(45, 36, 22, 0.06);
+}
+
+.jacana-ai-chip-bar-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(45, 36, 22, 0.38);
+  flex-shrink: 0;
+}
+
+.jacana-ai-chip-dismiss {
+  order: 9;
+  appearance: none;
+  background: rgba(45, 36, 22, 0.04);
+  border: 1px solid rgba(45, 36, 22, 0.08);
+  border-radius: 999px;
+  color: rgba(45, 36, 22, 0.38);
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: auto;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.jacana-ai-chip-dismiss:hover,
+.jacana-ai-chip-dismiss:focus-visible {
+  color: var(--jacana-ai-ink);
+  border-color: rgba(45, 36, 22, 0.18);
+  background: rgba(45, 36, 22, 0.07);
+  transform: rotate(90deg) scale(1.08);
+  outline: none;
+}
+
+.jacana-ai-chip {
+  min-height: 32px;
+  padding: 7px 14px;
+  font-size: 10.5px;
+  border-color: rgba(45, 36, 22, 0.09);
+  background: rgba(255, 255, 255, 0.78);
+  color: rgba(45, 36, 22, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 3px 8px rgba(45, 36, 22, 0.05);
+}
+
+.jacana-ai-chip:hover,
+.jacana-ai-chip:focus-visible {
+  border-color: rgba(219, 151, 81, 0.32);
+  background: #fff;
+  color: var(--jacana-ai-ink);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 20px rgba(45, 36, 22, 0.09);
+}
+
+
+.jacana-social-reviews [data-jacana-open-review-form].is-active {
+  background: linear-gradient(135deg, var(--jacana-ai-gold), rgba(124, 91, 56, 1));
+  color: #fff;
+}
+
+@keyframes jacanaAiSheetIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes jacanaAiSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes jacanaAiPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .jacana-ai-rail {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    width: auto;
+    padding: 14px 14px 12px;
+    border-radius: 20px;
+  }
+
+  .jacana-ai-sheet {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 90vh;
+    padding: 24px 18px 30px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .jacana-ai-sheet-head {
+    padding-right: 50px;
+  }
+
+  .jacana-ai-form,
+  .jacana-ai-option-grid,
+  .jacana-ai-form-grid,
+  .jacana-ai-form-edit {
+    grid-template-columns: 1fr;
+  }
+
+  .jacana-ai-form-edit {
+    padding: 14px;
+  }
+
+  .jacana-ai-booking-summary-grid {
+    gap: 6px;
+  }
+
+  .jacana-ai-inline-actions,
+  .jacana-ai-form-actions,
+  .jacana-ai-rail-actions {
+    flex-direction: column;
+  }
+
+  .jacana-ai-mini-button,
+  .jacana-ai-chip {
+    width: 100%;
+  }
+}

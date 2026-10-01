@@ -1,0 +1,18 @@
+/* Styles for jacana_tours_dates_price */
+
+.jacana-tours-dates-price .card {
+    display: grid;
+    gap: 16px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.jacana-tours-dates-price .button {
+    width: fit-content;
+}
+
+@media (max-width: 767px) {
+    .jacana-tours-dates-price .button {
+        width: 100%;
+    }
+}

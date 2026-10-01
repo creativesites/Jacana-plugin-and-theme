@@ -1,0 +1,634 @@
+/* Reviews Page Widget  –  jacana-rp- */
+
+/* ── Root ─────────────────────────────────────────── */
+.jacana-rp-root {
+    background: var(--jacana-savannah, #fffae4);
+}
+
+/* ── Hero Section ─────────────────────────────────── */
+.jacana-rp-hero {
+    position: relative;
+    background: var(--jacana-savannah, #fffae4);
+    overflow: hidden;
+    padding: 100px 0 80px;
+}
+.jacana-rp-hero::before {
+    content: "";
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.07), transparent 65%);
+    pointer-events: none;
+}
+
+.jacana-rp-hero-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.jacana-rp-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 18px;
+}
+.jacana-rp-kicker::before,
+.jacana-rp-kicker::after {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-rp-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 14px;
+}
+.jacana-rp-title em {
+    font-style: italic;
+    display: block;
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jacana-rp-subheading {
+    color: rgba(45, 36, 22, 0.68);
+    font-size: 16px;
+    line-height: 1.72;
+    max-width: 520px;
+    margin: 0 0 36px;
+}
+
+.jacana-rp-write-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 14px 26px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    box-shadow: 0 6px 20px rgba(192, 122, 48, 0.28);
+}
+.jacana-rp-write-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(192, 122, 48, 0.38);
+}
+
+.jacana-rp-hero-content {
+    flex: 1;
+}
+
+.jacana-rp-hero-image {
+    flex: 0 0 380px;
+    max-height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 42px rgba(45, 36, 22, 0.12);
+    border: 1px solid rgba(45, 36, 22, 0.08);
+}
+.jacana-rp-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hero Oshiwambo stripe */
+.jacana-rp-hero-stripe {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    z-index: 2;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e)      0px,  var(--oshi-pink, #e6007e)      7px,
+        var(--oshi-black, #000)         7px,  var(--oshi-black, #000)         9px,
+        var(--oshi-red, #cc0000)        9px,  var(--oshi-red, #cc0000)       14px,
+        var(--oshi-dark-pink, #800040) 14px,  var(--oshi-dark-pink, #800040) 18px,
+        var(--oshi-black, #000)        18px,  var(--oshi-black, #000)        20px
+    );
+}
+
+/* ── Form Drawer ──────────────────────────────────── */
+.jacana-rp-form-drawer {
+    background: #fff;
+    border-top: 1px solid rgba(45, 36, 22, 0.07);
+    border-bottom: 1px solid rgba(45, 36, 22, 0.07);
+    overflow: hidden;
+    animation: jacana-rp-drawer-in 0.32s ease;
+}
+.jacana-rp-form-drawer[hidden] {
+    display: none !important;
+}
+@keyframes jacana-rp-drawer-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.jacana-rp-form-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 52px var(--content-pad, 40px) 56px;
+}
+
+.jacana-rp-form-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 10px;
+}
+.jacana-rp-form-kicker::before,
+.jacana-rp-form-kicker::after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-rp-form-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 6px;
+}
+.jacana-rp-form-header p {
+    color: rgba(45, 36, 22, 0.60);
+    font-size: 14px;
+    margin: 0 0 32px;
+}
+
+/* Rating row */
+.jacana-rp-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+    padding: 16px 20px;
+    background: var(--jacana-savannah, #fffae4);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 10px;
+}
+.jacana-rp-rating-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(45, 36, 22, 0.56);
+    white-space: nowrap;
+}
+.jacana-rp-stars-interactive {
+    display: flex;
+    gap: 0;
+    line-height: 1;
+    align-items: center;
+}
+/* Full browser reset — must come before colour rules */
+.jacana-rp-star-btn,
+.jacana-rp-star-btn:hover,
+.jacana-rp-star-btn:active,
+.jacana-rp-star-btn:focus {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.jacana-rp-star-btn {
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 1;
+    padding: 4px 4px;
+    color: rgba(45, 36, 22, 0.18);
+    transition: color 0.14s ease, transform 0.14s ease;
+    display: inline-block;
+}
+.jacana-rp-star-btn:focus-visible {
+    outline: 2px solid var(--jacana-dunes, #db9751) !important;
+    border-radius: 3px !important;
+}
+.jacana-rp-star-btn.is-active,
+.jacana-rp-star-btn.is-hover {
+    color: var(--jacana-dunes, #db9751);
+    transform: scale(1.15);
+}
+
+/* Form fields */
+.jacana-rp-field {
+    margin-bottom: 16px;
+}
+.jacana-rp-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(45, 36, 22, 0.60);
+    margin-bottom: 7px;
+}
+.jacana-rp-required {
+    color: var(--jacana-dunes, #db9751);
+}
+.jacana-rp-optional {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.7;
+}
+.jacana-rp-field input,
+.jacana-rp-field textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: #fff;
+    border: 1px solid rgba(45, 36, 22, 0.14);
+    border-radius: 8px;
+    color: var(--jacana-earth, #2d2416);
+    font-family: "Sora", sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+.jacana-rp-field input::placeholder,
+.jacana-rp-field textarea::placeholder {
+    color: rgba(45, 36, 22, 0.32);
+}
+.jacana-rp-field input:focus,
+.jacana-rp-field textarea:focus {
+    outline: none;
+    border-color: rgba(219, 151, 81, 0.5);
+    box-shadow: 0 0 0 3px rgba(219, 151, 81, 0.10);
+}
+.jacana-rp-field textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.jacana-rp-fields-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.jacana-rp-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    cursor: pointer;
+    margin-bottom: 26px;
+    margin-top: 4px;
+}
+.jacana-rp-consent input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    accent-color: var(--jacana-dunes, #db9751);
+}
+.jacana-rp-consent span {
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(45, 36, 22, 0.56);
+}
+
+.jacana-rp-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.jacana-rp-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 14px 26px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    box-shadow: 0 6px 20px rgba(192, 122, 48, 0.28);
+}
+.jacana-rp-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(192, 122, 48, 0.38);
+}
+.jacana-rp-submit-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+.jacana-rp-cancel-btn {
+    appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(45, 36, 22, 0.22);
+    color: rgba(45, 36, 22, 0.52);
+    font-family: "Sora", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    padding: 12px 4px;
+    transition: color 0.2s ease;
+}
+.jacana-rp-cancel-btn:hover {
+    color: rgba(45, 36, 22, 0.82);
+}
+.jacana-rp-status {
+    font-size: 13px;
+    color: rgba(45, 36, 22, 0.68);
+}
+.jacana-rp-status.is-success {
+    color: #3a8c52;
+}
+.jacana-rp-status.is-error {
+    color: #c0392b;
+}
+
+/* ── Reviews Feed ─────────────────────────────────── */
+.jacana-rp-feed {
+    background: var(--jacana-savannah, #fffae4);
+    padding: 72px 0 100px;
+    position: relative;
+}
+.jacana-rp-feed::before {
+    content: "";
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.06), transparent 65%);
+    pointer-events: none;
+}
+
+.jacana-rp-feed-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-rp-feed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.jacana-rp-no-reviews {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(45, 36, 22, 0.40);
+    font-size: 17px;
+    font-style: italic;
+    font-family: "Cormorant Garamond", serif;
+}
+
+/* Loader */
+.jacana-feed-loader {
+    width: 22px;
+    height: 22px;
+    border: 2px solid rgba(219, 151, 81, 0.18);
+    border-top-color: var(--jacana-dunes, #db9751);
+    border-radius: 50%;
+    animation: jacana-rp-spin 0.8s linear infinite;
+    margin: 40px auto;
+    grid-column: 1 / -1;
+}
+@keyframes jacana-rp-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Review card — light style on savannah */
+.jacana-rp-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(45, 36, 22, 0.08);
+    border-radius: 14px;
+    padding: 26px 24px 22px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(45, 36, 22, 0.06);
+    transition: transform 0.26s ease, box-shadow 0.26s ease, background 0.26s ease;
+    display: flex;
+    flex-direction: column;
+}
+.jacana-rp-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 10px 28px rgba(45, 36, 22, 0.10);
+}
+.jacana-rp-delete-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background: rgba(192, 57, 43, 0.1);
+    color: #c0392b;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+    opacity: 0;
+}
+.jacana-rp-card:hover .jacana-rp-delete-btn {
+    opacity: 1;
+}
+.jacana-rp-delete-btn:hover {
+    background: #c0392b;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.jacana-rp-card-stars {
+    color: var(--jacana-dunes, #db9751);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+}
+
+.jacana-rp-card-quote {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.82);
+    margin: 0 0 18px;
+    flex: 1;
+    quotes: "\201C" "\201D";
+}
+.jacana-rp-card-quote::before {
+    content: open-quote;
+    color: var(--jacana-dunes, #db9751);
+    font-size: 26px;
+    line-height: 0;
+    vertical-align: -0.38em;
+    margin-right: 3px;
+    opacity: 0.45;
+}
+
+.jacana-rp-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(45, 36, 22, 0.07);
+    margin-top: auto;
+}
+.jacana-rp-card-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(219, 151, 81, 0.18), rgba(219, 151, 81, 0.06));
+    border: 1px solid rgba(219, 151, 81, 0.22);
+    color: var(--jacana-dunes, #db9751);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.jacana-rp-card-meta {
+    flex: 1;
+    min-width: 0;
+}
+.jacana-rp-card-name {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--jacana-earth, #2d2416);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.jacana-rp-card-origin {
+    display: block;
+    font-size: 10px;
+    color: rgba(45, 36, 22, 0.44);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 3px;
+}
+.jacana-rp-card-featured {
+    color: var(--jacana-dunes, #db9751);
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+/* Oshiwambo stripe on card hover */
+.jacana-rp-card-stripe {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e)      0px,  var(--oshi-pink, #e6007e)      7px,
+        var(--oshi-black, #000)         7px,  var(--oshi-black, #000)         9px,
+        var(--oshi-red, #cc0000)        9px,  var(--oshi-red, #cc0000)       14px,
+        var(--oshi-dark-pink, #800040) 14px,  var(--oshi-dark-pink, #800040) 18px,
+        var(--oshi-black, #000)        18px,  var(--oshi-black, #000)        20px
+    );
+}
+.jacana-rp-card:hover .jacana-rp-card-stripe {
+    opacity: 1;
+}
+
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 900px) {
+    .jacana-rp-feed-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .jacana-rp-fields-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (max-width: 540px) {
+    .jacana-rp-hero {
+        padding: 72px 0 64px;
+    }
+    .jacana-rp-feed-grid {
+        grid-template-columns: 1fr;
+    }
+    .jacana-rp-rating-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .jacana-rp-form-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .jacana-rp-hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+    .jacana-rp-hero-image {
+        width: 100%;
+        flex: none;
+        max-height: 220px;
+    }
+}

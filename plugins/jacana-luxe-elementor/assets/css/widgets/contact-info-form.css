@@ -1,0 +1,294 @@
+/* ── Contact Info & Proposal CTA ─────────────────────────── */
+
+.jacana-cif-section {
+    padding: 100px 0;
+    position: relative;
+    background: var(--jacana-savannah, #fffae4);
+    overflow: hidden;
+}
+
+/* Ambient Savannah Glow */
+.jacana-cif-section::before {
+    content: "";
+    position: absolute;
+    top: -80px; 
+    right: -80px;
+    width: 480px; 
+    height: 480px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.07), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.jacana-cif-inner {
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+    position: relative;
+    z-index: 1;
+}
+
+.jacana-cif-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 60px 80px;
+    align-items: start;
+}
+
+/* ── Info Panel (Left) ───────────────────────────────────── */
+.jacana-cif-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 20px;
+}
+
+.jacana-cif-kicker::before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-cif-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0 0 40px;
+}
+
+.jacana-cif-cards {
+    display: grid;
+    gap: 20px;
+}
+
+.jacana-cif-card {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(45, 36, 22, 0.04);
+    transition: transform 0.26s ease, box-shadow 0.26s ease, background 0.26s ease;
+    text-decoration: none;
+}
+
+.jacana-cif-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 12px 28px rgba(45, 36, 22, 0.08);
+}
+
+/* White Square Icon */
+.jacana-cif-card-icon {
+    width: 44px;
+    height: 44px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(45, 36, 22, 0.06);
+}
+
+.jacana-cif-card-icon i {
+    color: var(--jacana-dunes, #db9751);
+    font-size: 18px;
+}
+
+.jacana-cif-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.jacana-cif-card-content strong {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 6px;
+}
+
+.jacana-cif-subline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.jacana-cif-card-content span {
+    font-size: 15px;
+    color: var(--jacana-earth, #2d2416);
+    font-weight: 500;
+}
+
+.jacana-cif-card-content p {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(45, 36, 22, 0.68);
+    line-height: 1.5;
+}
+
+.jacana-cif-card-content a {
+    text-decoration: none;
+    color: var(--jacana-earth, #2d2416);
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 4px;
+    transition: color 0.2s ease;
+}
+
+.jacana-cif-card-content a:hover {
+    color: var(--jacana-dunes, #db9751);
+}
+
+/* Social Links */
+.jacana-cif-social {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.jacana-cif-social a {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid rgba(45, 36, 22, 0.09);
+    border-radius: 50%;
+    color: var(--jacana-earth, #2d2416);
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.jacana-cif-social a:hover {
+    background: var(--jacana-dunes, #db9751);
+    border-color: var(--jacana-dunes, #db9751);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* ── CTA Panel (Right) ───────────────────────────────────── */
+.jacana-cif-cta-panel {
+    height: 100%;
+}
+
+.jacana-cif-cta-card {
+    background: #10100d;
+    padding: 54px 48px;
+    border-radius: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ambient glow in CTA card */
+.jacana-cif-cta-card::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(219, 151, 81, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.jacana-cif-cta-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 600;
+    color: #fffae4;
+    line-height: 1.1;
+    margin: 15px 0 20px;
+}
+
+.jacana-cif-cta-copy {
+    color: rgba(255, 250, 228, 0.52);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.jacana-cif-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    padding: 20px 38px;
+    border-radius: 4px;
+    box-shadow: 0 8px 26px rgba(192, 122, 48, 0.32);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: fit-content;
+}
+
+.jacana-cif-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(192, 122, 48, 0.44);
+    gap: 18px;
+}
+
+.jacana-cif-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 980px) {
+    .jacana-cif-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .jacana-cif-cta-card {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 540px) {
+    .jacana-cif-section {
+        padding: 72px 0;
+    }
+
+    .jacana-cif-inner {
+        padding: 0 var(--content-pad, 24px);
+    }
+
+    .jacana-cif-card {
+        padding: 20px;
+    }
+
+    .jacana-cif-cta-card {
+        padding: 40px 24px;
+    }
+
+    .jacana-cif-cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}

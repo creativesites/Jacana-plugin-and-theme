@@ -1,0 +1,469 @@
+/* ============================================================
+   Car Rental Showcase — jacana-car-rental-showcase
+   ============================================================ */
+
+/* ── Wider container ── */
+.jacana-car-rental-showcase .section-inner {
+    max-width: 1360px;
+}
+
+.jacana-car-rental-showcase .section-header {
+    max-width: 760px;
+    margin-inline: auto;
+    margin-bottom: 52px;
+    text-align: center;
+}
+
+/* ── Shell: media + details, no gap — unified card ── */
+.jacana-rental-showcase-shell {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    min-height: 600px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 4px 24px rgba(20, 16, 11, 0.10),
+        0 28px 80px rgba(20, 16, 11, 0.18);
+}
+
+/* ── Media pane ── */
+.jacana-rental-media-pane {
+    position: relative;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    background: #111009;
+    min-width: 0;
+}
+
+.jacana-rental-media-pane::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(70% 80% at 5% 8%,  rgba(157, 203, 223, 0.18), transparent 60%),
+        radial-gradient(80% 90% at 96% 92%, rgba(219, 151, 81, 0.20), transparent 58%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ── Track & slides ── */
+.jacana-rental-track {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.jacana-rental-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    height: 100%;
+    min-height: 520px;
+    margin: 0;
+    position: relative;
+}
+
+.jacana-rental-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.94) contrast(1.03);
+    transform: scale(1.02);
+    transition: transform 800ms ease, filter 500ms ease;
+}
+
+.jacana-rental-slide.is-active img {
+    transform: scale(1.055);
+    filter: saturate(1) contrast(1.05);
+}
+
+/* Cinematic gradient overlay */
+.jacana-rental-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(8, 6, 4, 0.12) 0%, transparent 30%),
+        linear-gradient(0deg,   rgba(8, 6, 4, 0.82) 0%, rgba(8, 6, 4, 0.45) 35%, transparent 68%),
+        linear-gradient(90deg,  rgba(8, 6, 4, 0.22) 0%, transparent 50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Caption: group code + name */
+.jacana-rental-slide-caption {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 24px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.jacana-rental-slide-caption strong {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: 600;
+    line-height: 1.15;
+    color: rgba(255, 250, 228, 0.97);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Group code badge ── */
+.jacana-rental-code {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 250, 228, 0.92);
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.jacana-rental-code-inline {
+    color: var(--jacana-earth, #2d2416);
+    background: rgba(157, 203, 223, 0.14);
+    border-color: rgba(45, 36, 22, 0.14);
+}
+
+/* ── Slider controls bar ── */
+.jacana-rental-controls {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: rgba(8, 6, 4, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.jacana-rental-nav {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 250, 228, 0.88);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.jacana-rental-nav:hover,
+.jacana-rental-nav:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(219, 151, 81, 0.22);
+    border-color: rgba(219, 151, 81, 0.55);
+    outline: none;
+}
+
+.jacana-rental-dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+}
+
+.jacana-rental-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.28);
+    transition: width 0.28s ease, background-color 0.28s ease;
+}
+
+.jacana-rental-dot.is-active {
+    width: 28px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--jacana-sky, #9dcbdf), var(--jacana-dunes, #db9751));
+}
+
+/* ── Details pane ── */
+.jacana-rental-details-pane {
+    position: relative;
+    min-width: 0;
+    border-left: 1px solid rgba(45, 36, 22, 0.10);
+    background:
+        radial-gradient(110% 100% at 100% 0%,   rgba(157, 203, 223, 0.12), transparent 55%),
+        radial-gradient(100% 110% at 0%   100%,  rgba(219, 151, 81, 0.10), transparent 52%),
+        linear-gradient(160deg, #ffffff 0%, #fdf8ef 100%);
+}
+
+/* Subtle dot texture */
+.jacana-rental-details-pane::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(45, 36, 22, 0.028) 1px, transparent 1px);
+    background-size: 14px 14px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Dunes top accent line */
+.jacana-rental-details-pane::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--jacana-dunes, #db9751), rgba(219, 151, 81, 0.25));
+    z-index: 1;
+}
+
+.jacana-rental-details-card {
+    position: absolute;
+    inset: 0;
+    padding: 32px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: opacity 0.32s ease, transform 0.32s ease;
+    z-index: 2;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.jacana-rental-details-card::-webkit-scrollbar { display: none; }
+
+.jacana-rental-details-card.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
+}
+
+/* Kicker */
+.jacana-rental-details-kicker {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    color: var(--jacana-dunes, #db9751);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.jacana-rental-details-kicker::before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+/* Header: code badge + name */
+.jacana-rental-details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.jacana-rental-details-header h3 {
+    margin: 0;
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 600;
+    line-height: 1.18;
+    color: var(--jacana-earth, #2d2416);
+}
+
+/* Divider */
+.jacana-rental-details-header::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: rgba(45, 36, 22, 0.08);
+    margin-top: 4px;
+}
+
+.jacana-rental-summary {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(45, 36, 22, 0.80);
+}
+
+/* Specs grid */
+.jacana-rental-specs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    flex: 1;
+}
+
+.jacana-rental-specs li {
+    font-size: 12.5px;
+    line-height: 1.3;
+    color: rgba(45, 36, 22, 0.82);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(45, 36, 22, 0.07);
+    border-radius: 8px;
+    padding: 9px 12px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+/* Actions */
+.jacana-rental-actions {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid rgba(45, 36, 22, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.jacana-rental-rate-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(45, 36, 22, 0.68);
+    background: rgba(219, 151, 81, 0.10);
+    border: 1px solid rgba(219, 151, 81, 0.28);
+    width: fit-content;
+}
+
+.jacana-rental-rate-pill::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+.jacana-rental-detail-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff !important;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none !important;
+    padding: 12px 20px;
+    border-radius: 4px;
+    width: 100%;
+    box-shadow: 0 4px 16px rgba(192, 122, 48, 0.24);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jacana-rental-detail-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(192, 122, 48, 0.34);
+    color: #fff !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+    .jacana-rental-showcase-shell {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        border-radius: 12px;
+    }
+
+    .jacana-rental-details-pane {
+        border-left: none;
+        border-top: 1px solid rgba(45, 36, 22, 0.10);
+    }
+
+    .jacana-rental-details-pane::after {
+        display: none;
+    }
+
+    .jacana-rental-slide,
+    .jacana-rental-slide img {
+        min-height: 380px;
+    }
+
+    .jacana-rental-details-card {
+        position: absolute;
+    }
+
+    .jacana-rental-details-card.is-active {
+        position: relative;
+    }
+}
+
+@media (max-width: 640px) {
+    .jacana-rental-slide,
+    .jacana-rental-slide img {
+        min-height: 280px;
+    }
+
+    .jacana-rental-slide-caption {
+        left: 20px;
+        right: 20px;
+        bottom: 18px;
+    }
+
+    .jacana-rental-details-card {
+        padding: 24px 20px 20px;
+        gap: 14px;
+    }
+
+    .jacana-rental-controls {
+        padding: 12px 16px;
+    }
+
+    .jacana-rental-nav {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+
+    .jacana-rental-specs {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .jacana-rental-track,
+    .jacana-rental-slide img,
+    .jacana-rental-details-card,
+    .jacana-rental-nav,
+    .jacana-rental-detail-link { transition: none; }
+}

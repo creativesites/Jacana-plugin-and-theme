@@ -1,0 +1,9 @@
+/* Styles for jacana_experience_cards */
+
+.elementor-widget-jacana_experience_cards .card-grid {
+    align-items: stretch;
+}
+
+.elementor-widget-jacana_experience_cards .card {
+    height: 100%;
+}

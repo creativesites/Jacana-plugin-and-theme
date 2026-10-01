@@ -1,0 +1,588 @@
+/* ── Jacana Booking Form — clean multi-step ─────────────────── */
+
+.jbf-section {
+    background: var(--jacana-savannah, #fffae4);
+    padding: 80px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.jbf-wrap {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 var(--content-pad, 40px);
+    gap: 0;
+    align-items: stretch;
+    box-shadow: 0 12px 64px rgba(45, 36, 22, 0.12);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* ── Left panel ──────────────────────────────────────────────── */
+.jbf-side {
+    background: var(--jacana-earth, #2d2416);
+    color: #fff;
+    padding: 56px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.jbf-side-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 40px;
+}
+
+.jbf-brand-kicker {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jbf-side-heading {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--jacana-savannah, #fffae4);
+    margin: 0;
+}
+
+.jbf-side-copy {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 250, 228, 0.62);
+    margin: 0;
+}
+
+/* Trust list */
+.jbf-trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 250, 228, 0.1);
+    padding-top: 24px;
+}
+
+.jbf-trust-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: rgba(255, 250, 228, 0.72);
+    line-height: 1.5;
+}
+
+.jbf-trust-icon {
+    color: var(--jacana-dunes, #db9751);
+    font-style: normal;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* Side contact */
+.jbf-side-contact {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 250, 228, 0.1);
+}
+
+.jbf-side-contact p {
+    font-size: 12px;
+    color: rgba(255, 250, 228, 0.45);
+    margin: 0 0 10px;
+}
+
+.jbf-whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--jacana-dunes, #db9751);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.jbf-whatsapp-link:hover {
+    opacity: 0.8;
+}
+
+/* ── Right panel / form ──────────────────────────────────────── */
+.jbf-form-panel {
+    background: #fff;
+    padding: 48px 48px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.jbf-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex: 1;
+}
+
+/* ── Progress indicator ──────────────────────────────────────── */
+.jbf-progress {
+    margin-bottom: 4px;
+}
+
+.jbf-progress-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.jbf-progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+}
+
+.jbf-step-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(45, 36, 22, 0.08);
+    color: rgba(45, 36, 22, 0.4);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.jbf-step-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(45, 36, 22, 0.4);
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+.jbf-progress-step.is-active .jbf-step-num {
+    background: var(--jacana-dunes, #db9751);
+    color: #fff;
+}
+
+.jbf-progress-step.is-active .jbf-step-label {
+    color: var(--jacana-earth, #2d2416);
+}
+
+.jbf-progress-step.is-done .jbf-step-num {
+    background: rgba(219, 151, 81, 0.15);
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jbf-progress-step.is-done .jbf-step-num::after {
+    content: "✓";
+    font-size: 11px;
+}
+
+.jbf-progress-step.is-done .jbf-step-num span { display: none; }
+
+.jbf-progress-step.is-done .jbf-step-label {
+    color: var(--jacana-dunes, #db9751);
+}
+
+.jbf-progress-line {
+    flex: 1;
+    height: 2px;
+    background: rgba(45, 36, 22, 0.1);
+    margin: 0 8px;
+    margin-bottom: 22px;
+    transition: background 0.25s ease;
+}
+
+.jbf-progress-line.is-done {
+    background: var(--jacana-dunes, #db9751);
+}
+
+/* ── Step panels ─────────────────────────────────────────────── */
+.jbf-step {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: jbf-fade-in 0.22s ease;
+}
+
+@keyframes jbf-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.jbf-step-heading {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    line-height: 1.2;
+    float: none; /* override browser fieldset legend float */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.jbf-step-hint {
+    font-size: 14px;
+    color: rgba(45, 36, 22, 0.56);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ── Service grid ────────────────────────────────────────────── */
+.jbf-service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.jbf-service-option {
+    cursor: pointer;
+}
+
+.jbf-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.jbf-service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 16px 10px 14px;
+    border: 1.5px solid rgba(45, 36, 22, 0.1);
+    border-radius: 12px;
+    background: #fff;
+    text-align: center;
+    transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.jbf-service-card:hover {
+    border-color: rgba(219, 151, 81, 0.4);
+    background: rgba(219, 151, 81, 0.04);
+}
+
+.jbf-service-option.is-selected .jbf-service-card {
+    border-color: var(--jacana-dunes, #db9751);
+    background: rgba(219, 151, 81, 0.06);
+    box-shadow: 0 0 0 3px rgba(219, 151, 81, 0.15);
+}
+
+.jbf-service-icon {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.jbf-service-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    line-height: 1.35;
+}
+
+.jbf-service-check {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(45, 36, 22, 0.2);
+    transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.jbf-service-option.is-selected .jbf-service-check {
+    background: var(--jacana-dunes, #db9751);
+    border-color: var(--jacana-dunes, #db9751);
+}
+
+.jbf-service-option.is-selected .jbf-service-check::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 2.5px;
+    width: 9px;
+    height: 5px;
+    border-left: 1.5px solid #fff;
+    border-bottom: 1.5px solid #fff;
+    transform: rotate(-45deg);
+}
+
+/* ── Form fields ─────────────────────────────────────────────── */
+.jbf-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.jbf-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    grid-column: span 2;
+}
+
+.jbf-field-half {
+    grid-column: span 1;
+}
+
+.jbf-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.jbf-required {
+    color: #c0392b;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.jbf-optional {
+    font-weight: 400;
+    font-size: 11.5px;
+    color: rgba(45, 36, 22, 0.45);
+}
+
+.jbf-field input,
+.jbf-field select,
+.jbf-field textarea {
+    font-family: inherit;
+    font-size: 14.5px;
+    color: var(--jacana-earth, #2d2416);
+    background: #faf9f7;
+    border: 1.5px solid rgba(45, 36, 22, 0.14);
+    border-radius: 8px;
+    padding: 11px 14px;
+    width: 100%;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.jbf-field input:focus,
+.jbf-field select:focus,
+.jbf-field textarea:focus {
+    border-color: var(--jacana-dunes, #db9751);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(219, 151, 81, 0.12);
+}
+
+.jbf-field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232d2416' stroke-opacity='.45' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.jbf-field textarea {
+    resize: vertical;
+    min-height: 96px;
+}
+
+/* Field errors */
+.jbf-field-error {
+    font-size: 12px;
+    color: #c0392b;
+    margin: 0;
+}
+
+/* Privacy note */
+.jbf-privacy-note {
+    font-size: 12px;
+    color: rgba(45, 36, 22, 0.45);
+    margin: 0;
+    line-height: 1.55;
+}
+
+/* ── Navigation buttons ──────────────────────────────────────── */
+.jbf-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.jbf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 13px 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+
+.jbf-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.jbf-btn-back {
+    background: none;
+    color: rgba(45, 36, 22, 0.55);
+    padding-left: 0;
+}
+
+.jbf-btn-back:hover {
+    color: var(--jacana-earth, #2d2416);
+}
+
+.jbf-btn-next,
+.jbf-btn-submit {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(192, 122, 48, 0.3);
+}
+
+.jbf-btn-next:hover,
+.jbf-btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(192, 122, 48, 0.42);
+}
+
+.jbf-submit-error {
+    font-size: 13px;
+    color: #c0392b;
+    margin: 0;
+    text-align: right;
+}
+
+/* ── Success screen ──────────────────────────────────────────── */
+.jbf-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 32px 0 16px;
+    animation: jbf-fade-in 0.3s ease;
+}
+
+.jbf-success-heading {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--jacana-earth, #2d2416);
+    margin: 0;
+}
+
+.jbf-success-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(45, 36, 22, 0.68);
+    max-width: 400px;
+    margin: 0;
+}
+
+.jbf-success-whatsapp {
+    font-size: 13px;
+    color: rgba(45, 36, 22, 0.5);
+    margin: 0;
+}
+
+.jbf-success-whatsapp a {
+    color: var(--jacana-dunes, #db9751);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .jbf-wrap {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .jbf-side {
+        padding: 40px 32px;
+    }
+
+    .jbf-side-inner {
+        position: static;
+    }
+
+    .jbf-form-panel {
+        padding: 40px 32px;
+    }
+
+    .jbf-service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    .jbf-section {
+        padding: 0;
+    }
+
+    .jbf-side {
+        padding: 32px 20px;
+    }
+
+    .jbf-form-panel {
+        padding: 32px 20px 28px;
+    }
+
+    .jbf-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .jbf-field-half {
+        grid-column: span 1;
+    }
+
+    .jbf-service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .jbf-progress-step .jbf-step-label {
+        display: none;
+    }
+}

@@ -1,0 +1,9 @@
+/* Styles for jacana_safaris_park_facts */
+
+.elementor-widget-jacana_safaris_park_facts .card-grid {
+    align-items: stretch;
+}
+
+.elementor-widget-jacana_safaris_park_facts .card {
+    height: 100%;
+}

@@ -1,0 +1,401 @@
+/* ── Tours Hero ──────────────────────────────────────────── */
+
+.jacana-tours-hero-section {
+    position: relative;
+    min-height: 84svh;
+    display: flex;
+    align-items: flex-end;
+    background: #0c0a08;
+    overflow: hidden;
+    margin-top: -80px;
+}
+
+/* ── Video ───────────────────────────────────────────────── */
+.jacana-tours-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ── Fallback image ──────────────────────────────────────── */
+.jacana-tours-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+/* ── Cinematic overlay — four layers ─────────────────────── */
+.jacana-tours-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: var(--tours-hero-overlay-opacity, 1);
+    background:
+        /* top vignette */
+        linear-gradient(180deg, rgba(8, 5, 3, 0.55) 0%, transparent 36%),
+        /* bottom lift — deepest layer */
+        linear-gradient(0deg,
+            rgba(8, 5, 3, 0.97) 0%,
+            rgba(8, 5, 3, 0.75) 28%,
+            rgba(8, 5, 3, 0.32) 56%,
+            transparent         86%
+        ),
+        /* left edge vignette */
+        linear-gradient(90deg, rgba(8, 5, 3, 0.35) 0%, transparent 55%),
+        /* subtle sky accent, right side */
+        radial-gradient(ellipse 55% 75% at 92% 45%, rgba(157, 203, 223, 0.07), transparent 60%);
+}
+
+/* ── Inner — two-column grid ─────────────────────────────── */
+.jacana-tours-hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--max-width, 1180px);
+    margin: 0 auto;
+    padding: 160px var(--content-pad, 48px) 104px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px 64px;
+    align-items: end;
+}
+
+/* ── Content (left column) ───────────────────────────────── */
+.jacana-tours-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ── Kicker ──────────────────────────────────────────────── */
+.jacana-tours-hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.38em;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 26px;
+}
+
+.jacana-tours-hero-kicker::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--jacana-dunes, #db9751);
+    flex-shrink: 0;
+}
+
+/* ── Headline ────────────────────────────────────────────── */
+.jacana-tours-hero-title {
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: clamp(44px, 6.8vw, 96px);
+    font-weight: 600;
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+    color: var(--tours-hero-title-color, rgba(255, 250, 228, 0.97)) !important;
+    margin: 0 0 26px;
+    max-width: 720px;
+}
+
+/* Italic accent line — dunes gold, displayed as a separate line */
+.jacana-tours-hero-title em {
+    font-style: italic;
+    display: block;
+    color: var(--tours-hero-title-em-color, var(--jacana-dunes, #db9751));
+    line-height: 1.05;
+}
+
+
+/* ── Copy ────────────────────────────────────────────────── */
+.jacana-tours-hero-copy {
+    font-size: 17px;
+    line-height: 1.72;
+    color: var(--tours-hero-copy-color, rgba(255, 250, 228, 0.56));
+    max-width: 500px;
+    margin: 0 0 48px;
+}
+
+/* ── Actions ─────────────────────────────────────────────── */
+.jacana-tours-hero-actions {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Primary CTA */
+.jacana-tours-hero-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--jacana-dunes, #db9751), #c07a30);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    padding: 18px 34px;
+    border-radius: 2px;
+    box-shadow: 0 8px 28px rgba(192, 122, 48, 0.36);
+    transition:
+        transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+        box-shadow 0.3s ease,
+        gap 0.3s ease;
+}
+
+.jacana-tours-hero-cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 44px rgba(192, 122, 48, 0.50);
+    gap: 18px;
+}
+/* Secondary ghost CTA - Jacana Luxe Edition */
+.jacana-tours-hero-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    /* Soft Savannah/Stone mix for better legibility on dark/landscape backgrounds */
+    color: rgba(255, 250, 228, 0.8) !important; 
+    font-size: 11px; /* Slightly smaller for that luxe tracking feel */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em; /* Increased letter spacing for luxury editorial feel */
+    text-decoration: none;
+    padding: 12px 2px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* The Oshiwambo Stripe Border Replacement */
+.jacana-tours-hero-cta-secondary::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Fine, elegant thread */
+    background: repeating-linear-gradient(
+        90deg,
+        #e6007e 0%, #e6007e 20%,    /* Pink */
+        #000000 20%, #000000 25%,   /* Black */
+        #cc0000 25%, #cc0000 45%,   /* Red */
+        #000000 45%, #000000 50%    /* Black */
+    );
+    background-size: 40px 100%; /* Controls the density of the pattern */
+    opacity: 0.6; /* Semi-transparent as requested */
+    transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+/* Hover State */
+.jacana-tours-hero-cta-secondary:hover {
+    color: #fffae4; /* Full Savannah brightness */
+    gap: 14px; /* Subtle expansion feel */
+}
+
+.jacana-tours-hero-cta-secondary:hover::after {
+    opacity: 1;
+    height: 3px; /* Becomes slightly more vivid on interaction */
+}
+
+
+
+.jacana-tours-hero-arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.jacana-tours-hero-cta-primary:hover  .jacana-tours-hero-arrow,
+.jacana-tours-hero-cta-secondary:hover .jacana-tours-hero-arrow {
+    transform: translateX(5px);
+}
+
+/* ── Stats column (right) ────────────────────────────────── */
+.jacana-tours-hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: end;
+}
+
+/* Individual stat card — frosted glass */
+.jacana-tours-hero-stat {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
+    padding: 18px 22px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    min-width: 148px;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.jacana-tours-hero-stat:hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(219, 151, 81, 0.28);
+    transform: translateX(-3px);
+}
+
+.jacana-tours-hero-stat-num {
+    display: block;
+    font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+    font-size: 38px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1;
+    color: var(--jacana-dunes, #db9751);
+    margin-bottom: 5px;
+}
+
+.jacana-tours-hero-stat-label {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.20em;
+    color: rgba(255, 250, 228, 0.48);
+    line-height: 1.4;
+}
+
+/* ── Scroll indicator ────────────────────────────────────── */
+.jacana-tours-hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.jacana-tours-hero-scroll-label {
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.30em;
+    color: rgba(255, 250, 228, 0.28);
+}
+
+.jacana-tours-hero-scroll-line {
+    width: 1px;
+    height: 38px;
+    background: rgba(255, 250, 228, 0.15);
+    position: relative;
+    overflow: hidden;
+    border-radius: 1px;
+}
+
+.jacana-tours-hero-scroll-line::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(180deg, var(--jacana-dunes, #db9751), transparent);
+    animation: jacana-scroll-slide 2.4s ease-in-out infinite;
+}
+
+@keyframes jacana-scroll-slide {
+    0%   { top: -60%; opacity: 0; }
+    15%  { opacity: 1; }
+    80%  { top: 120%;  opacity: 1; }
+    81%  { opacity: 0; }
+    100% { top: -60%;  opacity: 0; }
+}
+
+/* ── Oshiwambo stripe ────────────────────────────────────── */
+.jacana-tours-hero-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    z-index: 3;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--oshi-pink, #e6007e)      0px,  var(--oshi-pink, #e6007e)      7px,
+        var(--oshi-black, #000)         7px,  var(--oshi-black, #000)         9px,
+        var(--oshi-red, #cc0000)        9px,  var(--oshi-red, #cc0000)       14px,
+        var(--oshi-dark-pink, #800040) 14px,  var(--oshi-dark-pink, #800040) 18px,
+        var(--oshi-black, #000)        18px,  var(--oshi-black, #000)        20px
+    );
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 980px) {
+    .jacana-tours-hero-inner {
+        grid-template-columns: 1fr;
+        padding: 140px var(--content-pad, 40px) 80px;
+        gap: 36px;
+    }
+
+    .jacana-tours-hero-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .jacana-tours-hero-stat {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jacana-tours-hero-section {
+        min-height: 96svh;
+    }
+
+    .jacana-tours-hero-title {
+        font-size: clamp(36px, 9vw, 64px);
+    }
+
+    .jacana-tours-hero-copy {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .jacana-tours-hero-scroll {
+        display: none;
+    }
+}
+
+@media (max-width: 540px) {
+    .jacana-tours-hero-inner {
+        padding: 120px var(--content-pad, 24px) 60px;
+    }
+
+    .jacana-tours-hero-copy {
+        margin-bottom: 36px;
+    }
+
+    .jacana-tours-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .jacana-tours-hero-stat {
+        padding: 14px 18px;
+    }
+
+    .jacana-tours-hero-stat-num {
+        font-size: 30px;
+    }
+}

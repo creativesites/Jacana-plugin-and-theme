@@ -1,0 +1,19 @@
+/* Styles for jacana_kick_it_namibia */
+
+.fullwidth-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.fullwidth-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .fullwidth-image {
+        min-height: 240px;
+        object-fit: cover;
+    }
+}
