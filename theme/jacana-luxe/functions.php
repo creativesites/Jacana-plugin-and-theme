@@ -115,7 +115,7 @@ function jacana_luxe_programmatic_header_enabled() {
     return false;
   }
 
-  return function_exists('elementor_theme_do_location');
+  return true;
 }
 
 function jacana_luxe_disable_elementor_header_template($template_id, $location) {
