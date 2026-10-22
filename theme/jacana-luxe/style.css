@@ -6832,3 +6832,33 @@ footer {
         width: 100%;
     }
 }
+
+/* ── Gallery Page: Contrast & Container Protection ── */
+.elementor-176 .elementor-element-6caa5d6,
+.elementor-176 .elementor-element-b446a8c {
+    background-color: var(--jacana-savannah, #fffae4) !important;
+}
+
+.elementor-176 .jacana-dex-section,
+.elementor-176 .jacana-gg-section {
+    background: var(--jacana-savannah, #fffae4) !important;
+}
+
+.elementor-176 .jacana-dex-heading,
+.elementor-176 .jacana-gg-heading {
+    color: var(--jacana-earth, #2d2416) !important;
+}
+
+.elementor-176 .jacana-dex-intro,
+.elementor-176 .jacana-gg-intro {
+    color: rgba(45, 36, 22, 0.76) !important;
+}
+
+/* Ensure all reveal elements are clearly visible on mobile viewports */
+@media (max-width: 768px) {
+    .jacana-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+

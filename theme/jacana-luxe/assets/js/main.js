@@ -13,14 +13,51 @@
 })();
 
 (function () {
-  var toggle = document.querySelector('.nav-toggle');
-  var nav = document.querySelector('.primary-nav');
-  if (!toggle || !nav) {
+  var toggles = document.querySelectorAll('.nav-toggle, .jacana-top-toggle');
+  if (!toggles.length) {
     return;
   }
-  toggle.addEventListener('click', function () {
-    var isOpen = nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  toggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var targetId = toggle.getAttribute('aria-controls');
+      var nav = targetId ? document.getElementById(targetId) : null;
+      if (!nav) {
+        nav = toggle.closest('header') ? toggle.closest('header').querySelector('.primary-nav') : document.querySelector('.primary-nav');
+      }
+      if (!nav) return;
+      var isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+
+  // Close menu when clicking outside or pressing Escape
+  document.addEventListener('click', function (e) {
+    var openNavs = document.querySelectorAll('.primary-nav.is-open');
+    if (!openNavs.length) return;
+    openNavs.forEach(function (nav) {
+      if (!nav.contains(e.target)) {
+        nav.classList.remove('is-open');
+        var matchingToggle = document.querySelector('[aria-controls="' + nav.id + '"]') || document.querySelector('.nav-toggle');
+        if (matchingToggle) {
+          matchingToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var openNavs = document.querySelectorAll('.primary-nav.is-open');
+      openNavs.forEach(function (nav) {
+        nav.classList.remove('is-open');
+        var matchingToggle = document.querySelector('[aria-controls="' + nav.id + '"]') || document.querySelector('.nav-toggle');
+        if (matchingToggle) {
+          matchingToggle.setAttribute('aria-expanded', 'false');
+          matchingToggle.focus();
+        }
+      });
+    }
   });
 })();
 

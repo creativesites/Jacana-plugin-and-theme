@@ -37,20 +37,24 @@
 }
 
 .jacana-programmatic-header-active .jacana-top-brand-mark {
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.98);
+  background: #ffffff;
   display: grid;
   place-items: center;
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 8px 20px rgba(0, 0, 0, 0.22);
+  padding: 4px;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  flex-shrink: 0;
 }
 
 .jacana-programmatic-header-active .jacana-top-brand-mark img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  display: block;
 }
 
 .jacana-programmatic-header-active .jacana-top-brand-text {
@@ -317,87 +321,259 @@
   color: #fff;
 }
 
+/* --- Mobile Navigation & Header Polish --- */
+
 .jacana-programmatic-header-active .jacana-top-toggle {
   display: none;
 }
 
 @media (max-width: 980px) {
   .jacana-programmatic-header-active .jacana-top-header-inner {
-    grid-template-columns: auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 68px;
+    padding: 10px 0;
     gap: 12px;
   }
 
+  .jacana-programmatic-header-active .jacana-top-brand {
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-brand-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-brand-text strong {
+    font-size: 18px;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-brand-text small {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+
+  .jacana-programmatic-header-active .header-cta {
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  /* Elegant Hamburger Button */
+  .jacana-programmatic-header-active .jacana-top-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0;
+    font-size: 0; /* hides raw text 'Menu' while maintaining aria accessibility */
+    color: transparent;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-toggle:hover,
+  .jacana-programmatic-header-active .jacana-top-toggle:focus-visible {
+    background: rgba(219, 151, 81, 0.2);
+    border-color: var(--jacana-dunes, #db9751);
+    outline: none;
+  }
+
+  /* Hamburger Bars */
+  .jacana-programmatic-header-active .jacana-top-toggle::before,
+  .jacana-programmatic-header-active .jacana-top-toggle::after {
+    content: "";
+    position: absolute;
+    left: 11px;
+    right: 11px;
+    height: 2px;
+    background: #f6f1e8;
+    border-radius: 2px;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), bottom 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .jacana-programmatic-header-active .jacana-top-toggle::before {
+    top: 15px;
+    box-shadow: 0 5px 0 #f6f1e8;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-toggle::after {
+    bottom: 14px;
+  }
+
+  /* Active / Open Hamburger transforms to X */
+  .jacana-programmatic-header-active .jacana-top-toggle[aria-expanded="true"]::before {
+    top: 19px;
+    box-shadow: none;
+    transform: rotate(45deg);
+    background: var(--jacana-dunes, #db9751);
+  }
+
+  .jacana-programmatic-header-active .jacana-top-toggle[aria-expanded="true"]::after {
+    bottom: 21px;
+    transform: rotate(-45deg);
+    background: var(--jacana-dunes, #db9751);
+  }
+
+  /* Mobile Slide-down Drawer */
   .jacana-programmatic-header-active .jacana-top-nav {
     display: none;
-    grid-column: 1 / -1;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     width: 100%;
-    justify-content: flex-start;
+    background: rgba(14, 11, 9, 0.98);
+    backdrop-filter: blur(24px) saturate(1.2);
+    -webkit-backdrop-filter: blur(24px) saturate(1.2);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 8px;
-    padding-top: 10px;
+    border-bottom: 2px solid var(--jacana-dunes, #db9751);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+    padding: 20px 24px 28px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    z-index: 200;
   }
 
   .jacana-programmatic-header-active .jacana-top-nav.is-open {
-    display: flex;
+    display: block;
+    animation: jacanaNavSlideDown 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .jacana-programmatic-header-active .jacana-top-nav ul {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    align-items: stretch;
+    gap: 0;
     width: 100%;
   }
 
   .jacana-programmatic-header-active .jacana-top-nav li {
     width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .jacana-programmatic-header-active .jacana-top-nav li:last-child {
+    border-bottom: none;
   }
 
   .jacana-programmatic-header-active .jacana-top-nav > ul > li > a {
-    width: 100%;
-    letter-spacing: 0.12em;
-  }
-
-  .jacana-programmatic-header-active .jacana-top-toggle {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    min-width: 44px;
-    min-height: 40px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.26);
-    background: rgba(0, 0, 0, 0.16);
-    color: #f6f1e8;
-    font-size: 12px;
-    text-transform: uppercase;
+    width: 100%;
+    padding: 14px 4px;
+    font-size: 13px;
+    font-weight: 500;
     letter-spacing: 0.14em;
+    color: #f6f1e8;
+    text-transform: uppercase;
+    transition: color 0.2s ease, padding-left 0.2s ease;
   }
 
-  .jacana-programmatic-header-active .header-cta {
-    min-height: 40px;
-    padding: 0 14px;
+  .jacana-programmatic-header-active .jacana-top-nav > ul > li:hover > a,
+  .jacana-programmatic-header-active .jacana-top-nav > ul > li.current-menu-item > a {
+    color: var(--jacana-dunes, #db9751);
+    padding-left: 8px;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-nav > ul > li > a::after {
+    display: none; /* disable horizontal hover stripe in vertical mobile list */
+  }
+}
+
+@keyframes jacanaNavSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @media (max-width: 640px) {
   .jacana-programmatic-header-active .jacana-top-header-inner {
     max-width: calc(100% - 24px);
-    min-height: 70px;
-  }
-  .jacana-programmatic-header-active .jacana-top-nav > ul > li > a::after {
-    width: 30%;
+    min-height: 62px;
   }
 
-  .jacana-programmatic-header-active .jacana-top-brand-text {
-    display: none;
+  .jacana-programmatic-header-active .jacana-top-brand-mark {
+    width: 40px;
+    height: 40px;
   }
 
+  .jacana-programmatic-header-active .jacana-top-brand-text strong {
+    font-size: 16px;
+    letter-spacing: 0.12em;
+  }
 
-  .jacana-programmatic-header-active .jacana-top-actions {
-    gap: 8px;
+  .jacana-programmatic-header-active .jacana-top-brand-text small {
+    font-size: 7.5px;
+    letter-spacing: 0.12em;
   }
 
   .jacana-programmatic-header-active .header-cta {
-    padding: 0 12px;
-    font-size: 10px;
+    padding: 0 11px;
+    font-size: 9.5px;
+    min-height: 34px;
+    letter-spacing: 0.1em;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-toggle {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-toggle::before,
+  .jacana-programmatic-header-active .jacana-top-toggle::after {
+    left: 9px;
+    right: 9px;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-toggle::before {
+    top: 13px;
+    box-shadow: 0 4.5px 0 #f6f1e8;
+  }
+
+  .jacana-programmatic-header-active .jacana-top-toggle::after {
+    bottom: 13px;
+  }
+}
+
+@media (max-width: 420px) {
+  .jacana-programmatic-header-active .jacana-top-brand-text small {
+    display: none;
+  }
+
+  .jacana-programmatic-header-active .header-cta {
+    padding: 0 9px;
+    font-size: 9px;
   }
 }

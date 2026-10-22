@@ -194,7 +194,7 @@ function jacana_luxe_render_programmatic_header() {
     <div class="jacana-top-header-inner">
       <a class="jacana-top-brand" href="<?php echo esc_url($home_url); ?>" aria-label="<?php echo esc_attr__('Jacana Safaris & Tours home', 'jacana-luxe'); ?>">
         <span class="jacana-top-brand-mark" aria-hidden="true">
-          <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr__('Jacana Safaris & Tours logo', 'jacana-luxe'); ?>">
+          <img src="<?php echo esc_url($logo_url); ?>" width="56" height="56" alt="<?php echo esc_attr__('Jacana Safaris & Tours logo', 'jacana-luxe'); ?>">
         </span>
         <span class="jacana-top-brand-text">
           <strong><?php echo esc_html__('Jacana', 'jacana-luxe'); ?></strong>

@@ -10,9 +10,10 @@
 /* ── Section ── */
 .jacana-dex-section {
     padding: 100px 0 80px;
-    background: var(--jacana-savannah, #fffae4);
+    background: var(--jacana-savannah, #fffae4) !important;
     position: relative;
     overflow: hidden;
+    color: var(--jacana-earth, #2d2416);
 }
 
 .jacana-dex-section::before {
@@ -60,14 +61,14 @@
     font-size: clamp(28px, 3vw, 46px);
     font-weight: 600;
     line-height: 1.14;
-    color: var(--jacana-earth, #2d2416);
+    color: var(--jacana-earth, #2d2416) !important;
     margin: 0 0 0.6em;
 }
 
 .jacana-dex-intro {
     font-size: 16px;
     line-height: 1.7;
-    color: rgba(45, 36, 22, 0.62);
+    color: rgba(45, 36, 22, 0.72) !important;
     margin: 0;
 }
 
